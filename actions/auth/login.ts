@@ -5,6 +5,8 @@ import { signIn } from "@/auth";
 import * as z from "zod";
 import { AuthError } from "next-auth";
 import { DEFAULT_LOGIN_REDIRECT } from "@/route";
+import { getUserByEmail } from "../user.action";
+
 export const Login = async (values: z.infer<typeof LoginSchema>) => {
   const validatedFields = LoginSchema.safeParse(values);
   if (!validatedFields.success) {
@@ -14,6 +16,11 @@ export const Login = async (values: z.infer<typeof LoginSchema>) => {
   }
 
   const { email, password } = validatedFields.data;
+
+  const exisitingUser = await getUserByEmail(email);
+  if (!exisitingUser || !exisitingUser.password || !exisitingUser.email) {
+    return { error: "Email does not exist" };
+  }
   try {
     await signIn("credentials", {
       email,
@@ -22,7 +29,12 @@ export const Login = async (values: z.infer<typeof LoginSchema>) => {
     });
   } catch (error) {
     if (error instanceof AuthError) {
-      return { error: "Invalid credentials!" };
+      switch (error.type) {
+        case "CredentialsSignin":
+          return { error: "Invalid credentials!" };
+        default:
+          return { error: "Something went wrong!" };
+      }
     }
     throw error;
   }

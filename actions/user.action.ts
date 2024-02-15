@@ -1,20 +1,19 @@
-import { db } from "../lib/database.connection";
+import { db } from "@/lib/database.connection";
 
-// function to get user by email and id
 export const getUserByEmail = async (email: string) => {
-  const user = await db.user.findUnique({
-    where: {
-      email,
-    },
-  });
-  return user;
+  try {
+    const user = await db.user.findUnique({ where: { email } });
+    return user;
+  } catch {
+    return null;
+  }
 };
 
 export const getUserById = async (id: string) => {
-  const user = await db.user.findUnique({
-    where: {
-      id,
-    },
-  });
-  return user;
+  try {
+    const user = await db.user.findUnique({ where: { id } });
+    return user;
+  } catch {
+    return null;
+  }
 };

@@ -10,7 +10,7 @@ interface LogoutButtonProps {
 const LogoutButton = ({ children }: LogoutButtonProps) => {
 
     const onClickHandler = () => {
-      logout()
+        logout()
     }
 
     return (

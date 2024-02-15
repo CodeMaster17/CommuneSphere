@@ -6,15 +6,17 @@ import { MenuItem } from "./Menuitem";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button";
 import LogoutButton from "@/components/auth/LogoutButton";
-import { auth, signOut } from '@/auth'
+
 const Sidebar = async () => {
 
-  const user = await auth()
+
+
+
   return (
     <div className="fixed flex h-screen w-[20.7rem] flex-1 bg-[#E2E8F0]">
       <div className="flex w-full flex-col space-y-[5rem] px-[1.4rem]">
         <div className="flex cursor-pointer pl-[0.7rem] pt-[1.8rem]">
-          <Link href="/profile" className="">
+          <Link href="/dashboard/profile" className="">
             <div className="flex items-center justify-center space-x-[1rem] ">
               <div>
                 <Avatar>
@@ -43,15 +45,9 @@ const Sidebar = async () => {
         </div>
         <div>
           <div>
-            {JSON.stringify(user)}
-            <form action={async () => {
-              'use server'
-              await signOut()
-            }}>
-              <button type='submit'>
-                Singout
-              </button>
-            </form>
+            <LogoutButton>
+              Logout
+            </LogoutButton>
           </div>
         </div>
       </div>

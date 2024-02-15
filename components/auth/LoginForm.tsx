@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input"
 import { Login } from '@/actions/auth/login';
 import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
+import { LoginSchema } from '@/schema';
 const formSchema = z.object({
   email: z.string().min(2).max(50),
   password: z.string().min(2).max(50),
@@ -25,8 +26,8 @@ const formSchema = z.object({
 
 
 const LoginForm: React.FC = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof LoginSchema>>({
+    resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -39,7 +40,7 @@ const LoginForm: React.FC = () => {
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof LoginSchema>) {
 
     console.log(values)
     startTransition(() => {
