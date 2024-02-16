@@ -3,6 +3,7 @@ import authConfig from "@/auth.config";
 import { db } from "./lib/database.connection";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { getUserById } from "./actions/user.action";
+import { UserRole } from "@prisma/client";
 export const {
   handlers: { GET, POST },
   auth,
@@ -14,7 +15,27 @@ export const {
     signIn: "/auth/signin",
     error: "/auth/error",
   },
-  callbacks: {},
+  callbacks: {
+    async session({ token, session }) {
+      console.log("sessionToken", token);
+      if (token.sub && session.user) {
+        // mapping token.sub in session's user id
+        session.user.id = token.sub;
+      }
+      if (token.role && session.user) {
+        session.user.role = token.role as UserRole; // stored it in session, now it can be accessed in fronted
+      }
+      return session;
+    },
+    async jwt({ token }) {
+      if (!token.sub) return token; // logged out user
+      const exisitingUser = await getUserById(token.sub);
+      if (!exisitingUser) return token; // user not found
+      token.role = exisitingUser.role;
+      // const existingAccount = await getUserById(exisitingUser.id);
+      return token;
+    },
+  },
   session: { strategy: "jwt" },
   ...authConfig,
 });
