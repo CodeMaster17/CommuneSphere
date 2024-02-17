@@ -14,17 +14,66 @@ enum UserRole{
   ADMIN
   USER
 }
+enum Branch{
+  CSE
+  ECE
+  ME
+  CE
+  EE
+  IT
+  MCA
+  MBA
+}
+enum Position{
+  Member
+  Lead
+  Vice_Lead
+  Tech_Lead
+  PR_Lead
+  CR_Lead
+  Executive
+  Creative_Lead
+  Design_Lead
+  Ar_Lead
+  Web_Lead 
+  App_Lead
+  Vr_Lead
+}
 
+enum Year_Of_Joinning{
+  Y_2020
+  Y_2021
+  Y_2022
+  Y_2023
+  Y_2024
+  Y_2025
+}
+
+enum Current_Year_Of_Student{
+  First
+  Second
+  Third
+  Fourth
+}
 model User {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
+  name          String?  // name  of the member
   email         String   @unique
-  // emailVerified DateTime?
-  // image         String?
   password      String
-  role          UserRole @default(USER)
-  // roll_number  String?
-
+  role          UserRole @default(USER) // for proviidng the role of the user
+  image         String?
+  roll_number   String?
+  phone       String?
+  current_year Current_Year_Of_Student? @default(First)
+  branch       Branch @default(CSE)
+  year_of_joining   Year_Of_Joinning   @default(Y_2021)
+  position    Position @default(Member)
+  github       String?
+  linkedin     String?
+  twitter      String?
+  instagram    String?
+  facebook     String?
+  personal_email String?
 }
 
 

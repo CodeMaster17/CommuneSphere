@@ -1,8 +1,10 @@
 import AddMemberForm from '@/components/add-member-form'
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import Link from 'next/link'
+
 
 const Members = () => {
+
     return (
         <div className='w-full'>
             <div>
@@ -13,8 +15,10 @@ const Members = () => {
             </div>
 
             <div>
-                {/* <Button variant="outline" >Add Member + </Button> */}
-                <AddMemberForm />
+             
+                <Button asChild variant="outline">
+                    <Link href="/dashboard/members/add-member">Add Member</Link>
+                </Button>
             </div>
             {/* //  TODO : Member Page */}
         </div>
