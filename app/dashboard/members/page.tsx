@@ -1,4 +1,4 @@
-import AddMemberForm from '@/components/add-member-form'
+
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
@@ -15,7 +15,7 @@ const Members = () => {
             </div>
 
             <div>
-             
+
                 <Button asChild variant="outline">
                     <Link href="/dashboard/members/add-member">Add Member</Link>
                 </Button>
