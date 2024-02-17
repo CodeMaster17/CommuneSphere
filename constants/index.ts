@@ -1,4 +1,10 @@
-import { SideNavItem, MembersDataItem, ModalItem } from "@/types/types";
+import {
+  SideNavItem,
+  MembersDataItem,
+  ModalItem,
+  Events,
+  Sponsors,
+} from "@/types/types";
 
 export const SIDEBAR_MENU: SideNavItem[] = [
   {

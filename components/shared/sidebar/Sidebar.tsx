@@ -4,7 +4,6 @@ import Link from "next/link";
 import { SIDEBAR_MENU } from "@/constants";
 import { MenuItem } from "./Menuitem";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button";
 import LogoutButton from "@/components/auth/LogoutButton";
 
 const Sidebar = async () => {
