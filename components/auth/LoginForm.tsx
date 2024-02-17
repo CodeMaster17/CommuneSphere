@@ -19,10 +19,7 @@ import { Login } from '@/actions/auth/login';
 import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { LoginSchema } from '@/schema';
-const formSchema = z.object({
-  email: z.string().min(2).max(50),
-  password: z.string().min(2).max(50),
-})
+
 
 
 const LoginForm: React.FC = () => {
@@ -38,19 +35,21 @@ const LoginForm: React.FC = () => {
 
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
+  // eslint-disable-next-line no-unused-vars
   const [isPending, startTransition] = useTransition();
 
-  function onSubmit(values: z.infer<typeof LoginSchema>) {
+  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    setError("");
+    setSuccess("");
 
-    console.log(values)
     startTransition(() => {
       Login(values)
-        .then((data) => {
+        .then((data ) => {
           if (data?.error) {
             form.reset();
             setError(data.error);
           }
-
+          
           if (data?.success) {
             form.reset();
             setSuccess(data.success);
@@ -58,12 +57,12 @@ const LoginForm: React.FC = () => {
         })
         .catch(() => setError("Something went wrong"));
     });
-  }
+  };
 
 
 
   return (
-    <div className='w-full h-[100vh] flex justify-center items-center'>
+    <div className='flex h-[100vh] w-full items-center justify-center'>
       <div className='w-[40%]'>
         <div className='w-1/2'>
 
@@ -77,7 +76,7 @@ const LoginForm: React.FC = () => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="shadcn" {...field} />
+                      <Input placeholder="Email" {...field} disabled={isPending} />
                     </FormControl>
                     <FormDescription>
                       This is your kiit email id.
@@ -93,7 +92,7 @@ const LoginForm: React.FC = () => {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input placeholder="shadcn" {...field} />
+                      <Input placeholder="Password" {...field} disabled={isPending} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -101,7 +100,7 @@ const LoginForm: React.FC = () => {
               />
               <FormError message={error} />
               <FormSuccess message={success} />
-              <Button type="submit" className='bg-black text-white w-full'>Submit</Button>
+              <Button type="submit" className='w-full bg-black text-white'>Submit</Button>
             </form>
           </Form>
         </div>
