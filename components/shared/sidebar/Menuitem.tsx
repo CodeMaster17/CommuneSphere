@@ -16,8 +16,8 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
           href={item.path}
           className={`flex flex-row items-center space-x-[1.3rem] px-[1.1rem] py-[0.8rem]  ${
             item.path === pathname
-              ? "rounded-[0.5rem] bg-[#CBD5E1] text-[#0F172A] shadow-custom"
-              : "text-[#94A3B8]"
+              ? "rounded-[0.5rem] bg-[#c0cbb5] bg-opacity-25 text-[#CBF69E] shadow-custom"
+              : "text-[#d6d6e0]"
           }`}
         >
           <Image
@@ -25,11 +25,11 @@ export const MenuItem = ({ item }: { item: SideNavItem }) => {
             alt="My Image"
             width="24"
             height="24"
-            className={`min-h-[2.4rem] min-w-[2.4rem] ${
+            className={`min-h-[1.5rem] min-w-[1.5rem] ${
               item.path === pathname ? "custom-svg" : ""
             } `}
           />
-          <span className="flex text-[1.4rem] font-medium">{item.name}</span>
+          <span className="flex text-[1rem] font-normal">{item.name}</span>
         </Link>
       }
     </div>
