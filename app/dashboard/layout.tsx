@@ -10,7 +10,7 @@ const layout = ({
 }>) => {
     return (
         <>
-            <div className="flex overflow-x-hidden bg-[#E2E8F0]">
+            <div className="flex overflow-x-hidden bg-[#f5f5f6]">
                 <Sidebar />
                 <main className="flex-1">
                     <MarginWidthWrapper>
