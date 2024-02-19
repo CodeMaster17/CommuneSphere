@@ -95,3 +95,15 @@ model Account {
 
   @@unique([provider, providerAccountId])
 }
+
+model Event {
+  id                      String    @id @default(auto()) @map("_id") @db.ObjectId
+  name                    String
+  date                    String
+  target_year             Current_Year_Of_Student @default(First)
+  duration                Int?
+  expected_participants   String    @default("500")
+  actual_participants     String   @default("upcoming")
+  location                String?
+  event_thumbnail         String?
+}
