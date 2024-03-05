@@ -7,6 +7,7 @@ import { getAllUsers } from '@/actions/user.action'
 import Leads from '@/components/member/LeadsSection'
 import { Heading } from '@/components/shared/Heading'
 import { useDisplayYear } from '@/hooks/use-display-data'
+import Breadcrumb from '@/components/shared/Breadcrumb'
 
 
 async function getData(): Promise<UserType[]> {
@@ -35,7 +36,7 @@ const Members = async () => {
         <section className='w-full'>
             <div className='flex w-full justify-between'>
                 {/* // TODO: Breadcrumb  */}
-                BreadCrumb
+                <Breadcrumb />
                 <Button asChild variant="outline">
                     <Link href="/dashboard/members/add-member">Add Member +</Link>
                 </Button>
