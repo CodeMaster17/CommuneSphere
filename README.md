@@ -1,5 +1,5 @@
 
-![thumbnail](https://github.com/CodeMaster17/CommuneSphere/assets/96763776/df5dc0c3-664e-404b-97d9-75c7784c0e5e)
+![safe zone](https://github.com/CodeMaster17/CommuneSphere/assets/96763776/e1ddbdce-8d6b-4884-8d68-300c1787b42f)
 
 ## Getting Started
 
