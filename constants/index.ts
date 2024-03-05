@@ -2,9 +2,51 @@ import {
   SideNavItem,
   MembersDataItem,
   ModalItem,
-  Events,
+  // Events,
   Sponsors,
 } from "@/types/types";
+
+export const Role = [
+  {
+    id: 1,
+    value: "ADMIN",
+    label: "ADMIN",
+  },
+  {
+    id: 2,
+    value: "USER",
+    label: "USER",
+  },
+];
+
+export const Year = [
+  // from year 2021 to 2025
+  {
+    id: 1,
+    value: "2021",
+    label: "2021",
+  },
+  {
+    id: 2,
+    value: "2022",
+    label: "2022",
+  },
+  {
+    id: 3,
+    value: "2023",
+    label: "2023",
+  },
+  {
+    id: 4,
+    value: "2024",
+    label: "2024",
+  },
+  {
+    id: 5,
+    value: "2025",
+    label: "2025",
+  },
+];
 
 export const SIDEBAR_MENU: SideNavItem[] = [
   {
@@ -382,23 +424,23 @@ export const SPONSORS: Sponsors[] = [
   },
 ];
 
-export const EVENTS: Events[] = [
-  {
-    name: "Kalki",
-    location: "campus2",
-    description: "web event",
-    event_website_thumbnail: "/logo/Ellipse 2.svg",
-    event_domain: "web", // Assuming a default value for event_domain
-    attendees: 555,
-    registrations: 666,
-    script_link: "https://script.com/johndoe",
-    drive_link: "https://drive.com/johndoe",
-    time: "10:00 A.M",
-    duration: 5,
-    is_completed: true, // Use boolean value
-    is_published: true, // Use boolean value
-  },
-];
+// export const EVENTS: Events[] = [
+//   {
+//     name: "Kalki",
+//     location: "campus2",
+//     description: "web event",
+//     event_website_thumbnail: "/logo/Ellipse 2.svg",
+//     event_domain: "web", // Assuming a default value for event_domain
+//     attendees: 555,
+//     registrations: 666,
+//     script_link: "https://script.com/johndoe",
+//     drive_link: "https://drive.com/johndoe",
+//     time: "10:00 A.M",
+//     duration: 5,
+//     is_completed: true, // Use boolean value
+//     is_published: true, // Use boolean value
+//   },
+// ];
 
 export const MODAL: ModalItem[] = [
   {
