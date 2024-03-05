@@ -10,7 +10,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
@@ -60,7 +59,7 @@ const Sidebar = async () => {
                 <p className="text-[1.2rem] font-medium leading-[1.6rem] pt-1 text-white">
                   Hi, Harsh
                 </p>
-                <p className="text-[1rem] leading-[1.6rem] text-[#b5c2d5]">
+                <p className="text-[0.9rem] leading-[1.6rem] text-[#b5c2d5]">
                   View Profile
                 </p>
               </div>
