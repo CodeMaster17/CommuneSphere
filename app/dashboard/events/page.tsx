@@ -6,8 +6,8 @@ import Breadcrumb from '@/components/shared/Breadcrumb';
 const Events = () => {
     return (
         <div className='w-full'>
+            <div className='flex w-full justify-between'>
             <Breadcrumb />
-            <div>
                 <Button asChild variant="outline">
                     <Link href="/dashboard/events/add-event">Add Event</Link>
                 </Button>
