@@ -98,7 +98,7 @@ const Features = () => {
 
         <div className='flex mt-52'>
             <div className='2xl:w-1/2 lg:w-4/5 mt-8 md:w-full'>
-                <h1 className='text-2xl font-bold leading-tight md:block md:text-4xl lg:leading-[1.1]'>Simplify Authentication</h1>
+                <h1 className='text-2xl font-bold leading-tight md:block md:text-4xl lg:leading-[1.1]'>Role Based Authentication</h1>
                 <div className='w-[80%] mt-8 md:w-[90%]'>
                     <div className='flex'>
                         <p className='border rounded-3xl border-gray-300 py-2 px-4 md:text-base 2xl:text-lg'>Intelligent Encryption</p>
