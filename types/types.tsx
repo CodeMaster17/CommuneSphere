@@ -82,6 +82,7 @@ export type ModalItem = {
 
 
 export interface Events {
+  id: string;
   name: string;
   date: string;
   target_year: 
@@ -94,4 +95,6 @@ export interface Events {
   actual_participants: string;
   location: string | null;
   event_thumbnail: string | null;
+  created_at: Date;
+  updated_at: Date; 
 }
