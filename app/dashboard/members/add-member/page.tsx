@@ -1,23 +1,12 @@
 'use client'
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
+import { toast } from "sonner"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
@@ -74,6 +63,7 @@ const AddMember = () => {
                     setSuccess(data.success);
                 });
         });
+        toast("Member has been created.")
 
         console.log({ data })
     }
@@ -81,9 +71,9 @@ const AddMember = () => {
     return (
         <div className='w-full p-4'>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6">
 
-                    <div className="grid gap-4 py-4 border-2">
+                    <div className="grid gap-4 border-2 py-4">
                         <FormField
                             control={form.control}
                             name="name"

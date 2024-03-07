@@ -8,10 +8,8 @@ import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
@@ -45,12 +43,12 @@ const LoginForm: React.FC = () => {
 
     startTransition(() => {
       Login(values)
-        .then((data ) => {
+        .then((data) => {
           if (data?.error) {
             form.reset();
             setError(data.error);
           }
-          
+
           if (data?.success) {
             form.reset();
             setSuccess(data.success);
@@ -64,13 +62,13 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className='flex h-[100vh] w-full items-center justify-center'>
-      <div className='w-[50%] h-[70%] flex'>
+      <div className='flex h-[70%] w-[50%]'>
         <div className='w-1/2   rounded-l-lg p-10 shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
           <div>
-            <h1 className='text-3xl font-semibold text-center'>Managing made <span className='underline underline-offset-8 decoration-4 font-bold'>EZ</span>.</h1>
+            <h1 className='text-center text-3xl font-semibold'>Managing made <span className='font-bold underline decoration-4 underline-offset-8'>EZ</span>.</h1>
           </div>
-          <div className='flex justify-center my-12'>
-            <Image src="/mlsaLogo.png" alt='mlsa logo' width={100} height={100}/>
+          <div className='my-12 flex justify-center'>
+            <Image src="/mlsaLogo.png" alt='mlsa logo' width={100} height={100} />
           </div>
 
           <div className=''>
@@ -107,17 +105,17 @@ const LoginForm: React.FC = () => {
                 />
                 <FormError message={error} />
                 <FormSuccess message={success} />
-                <Button type="submit" className='w-full h-10 bg-black text-white'>Login</Button>
+                <Button type="submit" className='h-10 w-full bg-black text-white'>Login</Button>
               </form>
             </Form>
             <div>
-              <h3 className='text-sm font-light flex justify-center mt-5'>Forgot Password ?</h3>
+              <h3 className='mt-5 flex justify-center text-sm font-light'>Forgot Password ?</h3>
             </div>
           </div>
-          
+
         </div>
         <div className='w-1/2'>
-          <Image src={loginForm} alt='loginform' className='rounded-r-lg w-[100%] h-[100%]'/>
+          <Image src={loginForm} alt='loginform' className='size-[100%] rounded-r-lg' />
         </div>
       </div>
     </div>
