@@ -74,6 +74,8 @@ model User {
   instagram    String?
   facebook     String?
   personal_email String?
+
+  event Event[]
 }
 
 
@@ -106,4 +108,10 @@ model Event {
   actual_participants     String   @default("upcoming")
   location                String?
   event_thumbnail         String?
+  created_By              User? @relation(fields: [created_by], references: [id], onDelete: Cascade)
+  created_by              String?    @db.ObjectId
+  //updated_By              User? @relation(name: "UpdatedBy", fields: [updated_by], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  //updated_by              String?    @db.ObjectId
+  created_at              DateTime @default(now())
+  updated_at              DateTime? @updatedAt
 }

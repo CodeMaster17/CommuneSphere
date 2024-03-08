@@ -4,6 +4,8 @@ import { getAllEvents } from '@/actions/event.action';
 const EventListSection = async () => {
     try {
         const events = await getAllEvents();
+        console.log("hi");
+        console.log({events});
         return (<>
         {Array.isArray(events) ? (
       events.map((event, index) => (
@@ -32,6 +34,12 @@ const EventListSection = async () => {
           <div >
             Event Thumbnail: {event.event_thumbnail}
           </div>
+          {/* <div >
+            Event CreatedAt: {event.created_at.toString()}
+          </div>
+          <div >
+            Event UpdatedAt: {event.updated_at.toString()}
+          </div> */}
         </div>
       ))
     ) : (

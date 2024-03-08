@@ -61,7 +61,7 @@ const AddEvent = () => {
                 });
         });
 
-        // console.log({ data })
+        console.log({ data })
     }
 
     return (
