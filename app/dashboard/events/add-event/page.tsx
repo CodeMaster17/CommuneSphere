@@ -29,6 +29,7 @@ import { FormError } from "@/components/shared/form-error/FormError"
 
 import { useState, useTransition } from "react"
 import { registerEvent } from "@/actions/event.action"
+import { Heading } from '@/components/shared/Heading'
 
 
 const AddEvent = () => {
@@ -64,11 +65,17 @@ const AddEvent = () => {
     }
 
     return (
-        <div className='w-full'>
+        <div className='w-full p-5  bg-white rounded-md border-gray-300 border my-10'>
+            <div className="ml-5">
+                <Heading type="medium">
+                    Add Event
+                </Heading>
+            </div>
+            
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 p-5">
 
-                    <div className="grid gap-4 py-4 border-2">
+                    <div className="grid grid-cols-2 gap-4 gap-x-10">
                         {/* event name */}
                         <FormField
                             control={form.control}
@@ -77,7 +84,7 @@ const AddEvent = () => {
                                 <FormItem>
                                     <FormLabel>Event name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Event name" {...field} />
+                                        <Input placeholder="Enter event name" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -89,9 +96,9 @@ const AddEvent = () => {
                             name="date"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Event Date</FormLabel>
+                                    <FormLabel>Event date</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Event date" type="date" {...field} />
+                                        <Input placeholder="Enter event date" type="date" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -103,11 +110,12 @@ const AddEvent = () => {
                             name="target_year"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Select Target Year</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormLabel>Target year</FormLabel>
+                                    {/* <Select onValueChange={field.onChange} defaultValue={field.value}> */}
+                                    <Select onValueChange={field.onChange}>
                                         <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select Events's Target year" />
+                                            <SelectTrigger className="border-gray-300 text-gray-500">
+                                                <SelectValue placeholder="Select events's target year" />
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
@@ -127,9 +135,9 @@ const AddEvent = () => {
                             name="duration"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Duration of Event (in hours)</FormLabel>
+                                    <FormLabel>Duration of event (in hours)</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="duration of event" type="number" {...field} />
+                                        <Input placeholder="Enter duration of event" type="number" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -141,9 +149,9 @@ const AddEvent = () => {
                             name="expected_participants"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Expected Participants</FormLabel>
+                                    <FormLabel>Expected participants</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Expected Participants" {...field} />
+                                        <Input placeholder="Enter expected participants" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -155,9 +163,9 @@ const AddEvent = () => {
                             name="actual_participants"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Actual Participants</FormLabel>
+                                    <FormLabel>Actual participants</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Actual Participants" {...field} />
+                                        <Input placeholder="Enter actual participants" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -171,7 +179,7 @@ const AddEvent = () => {
                                 <FormItem>
                                     <FormLabel>Location</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Location" type="text" {...field} />
+                                        <Input placeholder="Enter location" type="text" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -185,7 +193,7 @@ const AddEvent = () => {
                                 <FormItem>
                                     <FormLabel>Thumbnail link</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Thumbnail Link" type="text" {...field} />
+                                        <Input placeholder="Enter thumbnail link" type="text" {...field} className="border-gray-300 text-gray-500"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -195,7 +203,9 @@ const AddEvent = () => {
 
                     <FormError message={error} />
                     <FormSuccess message={success} />
-                    <Button type="submit">Save changes</Button>
+                    <div className="flex justify-end pt-3">
+                        <Button type="submit" className="h-[50%]">Save changes</Button>
+                    </div>
                 </form>
             </Form>
         </div>

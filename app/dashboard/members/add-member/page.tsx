@@ -69,70 +69,27 @@ const AddMember = () => {
     }
 
     return (
-        <div className='w-full p-4'>
+        <div className='w-full p-4 px-6 text-sm bg-white rounded-md border-gray-300 border'>
+            {/* <h1 className="text-2xl font-bold">Add Member</h1> */}
             <Form {...form}>
+<<<<<<< HEAD
+                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 ">
+
+                    <div className="grid grid-cols-2 gap-5">
+=======
                 <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6">
 
                     <div className="grid gap-4 border-2 py-4">
+>>>>>>> f468ec7595fcf63c4e1948905f16fbe1078d7b15
                         <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Username</FormLabel>
+                                    <FormLabel>Name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
+                                        <Input placeholder="Enter name" {...field} className="border-gray-300"/>
                                     </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Email</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Password</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="shadcn" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-
-                        {/* Role dropdown */}
-                        <FormField
-                            control={form.control}
-                            name="role"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Select Role</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                        <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select a verified email to display" />
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="ADMIN">ADMIN</SelectItem>
-                                            <SelectItem value="USER">USER</SelectItem>
-
-                                        </SelectContent>
-                                    </Select>
                                     <FormMessage />
                                 </FormItem>
                             )}
@@ -143,9 +100,52 @@ const AddMember = () => {
                             name="roll_number"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Roll Number</FormLabel>
+                                    <FormLabel>Roll number</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="kiit roll number" type="text" {...field} />
+                                        <Input placeholder="Enter KIIT roll number" type="text" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        <div className="grid grid-cols-2 gap-4">
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Email</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Enter email" {...field} className="border-gray-300" />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        {/* personal email */}
+                        <FormField
+                            control={form.control}
+                            name="personal_email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Personal email</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Personal email" type="email" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                        <FormField
+                            control={form.control}
+                            name="password"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Password</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Enter password" {...field} className="border-gray-300"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -158,14 +158,113 @@ const AddMember = () => {
                             name="phone"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Phone Number</FormLabel>
+                                    <FormLabel>Phone number</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="phone number"  {...field} />
+                                        <Input placeholder="Enter phone number"  {...field} className="border-gray-300"/>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
+                        </div>
+                        {/* Role dropdown */}
+                        <FormField
+                            control={form.control}
+                            name="role"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Role</FormLabel>
+                                    {/* <Select onValueChange={field.onChange} defaultValue={field.value}> */}
+                                    <Select onValueChange={field.onChange}>
+                                        <FormControl>
+                                            <SelectTrigger className=" border-gray-300 text-gray-500">
+                                                <SelectValue placeholder="Select role"/>
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="ADMIN">ADMIN</SelectItem>
+                                            <SelectItem value="USER">USER</SelectItem>
+
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* github link */}
+                        <FormField
+                            control={form.control}
+                            name="github"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Github</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Github URL" type="url" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        {/* linkedin link */}
+                        <FormField
+                            control={form.control}
+                            name="linkedin"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>LinkedIn</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="LinkedIn URL" type="url" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        {/* twitter link */}
+                        <FormField
+                            control={form.control}
+                            name="twitter"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Twitter</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Twitter URL" type="url" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        {/* instagram link */}
+                        <FormField
+                            control={form.control}
+                            name="instagram"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Instagram</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Instagram URL" type="url" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    
+                        {/* facebook link */}
+                        <FormField
+                            control={form.control}
+                            name="facebook"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Facebook</FormLabel>
+                                    <FormControl>
+                                        <Input placeholder="Facebook URL" type="url" {...field} className="border-gray-300"/>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        <div className="grid grid-cols-2 gap-4">
 
                         {/* current year */}
                         <FormField
@@ -173,11 +272,12 @@ const AddMember = () => {
                             name="current_year"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Select Current Year</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                    <FormLabel>Current year</FormLabel>
+                                    {/* <Select onValueChange={field.onChange} defaultValue={field.value}> */}
+                                    <Select onValueChange={field.onChange}>
                                         <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select member's current year" />
+                                            <SelectTrigger className="border-gray-300 text-gray-500">
+                                                <SelectValue placeholder="Select current year"/>
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
@@ -198,10 +298,10 @@ const AddMember = () => {
                             name="branch"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Select Branch</FormLabel>
+                                    <FormLabel>Branch</FormLabel>
                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <FormControl>
-                                            <SelectTrigger>
+                                            <SelectTrigger className="border-gray-300 text-gray-500">
                                                 <SelectValue placeholder="Select branch" />
                                             </SelectTrigger>
                                         </FormControl>
@@ -220,16 +320,18 @@ const AddMember = () => {
                                 </FormItem>
                             )}
                         />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
                         {/* select year of joinning */}
                         <FormField
                             control={form.control}
                             name="year_of_joining"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Year of Joinning</FormLabel>
+                                    <FormLabel>Year of joinning</FormLabel>
                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <FormControl>
-                                            <SelectTrigger>
+                                            <SelectTrigger className="border-gray-300 text-gray-500">
                                                 <SelectValue placeholder="Select year of joinning" />
                                             </SelectTrigger>
                                         </FormControl>
@@ -253,11 +355,11 @@ const AddMember = () => {
                             name="position"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Year of Joinning</FormLabel>
+                                    <FormLabel>Position</FormLabel>
                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                         <FormControl>
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select year of joinning" />
+                                            <SelectTrigger className=" border-gray-300 text-gray-500">
+                                                <SelectValue placeholder="Select position" />
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
@@ -281,95 +383,14 @@ const AddMember = () => {
                                 </FormItem>
                             )}
                         />
-                        {/* github link */}
-                        <FormField
-                            control={form.control}
-                            name="github"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Github</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Github URL" type="url" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* linkedin link */}
-                        <FormField
-                            control={form.control}
-                            name="linkedin"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>LinkedIn</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="LinkedIn URL" type="url" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* twitter link */}
-                        <FormField
-                            control={form.control}
-                            name="twitter"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Twitter</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Twitter URL" type="url" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* instagram link */}
-                        <FormField
-                            control={form.control}
-                            name="instagram"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Instagram</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Instagram URL" type="url" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* facebook link */}
-                        <FormField
-                            control={form.control}
-                            name="facebook"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Facebook</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Facebook URL" type="url" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* personal email */}
-                        <FormField
-                            control={form.control}
-                            name="personal_email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Personal Email</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Personal email" type="email" {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                        </div>
                     </div>
 
                     <FormError message={error} />
                     <FormSuccess message={success} />
-                    <Button type="submit">Save changes</Button>
+                    <div className="flex justify-end">
+                        <Button type="submit" className="h-[50%] bg-[#1f273c]">Save changes</Button>
+                    </div>
                 </form>
             </Form>
         </div>
