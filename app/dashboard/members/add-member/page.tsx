@@ -72,15 +72,10 @@ const AddMember = () => {
         <div className='w-full p-4 px-6 text-sm bg-white rounded-md border-gray-300 border'>
             {/* <h1 className="text-2xl font-bold">Add Member</h1> */}
             <Form {...form}>
-<<<<<<< HEAD
+
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 ">
 
                     <div className="grid grid-cols-2 gap-5">
-=======
-                <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6">
-
-                    <div className="grid gap-4 border-2 py-4">
->>>>>>> f468ec7595fcf63c4e1948905f16fbe1078d7b15
                         <FormField
                             control={form.control}
                             name="name"
