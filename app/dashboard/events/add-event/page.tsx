@@ -55,10 +55,10 @@ const AddEvent = () => {
         setSuccess("");
         startTransition(() => {
             registerEvent(data)
-                .then((data: any) => {
-                    setError(data.error);
-                    setSuccess(data.success);
-                });
+                // .then((data: any) => {
+                //     setError(data.error);
+                //     setSuccess(data.success);
+                // });
         });
 
         console.log({ data })

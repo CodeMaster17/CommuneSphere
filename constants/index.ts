@@ -48,6 +48,30 @@ export const Year = [
   },
 ];
 
+export const TargetYear = [
+  // from First to Fourth year
+  {
+    id: 1,
+    value: "First",
+    label: "First",
+  },
+  {
+    id: 2,
+    value: "Second",
+    label: "Second",
+  },
+  {
+    id: 3,
+    value: "Third",
+    label: "Third",
+  },
+  {
+    id: 4,
+    value: "Fourth",
+    label: "Fourth",
+  },
+];
+
 export const SIDEBAR_MENU: SideNavItem[] = [
   {
     iconURL: "/icon/home.svg",
