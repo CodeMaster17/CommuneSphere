@@ -32,7 +32,10 @@ async function getData(): Promise<UserType[]> {
 
 const Members = async () => {
     const data = await getData()
+
     return (
+
+
         <section className='w-full'>
             <div className='flex w-full justify-between'>
                 {/* // TODO: Breadcrumb  */}
@@ -52,9 +55,12 @@ const Members = async () => {
                     Members
                 </Heading>
                 {/* //  TODO : Member Page */}
-                <DataTable columns={columns} data={data} />
+                <div>
+                    <DataTable columns={columns} data={data} />
+                </div>
             </div>
         </section>
+
     )
 }
 

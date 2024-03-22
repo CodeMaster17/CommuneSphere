@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import NavbarHome from "@/components/shared/navbar/NavbarHome";
 import Features from "@/components/shared/features/Features";
 import Linkedin from "@/public/icon/ant-design--linkedin-filled.svg"
 import Facebook from "@/public/icon/ic--baseline-facebook.svg"
@@ -14,10 +13,10 @@ export default function Home() {
   return (
     <main className="h-screen w-full">
 
-      <div className="border-2 border-black">
+      <div className="">
         <h1 className="mt-28 hidden text-center text-3xl font-bold leading-tight tracking-tighter md:block md:text-6xl lg:leading-[1.1]">Start managing your  <span className="text-[#9ded48]">team</span> <br /> with <span className="text-[#9ded48]">CommuneSphere</span> </h1>
         <h3 className="mx-auto mt-10 hidden w-[40%] text-center text-lg font-medium leading-tight tracking-tighter md:block md:text-2xl lg:leading-[1.1]">Join CommuneSphere and explore new ways of thinking to unleash your fierce, untapped skills.</h3>
-        <div className="mt-8 flex w-full justify-center border-2">
+        <div className="mt-8 flex w-full justify-center">
           <Button variant="default" asChild>
             <Link href="/auth/login">Login</Link>
           </Button>

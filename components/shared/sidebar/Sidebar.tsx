@@ -22,13 +22,13 @@ const Sidebar = async () => {
 
 
   return (
-    <div className="fixed flex justify-between h-screen w-[18rem] flex-1 bg-[#1f273c] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+    <div className="sticky  top-0 flex h-screen w-[10vw] flex-1 justify-between bg-[#1f273c] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:w-[15vw]">
       <div className="flex w-full flex-col justify-between space-y-[5rem] px-[1.6rem]">
 
-        <div className="text-white text-[1.5rem] flex cursor-pointer pl-[0.7rem] pt-[2rem]">
+        <div className="flex cursor-pointer pl-[0.7rem] pt-[2rem] text-[1.5rem] text-white">
           <h1>CommuneSphere</h1>
         </div>
-        
+
 
         <div className="flex flex-col space-y-[1.4rem]">
           {SIDEBAR_MENU.map((item, idx) => {
@@ -44,8 +44,8 @@ const Sidebar = async () => {
           </div>
         </div> */}
 
-        <div className="flex cursor-pointer pl-[0.7rem] border-t border-gray-500">
-          <Link href="/dashboard/profile" className="pt-5 pb-7">
+        <div className="flex cursor-pointer border-t border-gray-500 pl-[0.7rem]">
+          <Link href="/dashboard/profile" className="pb-7 pt-5">
             <div className="flex items-center justify-center space-x-[1rem] ">
               <div>
                 <Avatar>
@@ -56,7 +56,7 @@ const Sidebar = async () => {
               </div>
 
               <div>
-                <p className="text-[1.2rem] font-medium leading-[1.6rem] pt-1 text-white">
+                <p className="pt-1 text-[1.2rem] font-medium leading-[1.6rem] text-white">
                   Hi, Harsh
                 </p>
                 <p className="text-[0.9rem] leading-[1.6rem] text-[#b5c2d5]">
@@ -65,20 +65,20 @@ const Sidebar = async () => {
               </div>
 
               <div className="-mt-3 pl-14">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Image src={reorder} alt="reorder" width={9} height={9}/>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuItem className="font-medium justify-center text-[1rem]">Profile</DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem className="justify-center">
-                        <LogoutButton>
-                          Logout
-                        </LogoutButton>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Image src={reorder} alt="reorder" width={9} height={9} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem className="justify-center text-[1rem] font-medium">Profile</DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="justify-center">
+                      <LogoutButton>
+                        Logout
+                      </LogoutButton>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
 
               </div>
 

@@ -1,5 +1,4 @@
-import MarginWidthWrapper from '@/components/shared/sidebar/MarginWidthWeapper';
-import PageWrapper from '@/components/shared/sidebar/PageWrapper';
+
 import Sidebar from '@/components/shared/sidebar/Sidebar';
 import React from 'react'
 
@@ -10,13 +9,11 @@ const layout = ({
 }>) => {
     return (
         <>
-            <div className="flex overflow-x-hidden bg-[#f5f5f6]">
+            <div className="relative flex w-full  bg-[#f5f5f6]">
                 <Sidebar />
-                <main className="flex-1">
-                    <MarginWidthWrapper>
-                        <PageWrapper>{children}</PageWrapper>
-                    </MarginWidthWrapper>
-                </main>
+                <div className="w-[80vw]  p-4">
+                    {children}
+                </div>
             </div>
         </>
     )

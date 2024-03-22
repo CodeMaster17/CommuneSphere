@@ -1,3 +1,4 @@
+"use server";
 import { db } from "@/lib/database.connection";
 
 export const getUserByEmail = async (email: string) => {
@@ -23,6 +24,17 @@ export const getAllUsers = async () => {
   try {
     const users = await db.user.findMany();
     return users;
+  } catch {
+    return null;
+  }
+};
+
+// to count all members
+export const countAllUsers = async () => {
+  try {
+    const count = await db.user.count();
+    console.log(count);
+    return count;
   } catch {
     return null;
   }
