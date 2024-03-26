@@ -48,18 +48,27 @@ import {
 import { cn } from "@/lib/utils"
 import { FilterX, Check, Filter, ChevronsUpDown } from "lucide-react"
 import { Role, Year } from "@/constants"
+import { getUserById } from "@/actions/user.action"
 
 // ########################################## Definitions #########################################################
-interface DataTableProps<TData, TValue> {
+
+interface MyData {
+    id: string
+}
+
+interface DataTableProps<TData extends MyData, TValue> {
     columns: ColumnDef<TData, TValue>[]
-    data: TData[]
+    data: TData[],
+    handleClickedRow: (id: string) => void
+
 }
 
 
 // main component starts here
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends MyData, TValue>({
     columns,
     data,
+    handleClickedRow
 }: DataTableProps<TData, TValue>) {
 
     // state management
@@ -101,10 +110,29 @@ export function DataTable<TData, TValue>({
         setValueYOJ("")
     }
 
+    const [clickedTableId, setClickedTableId] = React.useState<string>("")
+    const [userData, setUserData] = React.useState<any>({})
+    const handleClickTableRow = (id) => {
+        setClickedTableId(id)
+        console.log("TableId", clickedTableId)
+    }
+    React.useEffect(() => {
+        console.log("UseEffectTableId", clickedTableId)
+
+        async function fetchData() {
+            const data = await getUserById(clickedTableId)
+            setUserData(data)
+            console.log(userData)
+        }
+
+        fetchData()
+
+    }, [clickedTableId])
+
     // ################################################################### Component ##########################
     return (
         <div>
-            <div className="flex items-center px-2 py-4">
+            <div className="flex items-center justify-between px-2 py-4">
                 {/* filter names */}
                 <Input
                     placeholder="Search members.."
@@ -112,131 +140,135 @@ export function DataTable<TData, TValue>({
                     onChange={(event) =>
                         table.getColumn("name")?.setFilterValue(event.target.value)
                     }
-                    className="max-w-sm"
+                    className="w-48 placeholder:text-xs"
                 />
-                {/* role filter */}
-                <Popover open={openRoleDropdown} onOpenChange={setOpenRoleDropdown}>
-                    <PopoverTrigger asChild>
-                        <Button
-                            variant="outline"
-                            role="combobox"
-                            aria-expanded={openRoleDropdown}
-                            className="ml-4 h-10 w-[180px] justify-between font-light"
-                        >
-                            {!valueRole
-                                ? "Filter role..."
-                                : valueRole}
-                            <Filter className="ml-2 size-4 shrink-0 opacity-50" />
-                        </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-[180px] p-0">
-                        <Command>
-                            <CommandGroup>
-                                {Role.map((item) => (
-                                    <CommandItem
-                                        key={item.value}
-                                        value={item.value}
-                                        onSelect={(currentValue) => {
-                                            setValueRole(currentValue === valueRole ? "" : currentValue)
-                                            table.getColumn("role")?.setFilterValue(currentValue)
-                                            setOpenRoleDropdown(false)
-                                        }}
-
-                                    >
-                                        <Check
-                                            className={cn(
-                                                "mr-2 h-4 w-4",
-                                                valueRole === item.value ? "opacity-100" : "opacity-0"
-                                            )}
-                                        />
-                                        {item.label}
-                                    </CommandItem>
-                                ))}
-                            </CommandGroup>
-                        </Command>
-                    </PopoverContent>
-                </Popover>
-                {/* joinning year filter */}
-                <Popover open={openYOJDropdown} onOpenChange={setOpenYOJDropdown}>
-                    <PopoverTrigger asChild>
-                        <Button
-                            variant="outline"
-                            role="combobox"
-                            aria-expanded={openYOJDropdown}
-                            className="ml-4 h-10 w-[180px] justify-between font-light"
-                        >
-                            {!valueYOJ
-                                ? "Select Year..."
-                                : valueYOJ}
-                            <Filter className="ml-2 size-4 shrink-0 opacity-50" />
-                        </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-[180px] p-0">
-                        <Command>
-
-                            <CommandGroup>
-                                {Year.map((item) => (
-                                    <CommandItem
-                                        key={item.value}
-                                        value={item.value}
-                                        onSelect={(currentValue) => {
-                                            setValueYOJ(currentValue === valueYOJ ? "" : currentValue)
-                                            table.getColumn("year_of_joining")?.setFilterValue(currentValue)
-                                            setOpenYOJDropdown(false)
-                                        }}
-
-                                    >
-                                        <Check
-                                            className={cn(
-                                                "mr-2 h-4 w-4",
-                                                valueYOJ === item.value ? "opacity-100" : "opacity-0"
-                                            )}
-                                        />
-                                        {item.label}
-                                    </CommandItem>
-                                ))}
-                            </CommandGroup>
-                        </Command>
-                    </PopoverContent>
-                </Popover>
+                <div className="flex">
 
 
-                {/* TODO: clear filter */}
-                <Button variant="outline" className="ml-4 h-10 font-light" onClick={() => handleClearFilters} >
-                    Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
-                </Button>
+                    {/* role filter */}
+                    <Popover open={openRoleDropdown} onOpenChange={setOpenRoleDropdown}>
+                        <PopoverTrigger asChild>
+                            <Button
+                                variant="default"
+                                role="combobox"
+                                aria-expanded={openRoleDropdown}
+                                className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"
+                            >
+                                {!valueRole
+                                    ? "Filter role..."
+                                    : valueRole}
+                                <Filter color="#FFFFFF" className=" size-4 shrink-0 opacity-50" />
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[180px] p-0">
+                            <Command>
+                                <CommandGroup>
+                                    {Role.map((item) => (
+                                        <CommandItem
+                                            key={item.value}
+                                            value={item.value}
+                                            onSelect={(currentValue) => {
+                                                setValueRole(currentValue === valueRole ? "" : currentValue)
+                                                table.getColumn("role")?.setFilterValue(currentValue)
+                                                setOpenRoleDropdown(false)
+                                            }}
+
+                                        >
+                                            <Check
+                                                className={cn(
+                                                    "mr-2 h-4 w-4",
+                                                    valueRole === item.value ? "opacity-100" : "opacity-0"
+                                                )}
+                                            />
+                                            {item.label}
+                                        </CommandItem>
+                                    ))}
+                                </CommandGroup>
+                            </Command>
+                        </PopoverContent>
+                    </Popover>
+                    {/* joinning year filter */}
+                    <Popover open={openYOJDropdown} onOpenChange={setOpenYOJDropdown}>
+                        <PopoverTrigger asChild>
+                            <Button
+                                variant="default"
+                                role="combobox"
+                                aria-expanded={openYOJDropdown}
+                                className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"
+                            >
+                                {!valueYOJ
+                                    ? "Select Year..."
+                                    : valueYOJ}
+                                <Filter className=" size-4 shrink-0 opacity-50" />
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[180px] p-0">
+                            <Command>
+
+                                <CommandGroup>
+                                    {Year.map((item) => (
+                                        <CommandItem
+                                            key={item.value}
+                                            value={item.value}
+                                            onSelect={(currentValue) => {
+                                                setValueYOJ(currentValue === valueYOJ ? "" : currentValue)
+                                                table.getColumn("year_of_joining")?.setFilterValue(currentValue)
+                                                setOpenYOJDropdown(false)
+                                            }}
+
+                                        >
+                                            <Check
+                                                className={cn(
+                                                    "mr-2 h-4 w-4",
+                                                    valueYOJ === item.value ? "opacity-100" : "opacity-0"
+                                                )}
+                                            />
+                                            {item.label}
+                                        </CommandItem>
+                                    ))}
+                                </CommandGroup>
+                            </Command>
+                        </PopoverContent>
+                    </Popover>
 
 
-                {/* for column visibilty */}
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-auto h-10 font-light">
-                            Columns
-                            <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        {table
-                            .getAllColumns()
-                            .filter(
-                                (column) => column.getCanHide()
-                            )
-                            .map((column) => {
-                                return (
-                                    <DropdownMenuCheckboxItem
-                                        key={column.id}
-                                        className="capitalize"
-                                        checked={column.getIsVisible()}
-                                        onCheckedChange={(value) =>
-                                            column.toggleVisibility(!!value)
-                                        }
-                                    >
-                                        {column.id}
-                                    </DropdownMenuCheckboxItem>
+                    {/* TODO: clear filter */}
+                    <Button variant="default" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
+                        Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
+                    </Button>
+
+
+                    {/* for column visibilty */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="default" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light">
+                                Columns
+                                <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            {table
+                                .getAllColumns()
+                                .filter(
+                                    (column) => column.getCanHide()
                                 )
-                            })}
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                                .map((column) => {
+                                    return (
+                                        <DropdownMenuCheckboxItem
+                                            key={column.id}
+                                            className="capitalize"
+                                            checked={column.getIsVisible()}
+                                            onCheckedChange={(value) =>
+                                                column.toggleVisibility(!!value)
+                                            }
+                                        >
+                                            {column.id}
+                                        </DropdownMenuCheckboxItem>
+                                    )
+                                })}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
             </div>
             <div className="w-full rounded-md border">
                 <Table className="w-full bg-white">
@@ -245,7 +277,7 @@ export function DataTable<TData, TValue>({
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className="bg-gray-200">
+                                        <TableHead key={header.id} className="bg-gray-200"  >
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -260,16 +292,20 @@ export function DataTable<TData, TValue>({
                     </TableHeader>
                     <TableBody>
                         {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) => (
+                            table.getRowModel().rows.map((row) =>
+
+                            (
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
+                                    onClick={() => handleClickTableRow(row.original.id)}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id}>
+                                        <TableCell key={cell.id} className="border-2" >
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
+                                    {/* {console.log(row)} */}
                                 </TableRow>
                             ))
                         ) : (

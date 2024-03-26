@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import Features from "@/components/shared/features/Features";
+import Features from "@/components/home/features/Features";
 import Linkedin from "@/public/icon/ant-design--linkedin-filled.svg"
 import Facebook from "@/public/icon/ic--baseline-facebook.svg"
 import Instagram from "@/public/icon/mdi--instagram.svg"
+import Pricing from "@/components/home/pricing/Pricing";
+import Testimonial from "@/components/home/testimonial/Testimonial";
 
 
 export default function Home() {
@@ -26,6 +28,8 @@ export default function Home() {
         </div>
 
         <Features />
+        <Pricing />
+        <Testimonial />
 
         <footer className="mt-52 flex h-20 justify-between bg-[#1f273c] py-8 text-lg text-white">
           <div className="md:ml-[5rem] lg:ml-[8rem] 2xl:ml-[10.5rem]">

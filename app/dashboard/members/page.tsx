@@ -1,4 +1,4 @@
-
+// 'use client'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { UserType, columns } from "@/components/table/member-column"
@@ -8,6 +8,8 @@ import Leads from '@/components/member/LeadsSection'
 import { Heading } from '@/components/shared/Heading'
 import { useDisplayYear } from '@/hooks/use-display-data'
 import Breadcrumb from '@/components/shared/Breadcrumb'
+import { createContext, useState } from 'react'
+import TableData from '@/components/member/TableData'
 
 
 async function getData(): Promise<UserType[]> {
@@ -15,8 +17,9 @@ async function getData(): Promise<UserType[]> {
     const data = await getAllUsers()
 
     // only returning the required fields
-    return data?.map((user) => {
+    return data?.map((user, index) => {
         return {
+            sno: index + 1,
             id: user.id,
             name: user.name,
             email: user.email,
@@ -29,9 +32,13 @@ async function getData(): Promise<UserType[]> {
     }) || []
 }
 
+// This function will be called by Next.js on the server side
 
 const Members = async () => {
     const data = await getData()
+    console.log(data)
+
+
 
     return (
 
@@ -55,9 +62,9 @@ const Members = async () => {
                     Members
                 </Heading>
                 {/* //  TODO : Member Page */}
-                <div>
-                    <DataTable columns={columns} data={data} />
-                </div>
+
+               <TableData data={data} columns={columns} />
+
             </div>
         </section>
 

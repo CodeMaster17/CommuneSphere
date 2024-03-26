@@ -18,7 +18,8 @@ import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
 
 export type UserType = {
-    id: string,
+    sno: number, // serial number
+    // id: string,
     name: string | null,
     // email: String,
     // password: String,
@@ -27,24 +28,30 @@ export type UserType = {
     // phone: String | null,
     current_year: "First" | "Second" | "Third" | "Fourth" | null,
     // branch: "CSE" | "ECE" | "ME" | "CE" | "EE" | "IT" | "MCA" | "MBA" | null,
-    year_of_joining: "2020" | "2021" | "2022" | "2023" | "2024" | "2025" | null,
+    // year_of_joining: "2020" | "2021" | "2022" | "2023" | "2024" | "2025" | null,
     position: "Member" | "Lead" | "Vice_Lead" | "Tech_Lead" | "PR_Lead" | "CR_Lead" | "Executive" | "Creative_Lead" | "Design_Lead" | "Ar_Lead" | "Web_Lead" | "App_Lead" | "Vr_Lead",
 
 };
 
 export const columns: ColumnDef<UserType>[] = [
+    // {
+    //     accessorKey: "id",
+    //     header: "ID",
+    // },
     {
-        accessorKey: "id",
-        header: "ID",
+        id: "sno",
+        cell: ({ row }) => {
+            return <span>{row.index + 1}</span>
+        }
     },
     {
         accessorKey: "name",
         header: "Name",
     },
-    {
-        accessorKey: "email",
-        header: "Email",
-    },
+    // {
+    //     accessorKey: "email",
+    //     header: "Email",
+    // },
     {
         accessorKey: "role",
         header: "Role",
@@ -65,20 +72,20 @@ export const columns: ColumnDef<UserType>[] = [
     //     accessorKey: "branch",
     //     header: "Branch",
     // },
-    {
-        accessorKey: "year_of_joining",
-        header: ({ column }) => {
-            return (
-                <Button
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Joinning Year
-                    <ArrowUpDown className="ml-2 size-4" />
-                </Button>
-            )
-        },
-    },
+    // {
+    //     accessorKey: "year_of_joining",
+    //     header: ({ column }) => {
+    //         return (
+    //             <Button
+    //                 variant="ghost"
+    //                 onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+    //             >
+    //                 Joinning Year
+    //                 <ArrowUpDown className="ml-2 size-4" />
+    //             </Button>
+    //         )
+    //     },
+    // },
     {
         accessorKey: "position",
         header: "Position",
@@ -86,7 +93,7 @@ export const columns: ColumnDef<UserType>[] = [
     {
         id: "actions",
         cell: ({ row }) => {
-            const payment = row.original
+            // const payment = row.original
 
             return (
                 <DropdownMenu>
@@ -98,11 +105,11 @@ export const columns: ColumnDef<UserType>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem
+                        {/* <DropdownMenuItem
                             onClick={() => navigator.clipboard.writeText(payment.id)}
                         >
                             Copy payment ID
-                        </DropdownMenuItem>
+                        </DropdownMenuItem> */}
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>View customer</DropdownMenuItem>
                         <DropdownMenuItem>View payment details</DropdownMenuItem>

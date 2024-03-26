@@ -1,4 +1,5 @@
 "use server";
+import { useDisplayYear } from "@/hooks/use-display-data";
 import { db } from "@/lib/database.connection";
 
 export const getUserByEmail = async (email: string) => {
@@ -39,3 +40,30 @@ export const countAllUsers = async () => {
     return null;
   }
 };
+
+export async function getServerSideProps() {
+  const data = await getAllUsers();
+
+  // Only returning the required fields
+  const processedData =
+    data?.map((user, index) => {
+      return {
+        sno: index + 1,
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        position: user.position,
+        current_year: user.current_year,
+        year_of_joining:
+          (useDisplayYear(user.year_of_joining) as "2021") ||
+          "2022" ||
+          "2023" ||
+          "2024" ||
+          "2025" ||
+          null,
+      };
+    }) || [];
+
+  return { props: { data: processedData } };
+}
