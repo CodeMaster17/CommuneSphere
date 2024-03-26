@@ -12,10 +12,10 @@ const layout = ({
         <>
             <div className="relative flex w-full  bg-[#f5f5f6]">
                 <Sidebar />
-                <div className="w-[80vw]  p-4">
-                 
+                <div className="w-[calc(100vw-15rem)]  p-4">
+
                     {children}
-                   
+
                 </div>
             </div>
         </>
