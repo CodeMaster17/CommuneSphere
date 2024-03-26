@@ -12,7 +12,7 @@ const Leads = async () => {
     <div className="flex flex-col ">
       {/* <Headingcount name={"Leads"} count={"16"} /> */}
       <div className="mt-[0.4rem]">
-        <div className="grid w-full grid-cols-3 gap-[1.6rem] md:grid-cols-4 lg:grid-cols-5">
+        <div className="flex w-full flex-wrap gap-8">
           {leads?.map((member: any, index) => (
             <Lead
               key={index}

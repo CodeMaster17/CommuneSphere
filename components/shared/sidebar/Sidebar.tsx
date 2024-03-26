@@ -22,7 +22,7 @@ const Sidebar = async () => {
 
 
   return (
-    <div className="sticky  top-0 flex h-screen w-[10vw] flex-1 justify-between bg-[#1f273c] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:w-[15vw]">
+    <div className="sticky  top-0 flex h-screen w-[10vw] max-w-[16rem] flex-1 justify-between bg-[#1f273c] shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:w-[15vw]">
       <div className="flex w-full flex-col justify-between space-y-[5rem] px-[1.6rem]">
 
         <div className="flex cursor-pointer pl-[0.7rem] pt-[2rem] text-[1.5rem] text-white">

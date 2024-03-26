@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { Toaster } from "@/components/ui/sonner";
+import { Providers } from "@/actions/redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <title>CommuneSphere</title>
-      <body className={inter.className}>{children}
+      <body className={inter.className}>
+        <Providers>
+          {children}
+        </Providers>
         <Toaster />
       </body>
     </html>

@@ -15,7 +15,7 @@ const Lead: React.FC<LeadProps> = ({ member }) => {
   const memberPosition = useDisplayPosition(member.position);
   return member.position !== "Member" ? (
     <>
-      <div className="flex items-center justify-between rounded-[0.5rem] bg-white p-[1rem]">
+      <div className="flex w-[15vw] max-w-[16vw] items-center justify-between rounded-[0.5rem] bg-white p-[1rem]">
         <div className="flex items-center space-x-[0.8rem]">
           <div className=" relative size-[3.4rem] rounded-full bg-white">
             <Avatar>

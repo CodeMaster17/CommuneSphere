@@ -2,10 +2,10 @@
 
 const Pricing = () => {
     return (
-        <section className="body-font overflow-hidden text-gray-600">
+        <section className=" overflow-hidden text-gray-600">
             <div className="container mx-auto px-5 py-24">
                 <div className="mb-20 flex w-full flex-col text-center">
-                    <h1 className="title-font mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">Pricing</h1>
+                    <h1 className=" mb-2 text-3xl font-medium text-gray-900 sm:text-4xl">Pricing</h1>
                     <p className="mx-auto text-base leading-relaxed text-gray-500 lg:w-2/3">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical.</p>
                     <div className="mx-auto mt-6 flex overflow-hidden rounded border-2 border-indigo-500">
                         <button className="bg-indigo-500 px-4 py-1 text-white focus:outline-none">Monthly</button>
@@ -15,7 +15,7 @@ const Pricing = () => {
                 <div className="-m-4 flex flex-wrap">
                     <div className="w-full p-4 md:w-1/2 xl:w-1/4">
                         <div className="relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-gray-300 p-6">
-                            <h2 className="title-font mb-1 text-sm font-medium tracking-widest">START</h2>
+                            <h2 className=" mb-1 text-sm font-medium tracking-widest">START</h2>
                             <h1 className="mb-4 border-b border-gray-200 pb-4 text-5xl leading-none text-gray-900">Free</h1>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
@@ -43,13 +43,13 @@ const Pricing = () => {
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
-                            <p className="mt-3 text-xs text-gray-500">Literally you probably haven't heard of them jean shorts.</p>
+                            <p className="mt-3 text-xs text-gray-500">Literally you probably havent heard of them jean shorts.</p>
                         </div>
                     </div>
                     <div className="w-full p-4 md:w-1/2 xl:w-1/4">
                         <div className="relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-indigo-500 p-6">
                             <span className="absolute right-0 top-0 rounded-bl bg-indigo-500 px-3 py-1 text-xs tracking-widest text-white">POPULAR</span>
-                            <h2 className="title-font mb-1 text-sm font-medium tracking-widest">PRO</h2>
+                            <h2 className=" mb-1 text-sm font-medium tracking-widest">PRO</h2>
                             <h1 className="mb-4 flex items-center border-b border-gray-200 pb-4 text-5xl leading-none text-gray-900">
                                 <span>$38</span>
                                 <span className="ml-1 text-lg font-normal text-gray-500">/mo</span>
@@ -87,12 +87,12 @@ const Pricing = () => {
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
-                            <p className="mt-3 text-xs text-gray-500">Literally you probably haven't heard of them jean shorts.</p>
+                            <p className="mt-3 text-xs text-gray-500">Literally you probably havent heard of them jean shorts.</p>
                         </div>
                     </div>
                     <div className="w-full p-4 md:w-1/2 xl:w-1/4">
                         <div className="relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-gray-300 p-6">
-                            <h2 className="title-font mb-1 text-sm font-medium tracking-widest">BUSINESS</h2>
+                            <h2 className=" mb-1 text-sm font-medium tracking-widest">BUSINESS</h2>
                             <h1 className="mb-4 flex items-center border-b border-gray-200 pb-4 text-5xl leading-none text-gray-900">
                                 <span>$56</span>
                                 <span className="ml-1 text-lg font-normal text-gray-500">/mo</span>
@@ -137,12 +137,12 @@ const Pricing = () => {
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
-                            <p className="mt-3 text-xs text-gray-500">Literally you probably haven't heard of them jean shorts.</p>
+                            <p className="mt-3 text-xs text-gray-500">Literally you probably havent heard of them jean shorts.</p>
                         </div>
                     </div>
                     <div className="w-full p-4 md:w-1/2 xl:w-1/4">
                         <div className="relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-gray-300 p-6">
-                            <h2 className="title-font mb-1 text-sm font-medium tracking-widest">SPECIAL</h2>
+                            <h2 className=" mb-1 text-sm font-medium tracking-widest">SPECIAL</h2>
                             <h1 className="mb-4 flex items-center border-b border-gray-200 pb-4 text-5xl leading-none text-gray-900">
                                 <span>$72</span>
                                 <span className="ml-1 text-lg font-normal text-gray-500">/mo</span>
@@ -187,7 +187,7 @@ const Pricing = () => {
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
-                            <p className="mt-3 text-xs text-gray-500">Literally you probably haven't heard of them jean shorts.</p>
+                            <p className="mt-3 text-xs text-gray-500">Literally you probably havent heard of them jean shorts.</p>
                         </div>
                     </div>
                 </div>

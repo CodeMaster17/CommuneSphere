@@ -48,7 +48,8 @@ import {
 import { cn } from "@/lib/utils"
 import { FilterX, Check, Filter, ChevronsUpDown } from "lucide-react"
 import { Role, Year } from "@/constants"
-import { getUserById } from "@/actions/user.action"
+import { useDispatch } from "react-redux"
+import { setId } from "@/actions/redux/slice"
 
 // ########################################## Definitions #########################################################
 
@@ -110,28 +111,19 @@ export function DataTable<TData extends MyData, TValue>({
         setValueYOJ("")
     }
 
-    const [clickedTableId, setClickedTableId] = React.useState<string>("")
-    const [userData, setUserData] = React.useState<any>({})
-    const handleClickTableRow = (id) => {
-        setClickedTableId(id)
-        console.log("TableId", clickedTableId)
+    // const [clickedTableId, setClickedTableId] = React.useState<string>("")
+    const dispatch = useDispatch()
+    const clickedIdDispach = (id: string) => {
+        dispatch(setId(id))
+        // handleClickedRow(id)
+        // setClickedTableId(id)
     }
-    React.useEffect(() => {
-        console.log("UseEffectTableId", clickedTableId)
 
-        async function fetchData() {
-            const data = await getUserById(clickedTableId)
-            setUserData(data)
-            console.log(userData)
-        }
 
-        fetchData()
-
-    }, [clickedTableId])
 
     // ################################################################### Component ##########################
     return (
-        <div>
+        <>
             <div className="flex items-center justify-between px-2 py-4">
                 {/* filter names */}
                 <Input
@@ -298,7 +290,8 @@ export function DataTable<TData extends MyData, TValue>({
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
-                                    onClick={() => handleClickTableRow(row.original.id)}
+                                    onClick={() => clickedIdDispach(row.original.id)}
+                                // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id} className="border-2" >
@@ -336,6 +329,6 @@ export function DataTable<TData extends MyData, TValue>({
                     Next
                 </Button>
             </div>
-        </div>
+        </>
     )
 }

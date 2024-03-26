@@ -18,7 +18,7 @@ import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { LoginSchema } from '@/schema';
 import Image from 'next/image';
-import loginForm from '@/public/loginForm.png'
+
 
 
 const LoginForm: React.FC = () => {
@@ -115,7 +115,7 @@ const LoginForm: React.FC = () => {
 
         </div>
         <div className='w-1/2'>
-          <Image src={loginForm} alt='loginform' className='size-[100%] rounded-r-lg' />
+          <Image src='/loginForm.png' alt='loginform' className='size-[100%] rounded-r-lg' />
         </div>
       </div>
     </div>

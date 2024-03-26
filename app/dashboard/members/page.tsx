@@ -63,9 +63,9 @@ const Members = async () => {
                 </Heading>
                 {/* //  TODO : Member Page */}
 
-               <TableData data={data} columns={columns} />
 
             </div>
+            <TableData data={data} columns={columns} />
         </section>
 
     )

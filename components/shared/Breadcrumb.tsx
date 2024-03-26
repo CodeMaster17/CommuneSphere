@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 const Breadcrumb = () => {
     const pathname = usePathname()
     const splitURL: string[] = pathname.split('/')
-    console.log(splitURL)
     return (
         <div className=''>
             {splitURL.map((url: string, index: number) => (
