@@ -76,7 +76,7 @@ export const SIDEBAR_MENU: SideNavItem[] = [
   {
     iconURL: "/icon/home.svg",
     name: "Home",
-    path: "/dashboard/",
+    path: "/dashboard",
   },
   {
     iconURL: "/icon/member.svg",
@@ -97,6 +97,11 @@ export const SIDEBAR_MENU: SideNavItem[] = [
     iconURL: "/icon/profile.svg",
     name: "Profile",
     path: "/dashboard/profile",
+  },
+  {
+    iconURL: "/icon/profile.svg",
+    name: "Projects",
+    path: "/dashboard/projects",
   },
 ];
 

@@ -40,5 +40,3 @@ export const {
   ...authConfig,
 });
 
-// sUsYyBcFzhcLrXYIYznbzoNH
-// sUsYyBcFzhcLrXYIYznbzoNH

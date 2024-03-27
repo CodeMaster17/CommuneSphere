@@ -115,7 +115,7 @@ const LoginForm: React.FC = () => {
 
         </div>
         <div className='w-1/2'>
-          <Image src='/loginForm.png' alt='loginform' className='size-[100%] rounded-r-lg' />
+          <Image src='/loginForm.png' width={500} height={500} alt='loginform' className='size-[100%] rounded-r-lg' />
         </div>
       </div>
     </div>

@@ -23,4 +23,7 @@ export default {
       },
     }),
   ],
+  session: {
+    maxAge: 60 * 60,
+  },
 } satisfies NextAuthConfig;
