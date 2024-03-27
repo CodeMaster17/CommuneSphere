@@ -269,7 +269,7 @@ export function DataTable<TData extends MyData, TValue>({
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className="bg-gray-200"  >
+                                        <TableHead key={header.id} className="bg-gray-100"  >
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -284,13 +284,14 @@ export function DataTable<TData extends MyData, TValue>({
                     </TableHeader>
                     <TableBody>
                         {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) =>
+                            table.getRowModel().rows.map((row, index) =>
 
                             (
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
-                                    onClick={() => clickedIdDispach(row.original.id)}
+                                    // onClick={() => clickedIdDispach(row.original.id)}
+                                    className={index % 2 !== 0 ? "bg-gray-100" : "bg-white"}
                                 // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (

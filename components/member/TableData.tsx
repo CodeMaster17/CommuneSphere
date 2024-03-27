@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, } from 'react'
-import { DataTable } from '../table/member-data-table'
+import { DataTable } from '../table/member/member-data-table'
 import { getUserById } from '@/actions/user.action'
 import { useSelector } from 'react-redux'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -29,7 +29,6 @@ const TableData = ({ data, columns }: TableDataProps) => {
             const data = await getUserById(userId)
             await setUserData(data)
             setLoading(false)
-            console.log("user data :", userData)
         }
 
         fetchData()
@@ -37,8 +36,8 @@ const TableData = ({ data, columns }: TableDataProps) => {
     }, [userId])
 
     return (
-        <div className='flex items-center justify-between gap-4 border-2 border-red-500 '>
-            <div className='w-[70%]'>
+        <div className='flex items-center justify-between gap-4  '>
+            <div className='w-[70%] rounded-md p-2 shadow-md'>
                 <DataTable columns={columns} data={data} handleClickedRow={handleClickTableRow} />
             </div>
             <div className='h-[60vh] w-[35%] rounded-lg border-2 bg-white  p-2 shadow-md'>

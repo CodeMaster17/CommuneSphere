@@ -69,3 +69,13 @@ export async function getServerSideProps() {
 
   return { props: { data: processedData } };
 }
+
+// functtion to delete user from the database
+export const deleteUser = async (id: string) => {
+  try {
+    const user = await db.user.delete({ where: { id } });
+    return user;
+  } catch {
+    return null;
+  }
+};

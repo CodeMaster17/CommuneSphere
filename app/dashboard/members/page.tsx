@@ -1,7 +1,7 @@
 
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { UserType, columns } from "@/components/table/member-column"
+import { UserType, columns } from "@/components/table/member/member-column"
 import { getAllUsers } from '@/actions/user.action'
 import Leads from '@/components/member/LeadsSection'
 import { Heading } from '@/components/shared/Heading'
@@ -61,8 +61,6 @@ const Members = async () => {
                     Members
                 </Heading>
                 {/* //  TODO : Member Page */}
-
-
             </div>
             <TableData data={data} columns={columns} />
         </section>
