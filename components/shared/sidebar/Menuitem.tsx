@@ -2,32 +2,30 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { SideNavItem } from "@/types/types";
 
-export const MenuItem = ({ item }: { item: SideNavItem }) => {
+
+interface MenuItemProps {
+  route: string;
+  name: string;
+  component: React.ReactNode;
+}
+
+export const MenuItem = ({ route, name, component }: MenuItemProps) => {
   const pathname = usePathname();
 
   return (
     <div className=" text-[#FFF]">
       {
         <Link
-          href={item.path}
-          className={`flex flex-row items-center space-x-[1.3rem] py-[0.8rem]  ${item.path === pathname
-            ? " rounded-[0.5rem] bg-[#c0cbb5] text-white "
-            : "text-[#d6d6e0]"
+          href={route}
+          className={`flex flex-row items-center space-x-[1.3rem] py-[0.8rem] pl-4  ${route === pathname
+            ? " rounded-[10px] border-[1px] border-borderActiveTab bg-blueActiveTab  text-white "
+            : "text-white"
             }`}
         >
-          <Image
-            src={item.iconURL ?? ""}
-            alt="My Image"
-            width="24"
-            height="24"
-            className={`min-h-[1.5rem] min-w-[1.5rem] ${item.path === pathname ? "" : ""
-              } `}
-          />
-          <span className="flex text-[1rem] font-normal">{item.name}</span>
+          {component}
+          <span className="flex text-[1rem] font-normal">{name}</span>
         </Link>
       }
     </div>
