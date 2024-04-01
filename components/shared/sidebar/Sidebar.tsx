@@ -16,7 +16,7 @@ import { LogOut, Menu, Moon, Settings } from 'lucide-react';
 
 const Sidebar = () => {
   return (
-    <div className="sticky left-4 top-10 z-10 flex h-[95vh] w-[10vw] justify-between rounded-[12px] bg-bluePrimary  lg:w-[4vw]">
+    <div className="fixed left-4 top-4 z-10 flex h-[95vh] w-[10vw] justify-between rounded-[12px] bg-bluePrimary  lg:w-[4vw]">
       <div className="relative flex w-full flex-col p-4">
         <div className="flex w-full items-center justify-center border-b-2 pb-4">
           <Sheet  >

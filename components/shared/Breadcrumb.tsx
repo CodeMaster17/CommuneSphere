@@ -10,7 +10,7 @@ const Breadcrumb = () => {
     return (
         <div className=''>
             {splitURL.map((url: string, index: number) => (
-                <span key={index} className='font-bold'>
+                <span key={index} className='font-light'>
                     <Link href="#">
                         {url.length > 0 ? url[0].toUpperCase() + url.slice(1) : ""} {(index === 0 || index === splitURL.length - 1) ? '' : ' > '}
                     </Link>

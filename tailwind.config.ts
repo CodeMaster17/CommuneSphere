@@ -55,6 +55,7 @@ const config = {
         bluePrimary: "#2B5FE5",
         blueActiveTab: "#2E5DD5",
         borderActiveTab: "#9AB7FF",
+        blueBackground: "#E3EEFF",
       },
       borderRadius: {
         lg: "var(--radius)",

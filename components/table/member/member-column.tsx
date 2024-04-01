@@ -36,6 +36,7 @@ export type UserType = {
 export const columns: ColumnDef<UserType>[] = [
     {
         id: "sno",
+        header: "S.No.",
         cell: ({ row }) => {
             return <span>{row.index + 1}</span>
         },
@@ -91,7 +92,7 @@ export const columns: ColumnDef<UserType>[] = [
                     <span className="flex">
                         <AlertDialog>
                             <AlertDialogTrigger asChild>
-                                <Button variant="outline" className="m-0 size-8 p-0"><Trash2 className="size-4" color="#FF204E" /></Button>
+                                <Button variant="ghost" className="m-0 size-8 p-0"><Trash2 className="size-4" color="#FF204E" /></Button>
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
@@ -108,8 +109,8 @@ export const columns: ColumnDef<UserType>[] = [
                             </AlertDialogContent>
                         </AlertDialog>
 
-                        <Button variant="outline" onClick={() => clickedIdDispach(row.original.id)} className="m-0 size-8 p-0"><Eye className="size-4" /></Button>
-                        <Button variant="outline" className="m-0 size-8 p-0"><Pencil className="size-4" /></Button>
+                        <Button variant="ghost" onClick={() => clickedIdDispach(row.original.id)} className="m-0 size-8 p-0"><Eye className="size-4" /></Button>
+                        <Button variant="ghost" className="m-0 size-8 p-0"><Pencil className="size-4" /></Button>
                     </span>
 
                 </>

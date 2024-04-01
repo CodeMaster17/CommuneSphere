@@ -124,7 +124,7 @@ export function DataTable<TData extends MyData, TValue>({
     // ################################################################### Component ##########################
     return (
         <>
-            <div className="flex items-center justify-between px-2 py-4">
+            <div className="flex w-full  items-center justify-between py-4">
                 {/* filter names */}
                 <Input
                     placeholder="Search members.."
@@ -141,7 +141,7 @@ export function DataTable<TData extends MyData, TValue>({
                     <Popover open={openRoleDropdown} onOpenChange={setOpenRoleDropdown}>
                         <PopoverTrigger asChild>
                             <Button
-                                variant="default"
+                                variant="outline"
                                 role="combobox"
                                 aria-expanded={openRoleDropdown}
                                 className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"
@@ -183,7 +183,7 @@ export function DataTable<TData extends MyData, TValue>({
                     <Popover open={openYOJDropdown} onOpenChange={setOpenYOJDropdown}>
                         <PopoverTrigger asChild>
                             <Button
-                                variant="default"
+                                variant="outline"
                                 role="combobox"
                                 aria-expanded={openYOJDropdown}
                                 className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"
@@ -225,7 +225,7 @@ export function DataTable<TData extends MyData, TValue>({
 
 
                     {/* TODO: clear filter */}
-                    <Button variant="default" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
+                    <Button variant="outline" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
                         Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
                     </Button>
 
@@ -233,7 +233,7 @@ export function DataTable<TData extends MyData, TValue>({
                     {/* for column visibilty */}
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="default" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light">
+                            <Button variant="outline" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light">
                                 Columns
                                 <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
                             </Button>
@@ -263,13 +263,13 @@ export function DataTable<TData extends MyData, TValue>({
                 </div>
             </div>
             <div className="w-full rounded-md border">
-                <Table className="w-full bg-white">
+                <Table className="w-full rounded-lg bg-white">
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className="bg-gray-100"  >
+                                        <TableHead key={header.id} className=""  >
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -282,7 +282,7 @@ export function DataTable<TData extends MyData, TValue>({
                             </TableRow>
                         ))}
                     </TableHeader>
-                    <TableBody>
+                    <TableBody className="rounded-lg">
                         {table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row, index) =>
 
@@ -291,11 +291,11 @@ export function DataTable<TData extends MyData, TValue>({
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
                                     // onClick={() => clickedIdDispach(row.original.id)}
-                                    className={index % 2 !== 0 ? "bg-gray-100" : "bg-white"}
+                                    className="rounded-lg bg-white"
                                 // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="border-2" >
+                                        <TableCell key={cell.id} className="" >
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
