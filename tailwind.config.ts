@@ -56,6 +56,12 @@ const config = {
         blueActiveTab: "#2E5DD5",
         borderActiveTab: "#9AB7FF",
         blueBackground: "#E3EEFF",
+        neonGreen: "#B2F5EA",
+        darkGreen: "#234E52",
+        golden: "#FEEBCB",
+        darkGolden: "#7B341E",
+        sucessGreen: "#06D41B",
+        errorRed: "#FF2727",
       },
       borderRadius: {
         lg: "var(--radius)",

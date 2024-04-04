@@ -35,21 +35,9 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {
-    Command,
-    CommandGroup,
-    CommandItem,
-} from "@/components/ui/command"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
-import { cn } from "@/lib/utils"
-import { FilterX, Check, Filter, ChevronsUpDown } from "lucide-react"
-import { Role, Year } from "@/constants"
-import { useDispatch } from "react-redux"
-import { setId } from "@/actions/redux/slice"
+
+import { ChevronsUpDown } from "lucide-react"
+
 
 // ########################################## Definitions #########################################################
 
@@ -60,7 +48,6 @@ interface MyData {
 interface DataTableProps<TData extends MyData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[],
-    handleClickedRow: (id: string) => void
 
 }
 
@@ -69,7 +56,7 @@ interface DataTableProps<TData extends MyData, TValue> {
 export function DataTable<TData extends MyData, TValue>({
     columns,
     data,
-    handleClickedRow
+
 }: DataTableProps<TData, TValue>) {
 
     // state management
@@ -78,10 +65,6 @@ export function DataTable<TData extends MyData, TValue>({
         []
     )
     // for filter
-    const [openYOJDropdown, setOpenYOJDropdown] = React.useState(false) // to manage state of joinning year filter dropdwon
-    const [openRoleDropdown, setOpenRoleDropdown] = React.useState(false) // to manage state of role filter dropdwon
-    const [valueYOJ, setValueYOJ] = React.useState("")
-    const [valueRole, setValueRole] = React.useState("")
 
     const table = useReactTable({
         data,
@@ -104,22 +87,6 @@ export function DataTable<TData extends MyData, TValue>({
 
     })
 
-    // TODO : add clear filter functionality
-    // functions
-    const handleClearFilters = () => {
-        setValueRole("")
-        setValueYOJ("")
-    }
-
-    // const [clickedTableId, setClickedTableId] = React.useState<string>("")
-    const dispatch = useDispatch()
-    const clickedIdDispach = (id: string) => {
-        dispatch(setId(id))
-        // handleClickedRow(id)
-        // setClickedTableId(id)
-    }
-
-
 
     // ################################################################### Component ##########################
     return (
@@ -137,97 +104,12 @@ export function DataTable<TData extends MyData, TValue>({
                 <div className="flex">
 
 
-                    {/* role filter */}
-                    <Popover open={openRoleDropdown} onOpenChange={setOpenRoleDropdown}>
-                        <PopoverTrigger asChild>
-                            <Button
-                                variant="outline"
-                                role="combobox"
-                                aria-expanded={openRoleDropdown}
-                                className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"
-                            >
-                                {!valueRole
-                                    ? "Filter role..."
-                                    : valueRole}
-                                <Filter color="#FFFFFF" className=" size-4 shrink-0 opacity-50" />
-                            </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-[180px] p-0">
-                            <Command>
-                                <CommandGroup>
-                                    {Role.map((item) => (
-                                        <CommandItem
-                                            key={item.value}
-                                            value={item.value}
-                                            onSelect={(currentValue) => {
-                                                setValueRole(currentValue === valueRole ? "" : currentValue)
-                                                table.getColumn("role")?.setFilterValue(currentValue)
-                                                setOpenRoleDropdown(false)
-                                            }}
-
-                                        >
-                                            <Check
-                                                className={cn(
-                                                    "mr-2 h-4 w-4",
-                                                    valueRole === item.value ? "opacity-100" : "opacity-0"
-                                                )}
-                                            />
-                                            {item.label}
-                                        </CommandItem>
-                                    ))}
-                                </CommandGroup>
-                            </Command>
-                        </PopoverContent>
-                    </Popover>
-                    {/* joinning year filter */}
-                    <Popover open={openYOJDropdown} onOpenChange={setOpenYOJDropdown}>
-                        <PopoverTrigger asChild>
-                            <Button
-                                variant="outline"
-                                role="combobox"
-                                aria-expanded={openYOJDropdown}
-                                className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"
-                            >
-                                {!valueYOJ
-                                    ? "Select Year..."
-                                    : valueYOJ}
-                                <Filter className=" size-4 shrink-0 opacity-50" />
-                            </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-[180px] p-0">
-                            <Command>
-
-                                <CommandGroup>
-                                    {Year.map((item) => (
-                                        <CommandItem
-                                            key={item.value}
-                                            value={item.value}
-                                            onSelect={(currentValue) => {
-                                                setValueYOJ(currentValue === valueYOJ ? "" : currentValue)
-                                                table.getColumn("year_of_joining")?.setFilterValue(currentValue)
-                                                setOpenYOJDropdown(false)
-                                            }}
-
-                                        >
-                                            <Check
-                                                className={cn(
-                                                    "mr-2 h-4 w-4",
-                                                    valueYOJ === item.value ? "opacity-100" : "opacity-0"
-                                                )}
-                                            />
-                                            {item.label}
-                                        </CommandItem>
-                                    ))}
-                                </CommandGroup>
-                            </Command>
-                        </PopoverContent>
-                    </Popover>
 
 
                     {/* TODO: clear filter */}
-                    <Button variant="outline" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
+                    {/* <Button variant="outline" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light"  >
                         Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
-                    </Button>
+                    </Button> */}
 
 
                     {/* for column visibilty */}
@@ -269,7 +151,7 @@ export function DataTable<TData extends MyData, TValue>({
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className=""  >
+                                        <TableHead key={header.id} className="pl-8"  >
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -282,7 +164,7 @@ export function DataTable<TData extends MyData, TValue>({
                             </TableRow>
                         ))}
                     </TableHeader>
-                    <TableBody className="rounded-lg">
+                    <TableBody className="rounded-lg pl-8 ">
                         {table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row, index) =>
 
@@ -291,11 +173,11 @@ export function DataTable<TData extends MyData, TValue>({
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
                                     // onClick={() => clickedIdDispach(row.original.id)}
-                                    className="rounded-lg bg-white"
+                                    className="rounded-lg bg-white "
                                 // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="" >
+                                        <TableCell key={cell.id} className="pl-8" >
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
