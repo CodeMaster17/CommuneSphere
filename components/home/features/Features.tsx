@@ -133,35 +133,35 @@ const Features = () => {
                     </div>
                     <div className="-m-4 flex flex-wrap">
                         <div className="p-4 md:w-1/2 xl:w-1/4">
-                            <div className="rounded-lg bg-gray-100 p-6">
-                                <Image width="100" height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="" alt="content" />
-                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">SUBTITLE</h3>
-                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Chichen Itza</h2>
-                                <p className="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                            <div className="rounded-lg border bg-card text-card-foreground shadow-md p-6">
+                                <Image width="100" height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="/members_features.avif" alt="content" />
+                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">PERSONALIZED ENGAGEMENT</h3>
+                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Know Your Members</h2>
+                                <p className="text-base leading-relaxed">Unlock success by truly knowing your members - where connection meets conversion, and collaboration sparks greatness.</p>
                             </div>
                         </div>
                         <div className="p-4 md:w-1/2 xl:w-1/4">
-                            <div className="rounded-lg bg-gray-100 p-6">
-                                <Image width="100" height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="" alt="content" />
-                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">SUBTITLE</h3>
-                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Colosseum Roma</h2>
-                                <p className="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                            <div className="rounded-lg border bg-card text-card-foreground shadow-md p-6">
+                                <Image width="100" height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="/events_features.avif" alt="content" />
+                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">INSTANT ACCESS</h3>
+                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Dive into past Events in a few clicks</h2>
+                                <p className="text-base leading-relaxed">Dive into the riveting narrative of the past with a click – power of digital exploration.</p>
                             </div>
                         </div>
                         <div className="p-4 md:w-1/2 xl:w-1/4">
-                            <div className="rounded-lg bg-gray-100 p-6">
-                                <Image width="100" height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="" alt="content" />
-                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">SUBTITLE</h3>
-                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Great Pyramid of Giza</h2>
-                                <p className="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                            <div className="rounded-lg border bg-card text-card-foreground shadow-md p-6">
+                                <Image width="100" height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="/design_features.avif" alt="content" />
+                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">USER-FRIENDLY FEATURES</h3>
+                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Intuitive Design Meets User Delight</h2>
+                                <p className="text-base leading-relaxed">Embark on intuitive design and transforming into an exhilarating odyssey of knowledge and joy.</p>
                             </div>
                         </div>
                         <div className="p-4 md:w-1/2 xl:w-1/4">
-                            <div className="rounded-lg bg-gray-100 p-6">
-                                <Image width='100' height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="" alt="content" />
-                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">SUBTITLE</h3>
-                                <h2 className=" mb-4 text-lg font-medium text-gray-900">San Francisco</h2>
-                                <p className="text-base leading-relaxed">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                            <div className="rounded-lg border bg-card text-card-foreground shadow-md p-6">
+                                <Image width='100' height="100" className="mb-6 h-40 w-full rounded object-cover object-center" src="/authentication_features.avif" alt="content" />
+                                <h3 className=" text-xs font-medium tracking-widest text-indigo-500">INTELLIGENT ENCRYPTION</h3>
+                                <h2 className=" mb-4 text-lg font-medium text-gray-900">Role Based Authentication</h2>
+                                <p className="text-base leading-relaxed">Elevate your digital fortress, simplify the gate with seamless authentication—where security meets simplicity.</p>
                             </div>
                         </div>
                     </div>
