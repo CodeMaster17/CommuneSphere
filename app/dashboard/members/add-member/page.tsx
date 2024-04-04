@@ -69,11 +69,11 @@ const AddMember = () => {
     }
 
     return (
-        <div className='w-full p-4 px-6 text-sm bg-white rounded-md border-gray-300 border'>
+        <div className='w-full rounded-md border border-gray-300 bg-white p-4 px-6 text-sm'>
             {/* <h1 className="text-2xl font-bold">Add Member</h1> */}
             <Form {...form}>
 
-                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 ">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6 ">
 
                     <div className="grid grid-cols-2 gap-5">
                         <FormField
@@ -83,7 +83,7 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>Name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter name" {...field} className="border-gray-300"/>
+                                        <Input placeholder="Enter name" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -97,70 +97,70 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>Roll number</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Enter KIIT roll number" type="text" {...field} className="border-gray-300"/>
+                                        <Input placeholder="Enter KIIT roll number" type="text" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
                         <div className="grid grid-cols-2 gap-4">
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Email</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Enter email" {...field} className="border-gray-300" />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* personal email */}
-                        <FormField
-                            control={form.control}
-                            name="personal_email"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Personal email</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Personal email" type="email" {...field} className="border-gray-300"/>
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Email</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Enter email" {...field} className="border-gray-300" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            {/* personal email */}
+                            <FormField
+                                control={form.control}
+                                name="personal_email"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Personal email</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Personal email" type="email" {...field} className="border-gray-300" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
-                        <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Password</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Enter password" {...field} className="border-gray-300"/>
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                            <FormField
+                                control={form.control}
+                                name="password"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Password</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Enter password" {...field} className="border-gray-300" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
-                        {/* phone number */}
-                        <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Phone number</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Enter phone number"  {...field} className="border-gray-300"/>
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                            {/* phone number */}
+                            <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Phone number</FormLabel>
+                                        <FormControl>
+                                            <Input placeholder="Enter phone number"  {...field} className="border-gray-300" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                         </div>
                         {/* Role dropdown */}
                         <FormField
@@ -173,7 +173,7 @@ const AddMember = () => {
                                     <Select onValueChange={field.onChange}>
                                         <FormControl>
                                             <SelectTrigger className=" border-gray-300 text-gray-500">
-                                                <SelectValue placeholder="Select role"/>
+                                                <SelectValue placeholder="Select role" />
                                             </SelectTrigger>
                                         </FormControl>
                                         <SelectContent>
@@ -195,7 +195,7 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>Github</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Github URL" type="url" {...field} className="border-gray-300"/>
+                                        <Input placeholder="Github URL" type="url" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -209,7 +209,7 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>LinkedIn</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="LinkedIn URL" type="url" {...field} className="border-gray-300"/>
+                                        <Input placeholder="LinkedIn URL" type="url" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -223,7 +223,7 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>Twitter</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Twitter URL" type="url" {...field} className="border-gray-300"/>
+                                        <Input placeholder="Twitter URL" type="url" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -237,13 +237,13 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>Instagram</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Instagram URL" type="url" {...field} className="border-gray-300"/>
+                                        <Input placeholder="Instagram URL" type="url" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
-                    
+
                         {/* facebook link */}
                         <FormField
                             control={form.control}
@@ -252,7 +252,7 @@ const AddMember = () => {
                                 <FormItem>
                                     <FormLabel>Facebook</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Facebook URL" type="url" {...field} className="border-gray-300"/>
+                                        <Input placeholder="Facebook URL" type="url" {...field} className="border-gray-300" />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -261,123 +261,123 @@ const AddMember = () => {
 
                         <div className="grid grid-cols-2 gap-4">
 
-                        {/* current year */}
-                        <FormField
-                            control={form.control}
-                            name="current_year"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Current year</FormLabel>
-                                    {/* <Select onValueChange={field.onChange} defaultValue={field.value}> */}
-                                    <Select onValueChange={field.onChange}>
-                                        <FormControl>
-                                            <SelectTrigger className="border-gray-300 text-gray-500">
-                                                <SelectValue placeholder="Select current year"/>
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="First">1</SelectItem>
-                                            <SelectItem value="Second">2</SelectItem>
-                                            <SelectItem value="Third">3</SelectItem>
-                                            <SelectItem value="Fourth">4</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                            {/* current year */}
+                            <FormField
+                                control={form.control}
+                                name="current_year"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Current year</FormLabel>
+                                        {/* <Select onValueChange={field.onChange} defaultValue={field.value}> */}
+                                        <Select onValueChange={field.onChange}>
+                                            <FormControl>
+                                                <SelectTrigger className="border-gray-300 text-gray-500">
+                                                    <SelectValue placeholder="Select current year" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                <SelectItem value="First">1</SelectItem>
+                                                <SelectItem value="Second">2</SelectItem>
+                                                <SelectItem value="Third">3</SelectItem>
+                                                <SelectItem value="Fourth">4</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
-                        {/* branch */}
-                        <FormField
-                            control={form.control}
-                            name="branch"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Branch</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                        <FormControl>
-                                            <SelectTrigger className="border-gray-300 text-gray-500">
-                                                <SelectValue placeholder="Select branch" />
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="CSE">CSE</SelectItem>
-                                            <SelectItem value="ECE">ECE</SelectItem>
-                                            <SelectItem value="ME">ME</SelectItem>
-                                            <SelectItem value="CE">CE</SelectItem>
-                                            <SelectItem value="EE">EE</SelectItem>
-                                            <SelectItem value="IT">IT</SelectItem>
-                                            <SelectItem value="MCA">MCA</SelectItem>
-                                            <SelectItem value="MBA">MBA</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                            {/* branch */}
+                            <FormField
+                                control={form.control}
+                                name="branch"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Branch</FormLabel>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger className="border-gray-300 text-gray-500">
+                                                    <SelectValue placeholder="Select branch" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                <SelectItem value="CSE">CSE</SelectItem>
+                                                <SelectItem value="ECE">ECE</SelectItem>
+                                                <SelectItem value="ME">ME</SelectItem>
+                                                <SelectItem value="CE">CE</SelectItem>
+                                                <SelectItem value="EE">EE</SelectItem>
+                                                <SelectItem value="IT">IT</SelectItem>
+                                                <SelectItem value="MCA">MCA</SelectItem>
+                                                <SelectItem value="MBA">MBA</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
-                        {/* select year of joinning */}
-                        <FormField
-                            control={form.control}
-                            name="year_of_joining"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Year of joinning</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                        <FormControl>
-                                            <SelectTrigger className="border-gray-300 text-gray-500">
-                                                <SelectValue placeholder="Select year of joinning" />
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            {/* starting from 2020 to 2025 */}
-                                            <SelectItem value="Y_2020">2020</SelectItem>
-                                            <SelectItem value="Y_2021">2021</SelectItem>
-                                            <SelectItem value="Y_2022">2022</SelectItem>
-                                            <SelectItem value="Y_2023">2023</SelectItem>
-                                            <SelectItem value="Y_2024">2024</SelectItem>
-                                            <SelectItem value="Y_2025">2025</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                        {/* select position */}
-                        <FormField
-                            control={form.control}
-                            name="position"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Position</FormLabel>
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                        <FormControl>
-                                            <SelectTrigger className=" border-gray-300 text-gray-500">
-                                                <SelectValue placeholder="Select position" />
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
+                            {/* select year of joinning */}
+                            <FormField
+                                control={form.control}
+                                name="year_of_joining"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Year of joinning</FormLabel>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger className="border-gray-300 text-gray-500">
+                                                    <SelectValue placeholder="Select year of joinning" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
+                                                {/* starting from 2020 to 2025 */}
+                                                <SelectItem value="Y_2020">2020</SelectItem>
+                                                <SelectItem value="Y_2021">2021</SelectItem>
+                                                <SelectItem value="Y_2022">2022</SelectItem>
+                                                <SelectItem value="Y_2023">2023</SelectItem>
+                                                <SelectItem value="Y_2024">2024</SelectItem>
+                                                <SelectItem value="Y_2025">2025</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            {/* select position */}
+                            <FormField
+                                control={form.control}
+                                name="position"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Position</FormLabel>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger className=" border-gray-300 text-gray-500">
+                                                    <SelectValue placeholder="Select position" />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent>
 
-                                            <SelectItem value="Member">Member</SelectItem>
-                                            <SelectItem value="Lead">Lead</SelectItem>
-                                            <SelectItem value="Vice_Lead">Vice_Lead</SelectItem>
-                                            <SelectItem value="Tech_Lead">Tech_Lead</SelectItem>
-                                            <SelectItem value="PR_Lead">PR_Lead</SelectItem>
-                                            <SelectItem value="CR_Lead">CR_Lead</SelectItem>
-                                            <SelectItem value="Executive">Executive</SelectItem>
-                                            <SelectItem value="Creative_Lead">Creative_Lead</SelectItem>
-                                            <SelectItem value="Design_Lead">Design_Lead</SelectItem>
-                                            <SelectItem value="Ar_Lead">Ar_Lead</SelectItem>
-                                            <SelectItem value="Web_Lead">Web_Lead</SelectItem>
-                                            <SelectItem value="App_Lead">App_Lead</SelectItem>
-                                            <SelectItem value="Vr_Lead">Vr_Lead</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                                                <SelectItem value="Member">Member</SelectItem>
+                                                <SelectItem value="Lead">Lead</SelectItem>
+                                                <SelectItem value="Vice_Lead">Vice_Lead</SelectItem>
+                                                <SelectItem value="Tech_Lead">Tech_Lead</SelectItem>
+                                                <SelectItem value="PR_Lead">PR_Lead</SelectItem>
+                                                <SelectItem value="CR_Lead">CR_Lead</SelectItem>
+                                                <SelectItem value="Executive">Executive</SelectItem>
+                                                <SelectItem value="Creative_Lead">Creative_Lead</SelectItem>
+                                                <SelectItem value="Design_Lead">Design_Lead</SelectItem>
+                                                <SelectItem value="Ar_Lead">Ar_Lead</SelectItem>
+                                                <SelectItem value="Web_Lead">Web_Lead</SelectItem>
+                                                <SelectItem value="App_Lead">App_Lead</SelectItem>
+                                                <SelectItem value="Vr_Lead">Vr_Lead</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                         </div>
                     </div>
 
@@ -386,6 +386,7 @@ const AddMember = () => {
                     <div className="flex justify-end">
                         <Button type="submit" className="h-[50%] bg-[#1f273c]">Save changes</Button>
                     </div>
+
                 </form>
             </Form>
         </div>

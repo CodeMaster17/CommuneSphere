@@ -36,7 +36,6 @@ export const getAllUsers = async () => {
 export const countAllUsers = async () => {
   try {
     const count = await db.user.count();
-    // console.log(count);
     return count;
   } catch {
     return null;

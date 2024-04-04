@@ -48,8 +48,6 @@ import {
 import { cn } from "@/lib/utils"
 import { FilterX, Check, Filter, ChevronsUpDown } from "lucide-react"
 import { Role, Year } from "@/constants"
-import { useDispatch } from "react-redux"
-import { setId } from "@/actions/redux/slice"
 
 // ########################################## Definitions #########################################################
 
@@ -60,7 +58,6 @@ interface MyData {
 interface DataTableProps<TData extends MyData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[],
-    handleClickedRow: (id: string) => void
 
 }
 
@@ -69,7 +66,7 @@ interface DataTableProps<TData extends MyData, TValue> {
 export function DataTable<TData extends MyData, TValue>({
     columns,
     data,
-    handleClickedRow
+
 }: DataTableProps<TData, TValue>) {
 
     // state management
@@ -110,15 +107,6 @@ export function DataTable<TData extends MyData, TValue>({
         setValueRole("")
         setValueYOJ("")
     }
-
-    // const [clickedTableId, setClickedTableId] = React.useState<string>("")
-    const dispatch = useDispatch()
-    const clickedIdDispach = (id: string) => {
-        dispatch(setId(id))
-        // handleClickedRow(id)
-        // setClickedTableId(id)
-    }
-
 
 
     // ################################################################### Component ##########################
@@ -269,7 +257,7 @@ export function DataTable<TData extends MyData, TValue>({
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
                                     return (
-                                        <TableHead key={header.id} className=""  >
+                                        <TableHead key={header.id} className="pl-8"  >
                                             {header.isPlaceholder
                                                 ? null
                                                 : flexRender(
@@ -282,7 +270,7 @@ export function DataTable<TData extends MyData, TValue>({
                             </TableRow>
                         ))}
                     </TableHeader>
-                    <TableBody className="rounded-lg">
+                    <TableBody className="rounded-lg pl-8 ">
                         {table.getRowModel().rows?.length ? (
                             table.getRowModel().rows.map((row, index) =>
 
@@ -291,11 +279,11 @@ export function DataTable<TData extends MyData, TValue>({
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
                                     // onClick={() => clickedIdDispach(row.original.id)}
-                                    className="rounded-lg bg-white"
+                                    className="rounded-lg border-2 border-red-500 bg-white "
                                 // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className="" >
+                                        <TableCell key={cell.id} className="pl-8" >
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}

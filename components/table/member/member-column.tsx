@@ -34,14 +34,14 @@ export type UserType = {
 
 
 export const columns: ColumnDef<UserType>[] = [
-    {
-        id: "sno",
-        header: "S.No.",
-        cell: ({ row }) => {
-            return <span>{row.index + 1}</span>
-        },
-        size: 50
-    },
+    // {
+    //     id: "sno",
+    //     header: "S.No.",
+    //     cell: ({ row }) => {
+    //         return <span>{row.index + 1}</span>
+    //     },
+    //     size: 50
+    // },
     {
         accessorKey: "name",
         header: "Name",
@@ -80,8 +80,7 @@ export const columns: ColumnDef<UserType>[] = [
             const dispatch = useDispatch()
             const clickedIdDispach = (id: string) => {
                 dispatch(setId(id))
-                // handleClickedRow(id)
-                // setClickedTableId(id)
+                console.log("Clicked id: ", id)
             }
             const deleteButttonHandler = async (id: string) => {
                 console.log("Delete button clicked with id: ", id)

@@ -25,7 +25,10 @@ export const registerUser = async (values: z.infer<typeof RegisterSchema>) => {
     instagram,
     twitter,
     facebook,
+    domain,
+    gender,
     personal_email,
+    event,
   } = validatedFields.data;
   const exisitingUser = await getUserByEmail(email);
   if (exisitingUser) {
@@ -44,11 +47,14 @@ export const registerUser = async (values: z.infer<typeof RegisterSchema>) => {
       year_of_joining,
       position,
       github,
+      domain, 
+      gender,
       linkedin,
       instagram,
       twitter,
       facebook,
       personal_email,
+      event,
     },
   });
 

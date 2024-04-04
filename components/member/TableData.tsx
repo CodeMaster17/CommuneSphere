@@ -1,10 +1,12 @@
-'use client'
-import React, { useEffect, } from 'react'
+
+
 import { DataTable } from '../table/member/member-data-table'
-import { getUserById } from '@/actions/user.action'
+import { getAllUsers, getUserById } from '@/actions/user.action'
 import { useSelector } from 'react-redux'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Link from 'next/link'
+import { useDisplayYear } from '@/hooks/use-display-data'
+import { UserType } from '../table/member/member-column'
 
 
 
@@ -12,32 +14,31 @@ interface TableDataProps {
     data: any
     columns: any
 }
+async function getData(): Promise<UserType[]> {
 
-const TableData = ({ data, columns }: TableDataProps) => {
+    const data = await getAllUsers()
 
-
-    const [loading, setLoading] = React.useState<boolean>(true)
-    const userId = useSelector((data: any) => data.id)
-    console.log("userId:", userId)
-    const [userData, setUserData] = React.useState<any>({})
-    const handleClickTableRow = (id: string) => { }
-    useEffect(() => {
-        console.log("UseEffectTableId", userId)
-
-        async function fetchData() {
-            setLoading(true)
-            const data = await getUserById(userId)
-            await setUserData(data)
-            setLoading(false)
+    // only returning the required fields
+    return data?.map((user, index) => {
+        return {
+            sno: index + 1,
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            position: user.position,
+            current_year: user.current_year,
+            year_of_joining: useDisplayYear(user.year_of_joining) as '2021' || '2022' || '2023' || '2024' || '2025' || null,
         }
+    }) || []
+}
 
-        fetchData()
-
-    }, [userId])
+// This function will be called by Next.js on the server side
+const TableData = async ({ data, columns }: TableDataProps) => {
 
     return (
         <>
-            <DataTable columns={columns} data={data} handleClickedRow={handleClickTableRow} />
+            <DataTable columns={columns} data={data} />
         </>
     )
 }
