@@ -279,7 +279,7 @@ export function DataTable<TData extends MyData, TValue>({
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
                                     // onClick={() => clickedIdDispach(row.original.id)}
-                                    className="rounded-lg border-2 border-red-500 bg-white "
+                                    className="rounded-lg bg-white "
                                 // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (

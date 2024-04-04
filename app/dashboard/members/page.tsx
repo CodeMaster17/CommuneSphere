@@ -41,6 +41,7 @@ async function getData(): Promise<UserType[]> {
 
 const Members = async () => {
     const data = await getData()
+
     // console.log(data)
 
 

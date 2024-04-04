@@ -103,7 +103,7 @@ export const columns: ColumnDef<UserType>[] = [
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction onClick={() => deleteButttonHandler(row.original.id)} >Continue</AlertDialogAction>
+                                    <AlertDialogAction onClick={() => deleteButttonHandler(row.original.id)} className="bg-errorRed text-white hover:border-2 hover:border-errorRed hover:bg-white hover:text-errorRed "  >Delete</AlertDialogAction>
                                 </AlertDialogFooter>
                             </AlertDialogContent>
                         </AlertDialog>

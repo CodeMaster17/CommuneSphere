@@ -1,14 +1,18 @@
 
-import { countAllUsers } from "@/actions/user.action"
+import { countAllUsers, countFemaleMembers, countMaleMembers } from "@/actions/user.action"
 import { Heading } from "../shared/Heading"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Card } from "../ui/card"
+import { domain } from "@/constants/domains"
+
 
 const MemberPageCard = async () => {
 
 
     const totalMembers = await countAllUsers()
-
+    const femaleMemberCount = await countFemaleMembers()
+    const maleMemberCount = await countMaleMembers()
+    const totalDomains = domain.length
 
     return (
         <div className='mt-2 grid grid-cols-2 gap-4 '>
@@ -57,18 +61,18 @@ const MemberPageCard = async () => {
                         </p>
                     </Card>
                     <Card className="w-1/2 py-4 pl-4">
-                        <p>Total Members</p>
-                        <p className='text-4xl font-bold'>133</p>
+                        <p>Total Female Members</p>
+                        <p className='text-4xl font-bold'>{femaleMemberCount}</p>
                     </Card>
                 </div>
                 <div className='flex gap-4'>
                     <Card className="w-1/2 py-4 pl-4">
                         <p>Total Members</p>
-                        <p className='text-4xl font-bold'>133</p>
+                        <p className='text-4xl font-bold'>{maleMemberCount}</p>
                     </Card>
                     <Card className="w-1/2 py-4 pl-4">
-                        <p>Total Members</p>
-                        <p className='text-4xl font-bold'>133</p>
+                        <p>Total Domains</p>
+                        <p className='text-4xl font-bold'>{totalDomains}</p>
                     </Card>
                 </div>
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { MenuItem } from "./Menuitem";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { sidebarTop } from "@/constants/sidebar";
+import { sidebarTop } from "@/constants/sidebarConstants";
 import Link from "next/link";
 import {
   Sheet,

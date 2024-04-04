@@ -1,6 +1,7 @@
 "use server";
 import { useDisplayYear } from "@/hooks/use-display-data";
 import { db } from "@/lib/database.connection";
+import { revalidatePath } from "next/cache";
 
 export const getUserByEmail = async (email: string) => {
   try {
@@ -72,8 +73,31 @@ export async function getServerSideProps() {
 // functtion to delete user from the database
 export const deleteUser = async (id: string) => {
   try {
-    const user = await db.user.delete({ where: { id } });
-    return user;
+    await db.user.delete({ where: { id } });
+    revalidatePath("/dashboard/members");
+  } catch {
+    return null;
+  }
+};
+
+// function to count number of female members
+export const countFemaleMembers = async () => {
+  try {
+    const count = await db.user.count({
+      where: { gender: { equals: "female" } },
+    });
+    return count;
+  } catch {
+    return null;
+  }
+};
+// function to count number of male members
+export const countMaleMembers = async () => {
+  try {
+    const count = await db.user.count({
+      where: { gender: { equals: "male" } },
+    });
+    return count;
   } catch {
     return null;
   }
