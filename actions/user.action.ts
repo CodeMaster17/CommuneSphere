@@ -102,3 +102,33 @@ export const countMaleMembers = async () => {
     return null;
   }
 };
+
+// domain wise filter on the members
+/*
+
+enum domain{
+  web
+ app
+ cloud
+ cyber
+ ml
+ video_editing
+ graphics_designing
+ content_writing
+ marketing
+ finance
+ public_relations
+ creative
+ design
+}
+*/
+// export const countDomainWiseMembers = async (domainString: string) => {
+//   try {
+//     const count = await db.user.count({
+//       where: { domain: { equals: domainString } },
+//     });
+//     return count;
+//   } catch {
+//     return null;
+//   }
+// };

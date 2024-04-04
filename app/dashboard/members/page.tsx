@@ -42,9 +42,6 @@ async function getData(): Promise<UserType[]> {
 const Members = async () => {
     const data = await getData()
 
-    // console.log(data)
-
-
     return (
 
         <section className='flex w-full gap-4   '>
@@ -58,7 +55,7 @@ const Members = async () => {
                 <Tabs defaultValue="table" className="mt-8 w-full">
                     <TabsList className="grid w-[20%] grid-cols-2">
                         <TabsTrigger value="table">View All</TabsTrigger>
-                        <TabsTrigger value="domain">Domain View</TabsTrigger>
+                        <TabsTrigger value="domain" disabled>Domain View</TabsTrigger>
                     </TabsList>
                     <TabsContent value="table">
 

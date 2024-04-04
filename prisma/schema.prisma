@@ -98,7 +98,7 @@ model User {
   facebook     String?
   personal_email String?
   domain      domain @default(web)
-  event       Event[]
+  event       Event[] 
   gender      gender @default(male)
 }
 
