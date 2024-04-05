@@ -6,12 +6,14 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
 import { ExternalLink } from 'lucide-react';
+import { getAllEventsCount } from '@/actions/event.action'
 
 import MemberChart from '@/components/charts/MemberChart'
 import Image from 'next/image'
 
 const Dashboard = () => {
     const [memberCount, setMemberCount] = React.useState<number | null>(null)
+    const [eventCount, setEventCount] = React.useState<number | null>(null)
 
     async function getData() {
         try {
@@ -23,8 +25,19 @@ const Dashboard = () => {
         }
     }
 
+    async function getEventCount() {
+        try {
+            const count = await getAllEventsCount()
+            console.log(count)
+            setEventCount(count)
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
     React.useEffect(() => {
         getData()
+        getEventCount()
     }, [])
     return (
         <section className="w-full ">
@@ -33,7 +46,7 @@ const Dashboard = () => {
             </Heading>
             <div className='mt-2 flex w-full flex-wrap gap-4'>
                 <StatsHomeCard number={memberCount} description={"Total Members"} />
-                <StatsHomeCard number={memberCount} description={"Total Events"} />
+                <StatsHomeCard number={eventCount} description={"Total Events"} />
             </div>
             <section className=" mt-8 text-gray-600">
                 <div className="  flex flex-wrap">

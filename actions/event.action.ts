@@ -49,15 +49,10 @@ export const getAllEvents = async () => {
 
 export const getAllEventsCount = async () => {
   try {
-    const eventsCount = await db.event.aggregate({
-      _count: {
-        id: true,
-      }
-    });
-    return eventsCount._count.id;
-    console.log(eventsCount); // or do something with the count
-  } catch (error) {
-    console.error('Error retrieving events count:', error);
+    const count = await db.event.count();
+    return count;
+  } catch {
+    return null;
   }
 }
 
