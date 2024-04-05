@@ -1,6 +1,7 @@
 "use server";
 import { useDisplayYear } from "@/hooks/use-display-data";
 import { db } from "@/lib/database.connection";
+import { revalidatePath } from "next/cache";
 
 export const getUserByEmail = async (email: string) => {
   try {
@@ -36,7 +37,6 @@ export const getAllUsers = async () => {
 export const countAllUsers = async () => {
   try {
     const count = await db.user.count();
-    // console.log(count);
     return count;
   } catch {
     return null;
@@ -73,9 +73,62 @@ export async function getServerSideProps() {
 // functtion to delete user from the database
 export const deleteUser = async (id: string) => {
   try {
-    const user = await db.user.delete({ where: { id } });
-    return user;
+    await db.user.delete({ where: { id } });
+    revalidatePath("/dashboard/members");
   } catch {
     return null;
   }
 };
+
+// function to count number of female members
+export const countFemaleMembers = async () => {
+  try {
+    const count = await db.user.count({
+      where: { gender: { equals: "female" } },
+    });
+    return count;
+  } catch {
+    return null;
+  }
+};
+// function to count number of male members
+export const countMaleMembers = async () => {
+  try {
+    const count = await db.user.count({
+      where: { gender: { equals: "male" } },
+    });
+    return count;
+  } catch {
+    return null;
+  }
+};
+
+// domain wise filter on the members
+/*
+
+enum domain{
+  web
+ app
+ cloud
+ cyber
+ ml
+ video_editing
+ graphics_designing
+ content_writing
+ marketing
+ finance
+ public_relations
+ creative
+ design
+}
+*/
+// export const countDomainWiseMembers = async (domainString: string) => {
+//   try {
+//     const count = await db.user.count({
+//       where: { domain: { equals: domainString } },
+//     });
+//     return count;
+//   } catch {
+//     return null;
+//   }
+// };

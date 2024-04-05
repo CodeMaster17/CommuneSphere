@@ -9,7 +9,6 @@ const Slice = createSlice({
   initialState,
   reducers: {
     setId: (state, action) => {
-      console.log(action);
       const data = {
         clickedRow: action.payload,
       };

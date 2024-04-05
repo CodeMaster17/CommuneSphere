@@ -34,13 +34,14 @@ export type UserType = {
 
 
 export const columns: ColumnDef<UserType>[] = [
-    {
-        id: "sno",
-        cell: ({ row }) => {
-            return <span>{row.index + 1}</span>
-        },
-        size: 50
-    },
+    // {
+    //     id: "sno",
+    //     header: "S.No.",
+    //     cell: ({ row }) => {
+    //         return <span>{row.index + 1}</span>
+    //     },
+    //     size: 50
+    // },
     {
         accessorKey: "name",
         header: "Name",
@@ -79,8 +80,7 @@ export const columns: ColumnDef<UserType>[] = [
             const dispatch = useDispatch()
             const clickedIdDispach = (id: string) => {
                 dispatch(setId(id))
-                // handleClickedRow(id)
-                // setClickedTableId(id)
+                console.log("Clicked id: ", id)
             }
             const deleteButttonHandler = async (id: string) => {
                 console.log("Delete button clicked with id: ", id)
@@ -91,7 +91,7 @@ export const columns: ColumnDef<UserType>[] = [
                     <span className="flex">
                         <AlertDialog>
                             <AlertDialogTrigger asChild>
-                                <Button variant="outline" className="m-0 size-8 p-0"><Trash2 className="size-4" color="#FF204E" /></Button>
+                                <Button variant="ghost" className="m-0 size-8 p-0"><Trash2 className="size-4" color="#FF204E" /></Button>
                             </AlertDialogTrigger>
                             <AlertDialogContent>
                                 <AlertDialogHeader>
@@ -103,13 +103,13 @@ export const columns: ColumnDef<UserType>[] = [
                                 </AlertDialogHeader>
                                 <AlertDialogFooter>
                                     <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                    <AlertDialogAction onClick={() => deleteButttonHandler(row.original.id)} >Continue</AlertDialogAction>
+                                    <AlertDialogAction onClick={() => deleteButttonHandler(row.original.id)} className="bg-errorRed text-white hover:border-2 hover:border-errorRed hover:bg-white hover:text-errorRed "  >Delete</AlertDialogAction>
                                 </AlertDialogFooter>
                             </AlertDialogContent>
                         </AlertDialog>
 
-                        <Button variant="outline" onClick={() => clickedIdDispach(row.original.id)} className="m-0 size-8 p-0"><Eye className="size-4" /></Button>
-                        <Button variant="outline" className="m-0 size-8 p-0"><Pencil className="size-4" /></Button>
+                        <Button variant="ghost" onClick={() => clickedIdDispach(row.original.id)} className="m-0 size-8 p-0"><Eye className="size-4" /></Button>
+                        <Button variant="ghost" className="m-0 size-8 p-0"><Pencil className="size-4" /></Button>
                     </span>
 
                 </>

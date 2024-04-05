@@ -1,14 +1,23 @@
 
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { UserType, columns } from "@/components/table/member/member-column"
 import { getAllUsers } from '@/actions/user.action'
-import Leads from '@/components/member/LeadsSection'
-import { Heading } from '@/components/shared/Heading'
 import { useDisplayYear } from '@/hooks/use-display-data'
 import Breadcrumb from '@/components/shared/Breadcrumb'
 
 import TableData from '@/components/member/TableData'
+import {
+    Tabs,
+    TabsContent,
+    TabsList,
+    TabsTrigger,
+} from "@/components/ui/tabs"
+
+
+import DomainWiseData from '@/components/member/DomainWiseData'
+import MemberPageCard from '@/components/member/MemberPageCard'
+import OnClickProfileView from '@/components/member/OnClickProfileView'
+import AddFormModal from '@/components/member/AddFormModal'
 
 
 async function getData(): Promise<UserType[]> {
@@ -23,7 +32,6 @@ async function getData(): Promise<UserType[]> {
             name: user.name,
             email: user.email,
             role: user.role,
-            // roll_number: user.roll_number,
             position: user.position,
             current_year: user.current_year,
             year_of_joining: useDisplayYear(user.year_of_joining) as '2021' || '2022' || '2023' || '2024' || '2025' || null,
@@ -31,38 +39,73 @@ async function getData(): Promise<UserType[]> {
     }) || []
 }
 
-// This function will be called by Next.js on the server side
-
 const Members = async () => {
     const data = await getData()
-    console.log(data)
-
-
 
     return (
 
-
-        <section className='w-full'>
-            <div className='flex w-full justify-between'>
-                {/* // TODO: Breadcrumb  */}
+        <section className='flex w-full gap-4   '>
+            <div className='w-[70%]'>
                 <Breadcrumb />
-                <Button asChild variant="outline">
-                    <Link href="/dashboard/members/add-member">Add Member +</Link>
-                </Button>
+
+
+                {/* top cards */}
+                <MemberPageCard />
+
+                <Tabs defaultValue="table" className="mt-8 w-full">
+                    <TabsList className="grid w-[20%] grid-cols-2">
+                        <TabsTrigger value="table">View All</TabsTrigger>
+                        <TabsTrigger value="domain" disabled>Domain View</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="table">
+
+                        {/* table data */}
+                        <TableData data={data} columns={columns} />
+
+
+                    </TabsContent>
+                    <TabsContent value="domain">
+
+                        {/* domain wise data table */}
+                        <DomainWiseData />
+
+                    </TabsContent>
+                </Tabs>
             </div>
-            <div className='mt-4 w-full'>
-                <Heading type="medium">
-                    Leads
-                </Heading>
-                <Leads />
+            <div className='w-[30%]  pr-4'>
+                <div className='flex w-full items-center justify-end gap-4'>
+                    <AddFormModal />
+                    <Button variant="outline">
+                        Import from CSV
+                    </Button>
+                </div>
+
+
+                {/* side profile view */}
+                <OnClickProfileView />
+
+
+
+                {/* graph */}
+                <div className='mt-4 h-[40vh] w-full rounded-[7.54px]  bg-white p-4'>
+                    <Tabs defaultValue="Year" className=" w-full">
+                        <TabsList defaultValue={"Year"} className="grid w-full grid-cols-3">
+                            <TabsTrigger defaultValue={"Year"} value="Year">Year</TabsTrigger>
+                            <TabsTrigger value="Gender">Gender</TabsTrigger>
+                            <TabsTrigger value="Domain">Domain</TabsTrigger>
+                        </TabsList>
+                        <TabsContent value="Year" className='flex size-full items-center justify-center'>
+                            No graph to show
+                        </TabsContent>
+                        <TabsContent value="Gender" className='flex size-full items-center justify-center'>
+                            No graph to show
+                        </TabsContent>
+                        <TabsContent value="Domain" className='flex size-full items-center justify-center'>
+                            No graph to show
+                        </TabsContent>
+                    </Tabs>
+                </div>
             </div>
-            <div className='mt-4'>
-                <Heading type="medium">
-                    Members
-                </Heading>
-                {/* //  TODO : Member Page */}
-            </div>
-            <TableData data={data} columns={columns} />
         </section>
 
     )

@@ -1,11 +1,14 @@
+/* eslint-disable camelcase */
 "use server";
 import { EventRegisterSchema } from "@/schema/event-schema";
 import * as z from "zod";
 import { db } from "@/lib/database.connection";
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export const registerEvent = async (values: z.infer<typeof EventRegisterSchema>) => {
+export const registerEvent = async (
+  values: z.infer<typeof EventRegisterSchema>
+) => {
   const validatedFields = EventRegisterSchema.safeParse(values);
   if (!validatedFields.success) {
     throw new Error("Invalid fields");
@@ -22,21 +25,20 @@ export const registerEvent = async (values: z.infer<typeof EventRegisterSchema>)
   } = validatedFields.data;
   await db.event.create({
     data: {
-        name,
-        date,
-        target_year,
-        duration,
-        expected_participants,
-        actual_participants,
-        location,
-        event_thumbnail,
+      name,
+      date,
+      target_year,
+      duration,
+      expected_participants,
+      actual_participants,
+      location,
+      event_thumbnail,
     },
   });
-  revalidatePath("/dashboard/events")
-  redirect("/dashboard/events")
+  revalidatePath("/dashboard/events");
+  redirect("/dashboard/events");
   // return { success: "Event created successfully" };
 };
-
 
 export const getAllEvents = async () => {
   try {
@@ -54,23 +56,26 @@ export const getAllEventsCount = async () => {
   } catch {
     return null;
   }
-}
+};
 
-export const deleteEvent = async (eventId:string) => {
+export const deleteEvent = async (eventId: string) => {
   try {
-      const deleted = await db.event.delete({
-          where: {
-              id: eventId,
-          },
-      });
+    await db.event.delete({
+      where: {
+        id: eventId,
+      },
+    });
   } catch (error) {
-      console.error("Error deleting event:", error);
+    console.error("Error deleting event:", error);
     throw new Error("Failed to delete event");
   }
   redirect("/dashboard/events");
 };
 
-export const updateEvent = async (eventId: string, updatedEventData: z.infer<typeof EventRegisterSchema>) => {
+export const updateEvent = async (
+  eventId: string,
+  updatedEventData: z.infer<typeof EventRegisterSchema>
+) => {
   try {
     const validatedFields = EventRegisterSchema.safeParse(updatedEventData);
     if (!validatedFields.success) {
@@ -111,16 +116,16 @@ export const updateEvent = async (eventId: string, updatedEventData: z.infer<typ
   }
 };
 
-export const getEventId = async (eventId:string) => {
+export const getEventId = async (eventId: string) => {
   try {
-      const ret = await db.event.findUnique({
-          where: {
-              id: eventId,
-          },
-      });
+    const ret = await db.event.findUnique({
+      where: {
+        id: eventId,
+      },
+    });
     return ret;
   } catch (error) {
-      console.error("Error deleting event:", error);
-      throw new Error("Failed to find event");
+    console.error("Error deleting event:", error);
+    throw new Error("Failed to find event");
   }
 };

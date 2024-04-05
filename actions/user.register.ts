@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 "use server";
 import { RegisterSchema } from "@/schema";
 import * as z from "zod";
@@ -25,11 +26,13 @@ export const registerUser = async (values: z.infer<typeof RegisterSchema>) => {
     instagram,
     twitter,
     facebook,
+    domain,
+    gender,
     personal_email,
   } = validatedFields.data;
   const exisitingUser = await getUserByEmail(email);
   if (exisitingUser) {
-    return {error:"User already exists"}
+    return { error: "User already exists" };
   }
   await db.user.create({
     data: {
@@ -44,6 +47,8 @@ export const registerUser = async (values: z.infer<typeof RegisterSchema>) => {
       year_of_joining,
       position,
       github,
+      domain,
+      gender,
       linkedin,
       instagram,
       twitter,
