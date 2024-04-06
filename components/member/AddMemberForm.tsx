@@ -92,7 +92,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="shadcn" {...field} />
+                                    <Input placeholder="Enter name" {...field} />
                                 </FormControl>
 
                                 <FormMessage />
@@ -106,7 +106,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                             <FormItem>
                                 <FormLabel>Roll Number</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="shadcn" {...field} />
+                                    <Input placeholder="Enter roll number" {...field} />
                                 </FormControl>
 
                                 <FormMessage />
@@ -151,7 +151,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger className="border-gray-300 text-gray-500">
-                                            <SelectValue placeholder="Select branch" />
+                                            <SelectValue placeholder="Select domain" />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
@@ -270,7 +270,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                             <FormItem>
                                 <FormLabel>Personal email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Personal email" type="email" {...field} className="border-gray-300" />
+                                    <Input placeholder="Enter personal email" type="email" {...field} className="border-gray-300" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
