@@ -24,8 +24,8 @@ import { registerUser } from '@/actions/user.register'
 import { toast } from "sonner"
 import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
-
-
+import { Trash2 } from 'lucide-react';
+import { Pencil } from 'lucide-react';
 
 
 const AddMemberForm = ({ closeModalFunction }) => {
@@ -73,17 +73,19 @@ const AddMemberForm = ({ closeModalFunction }) => {
                         <AvatarImage src="https://github.com/shadcn.png" alt="CommuneSphere" />
                         <AvatarFallback>CM</AvatarFallback>
                     </Avatar>
-                    <div>
-                        <p className='text-xl'>Change Image</p>
-                        <span className='rounded-md bg-neonGreen p-1 text-xs text-darkGreen'>
-                            remove Image
-                        </span>
-                        <br />
-                        <span className='rounded-md bg-golden p-1 text-xs text-darkGolden'>Domain</span>
+                    <div className='space-y-2'>
+                        <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
+                            <Pencil className='w-4 h-4'/>Add Image
+                        </Button>
+                        <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 border-errorRed text-errorRed gap-2 hover:bg-errorRed hover:text-white'>
+                            <Trash2 className='w-4 h-4'/>Remove Image
+                        </Button>
+                        {/* <br /> */}
+                        {/* <span className='rounded-md bg-golden p-1 text-xs text-darkGolden'>Domain</span> */}
                     </div>
                 </div>
                 {/* edit form */}
-                <div className="grid flex-1 grid-cols-2 gap-2">
+                <div className="grid flex-1 grid-cols-2 gap-2 pt-4">
 
                     <FormField
                         control={form.control}
@@ -92,7 +94,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                             <FormItem>
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="shadcn" {...field} />
+                                    <Input placeholder="Enter name" {...field} />
                                 </FormControl>
 
                                 <FormMessage />
@@ -106,7 +108,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                             <FormItem>
                                 <FormLabel>Roll Number</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="shadcn" {...field} />
+                                    <Input placeholder="Enter roll number" {...field} />
                                 </FormControl>
 
                                 <FormMessage />
@@ -151,7 +153,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger className="border-gray-300 text-gray-500">
-                                            <SelectValue placeholder="Select branch" />
+                                            <SelectValue placeholder="Select domain" />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
@@ -270,7 +272,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                             <FormItem>
                                 <FormLabel>Personal email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="Personal email" type="email" {...field} className="border-gray-300" />
+                                    <Input placeholder="Enter personal email" type="email" {...field} className="border-gray-300" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -298,10 +300,10 @@ const AddMemberForm = ({ closeModalFunction }) => {
                 <br />
                 <FormError message={error} />
                 <FormSuccess message={success} />
-                <div className='flex justify-between'>
+                <div className='flex w-full gap-2'>
 
-                    <Button type="button" className='border-2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>close</Button>
-                    <Button type="submit" className='border-2 border-sucessGreen bg-white text-sucessGreen hover:bg-sucessGreen hover:text-white' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
+                    <Button type="button" className='border-2 w-1/2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>Discard</Button>
+                    <Button type="submit" className='border-2 w-1/2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
                 </div>
 
             </form>
