@@ -113,7 +113,7 @@ export function DataTable<TData extends MyData, TValue>({
             <div className="flex w-full  items-center justify-between py-4">
                 {/* filter names */}
                 <Input
-                    placeholder="Search Events.."
+                    placeholder="Search Sponsors.."
                     value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
                     onChange={(event) =>
                         table.getColumn("name")?.setFilterValue(event.target.value)
@@ -124,7 +124,7 @@ export function DataTable<TData extends MyData, TValue>({
                 <div className="">
                 <Popover open={openTYDropdown} onOpenChange={setOpenTYDropdown}>
                     <PopoverTrigger asChild>
-                        <Button
+                        {/* <Button
                             variant="outline"
                             role="combobox"
                             aria-expanded={openTYDropdown}
@@ -134,7 +134,7 @@ export function DataTable<TData extends MyData, TValue>({
                                 ? "Select Year..."
                                 : valueTY}
                             <Filter className="ml-2 size-4 shrink-0 opacity-50" />
-                        </Button>
+                        </Button> */}
                     </PopoverTrigger>
                     <PopoverContent className="w-[180px] p-0">
                         <Command>
