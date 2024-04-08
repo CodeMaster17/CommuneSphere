@@ -51,14 +51,10 @@ export const getAllEvents = async () => {
 
 export const getAllEventsCount = async () => {
   try {
-    const eventsCount = await db.event.aggregate({
-      _count: {
-        id: true,
-      },
-    });
-    return eventsCount._count.id;
-  } catch (error) {
-    console.error("Error retrieving events count:", error);
+    const count = await db.event.count();
+    return count;
+  } catch {
+    return null;
   }
 };
 
@@ -69,12 +65,13 @@ export const deleteEvent = async (eventId: string) => {
         id: eventId,
       },
     });
-  } catch (error) {
-    console.error("Error deleting event:", error);
-    throw new Error("Failed to delete event");
+    
+    revalidatePath("/dashboard/events");
+  } catch {
+    return null;
   }
-  redirect("/dashboard/events");
 };
+
 
 export const updateEvent = async (
   eventId: string,
@@ -129,7 +126,71 @@ export const getEventId = async (eventId: string) => {
     });
     return ret;
   } catch (error) {
-    console.error("Error deleting event:", error);
-    throw new Error("Failed to find event");
+    return null;
+  }
+};
+
+
+
+// Calculate average participation for all events
+export const countAvgParticipation = async () => {
+  try {
+    const events = await getAllEvents();
+    if (!events || events.length === 0) {
+      return 0;
+    }
+
+    let totalParticipation = 0;
+    for (const event of events) {
+      if (event.actual_participants !== "upcoming") {
+        totalParticipation += parseInt(event.actual_participants);
+      }
+    }
+
+    const avgParticipation = totalParticipation / events.length;
+    // Round off to the nearest whole number
+    const roundedAvgParticipation = Math.round(avgParticipation);
+    return roundedAvgParticipation;
+  } catch (error) {
+    console.error("Error calculating average participation:", error);
+    throw new Error("Failed to calculate average participation");
+  }
+};
+
+
+// Calculate average registration for all events
+export const countAvgRegistration = async () => {
+  try {
+    const events = await getAllEvents();
+    if (!events || events.length === 0) {
+      return 0;
+    }
+
+    let totalRegistrations = 0;
+    for (const event of events) {
+      totalRegistrations += 1; // Assuming each event represents one registration
+    }
+
+    const avgRegistration = totalRegistrations / events.length;
+    return avgRegistration;
+  } catch (error) {
+    console.error("Error calculating average registration:", error);
+    throw new Error("Failed to calculate average registration");
+  }
+};
+
+
+export const getTopEvents = async (limit: number) => {
+  try {
+    const events = await db.event.findMany({
+      orderBy: {
+        actual_participants: 'desc', // Sort events by actual_participants in descending order
+      },
+      take: limit, // Limit the number of events to retrieve
+    });
+    return events;
+  } catch (error) {
+    console.error("Error fetching top events:", error);
+    throw new Error("Failed to fetch top events");
   }
 };

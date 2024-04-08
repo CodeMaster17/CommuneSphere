@@ -4,14 +4,18 @@ import StatsHomeCard from '@/components/cards/StatsHomeCard'
 import { Heading } from '@/components/shared/Heading'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { ExternalLink } from 'lucide-react';
+import { getAllEventsCount } from '@/actions/event.action'
+import { getTopEvents } from '@/actions/event.action'
 
 import MemberChart from '@/components/charts/MemberChart'
 import Image from 'next/image'
 
 const Dashboard = () => {
     const [memberCount, setMemberCount] = React.useState<number | null>(null)
+    const [eventCount, setEventCount] = React.useState<number | null>(null)
+    const [topEvents, setTopEvents] = useState([])
 
     async function getData() {
         try {
@@ -23,8 +27,31 @@ const Dashboard = () => {
         }
     }
 
+    async function getEventCount() {
+        try {
+            const count = await getAllEventsCount()
+            console.log(count)
+            setEventCount(count)
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+    async function fetchTopEvents() {
+        try {
+            const eventsData = await getTopEvents(4);
+            console.log(eventsData)
+            setTopEvents(eventsData);
+        } catch (err) {
+            console.error(err);
+        }
+    }
+    
+
     React.useEffect(() => {
         getData()
+        getEventCount()
+        fetchTopEvents()
     }, [])
     return (
         <section className="w-full ">
@@ -33,7 +60,7 @@ const Dashboard = () => {
             </Heading>
             <div className='mt-2 flex w-full flex-wrap gap-4'>
                 <StatsHomeCard number={memberCount} description={"Total Members"} />
-                <StatsHomeCard number={memberCount} description={"Total Events"} />
+                <StatsHomeCard number={eventCount} description={"Total Events"} />
             </div>
             <section className=" mt-8 text-gray-600">
                 <div className="  flex flex-wrap">
@@ -53,26 +80,14 @@ const Dashboard = () => {
                                     <Heading type="medium">
                                         Top events
                                     </Heading>
-                                    <Button variant='outline' className='justify-start text-left'>
-                                        <Link href='/dashboard/events' className='flex w-full items-center justify-between'>
-                                            Kalki <ExternalLink />
-                                        </Link>
-                                    </Button>
-                                    <Button variant='outline' className='justify-start text-left'>
-                                        <Link href='/dashboard/events' className='flex w-full items-center justify-between'>
-                                            Stark Expo <ExternalLink />
-                                        </Link>
-                                    </Button>
-                                    <Button variant='outline' className='justify-start text-left'>
-                                        <Link href='/dashboard/events' className='flex w-full items-center justify-between'>
-                                            Defcon <ExternalLink />
-                                        </Link>
-                                    </Button>
-                                    <Button variant='outline' className='justify-start text-left'>
-                                        <Link href='/dashboard/events' className='flex w-full items-center justify-between'>
-                                            Defcon <ExternalLink />
-                                        </Link>
-                                    </Button>
+                                    
+                                    {topEvents && topEvents.map((event, index) => (
+                                        <Button key={index} variant='outline' className='justify-start text-left'>
+                                           <Link href='/dashboard/events' className='flex w-full items-center justify-between'>
+                                               {event.name} <ExternalLink />
+                                           </Link>
+                                         </Button>
+                                    ))}
                                 </span>
                             </div>
                             <div className='flex w-full flex-col rounded-md border-2 bg-white p-1 shadow-md md:p-2'>

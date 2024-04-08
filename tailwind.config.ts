@@ -62,6 +62,11 @@ const config = {
         darkGolden: "#7B341E",
         sucessGreen: "#06D41B",
         errorRed: "#FF2727",
+        greyTab: "#E2E8F0",
+        blueTab: "#BEE3F8",
+        greenTab: "#C6F6D5",
+        greenText: "#22543D",
+        blueText: "#2A4365"
       },
       borderRadius: {
         lg: "var(--radius)",

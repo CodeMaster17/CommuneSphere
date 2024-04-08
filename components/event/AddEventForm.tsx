@@ -1,10 +1,12 @@
 'use client'
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Button } from '../ui/button'
+import { Label } from "@/components/ui/label"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import Image from "next/image"
 
 import {
     Form,
@@ -23,16 +25,21 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+
 import { EventRegisterSchema } from "@/schema/event-schema"
 import { FormSuccess } from "@/components/shared/form-success/FormSuccess"
 import { FormError } from "@/components/shared/form-error/FormError"
+import { toast } from "sonner"
 
 import { useState, useTransition } from "react"
 import { registerEvent } from "@/actions/event.action"
 import { Heading } from '@/components/shared/Heading'
+import { Trash2 } from 'lucide-react';
+import { Pencil } from 'lucide-react';
 
 
-const AddEvent = () => {
+const AddEventForm = ({ closeModalFunction }) => {
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
@@ -58,25 +65,37 @@ const AddEvent = () => {
                 .then((data: any) => {
                     setError(data.error);
                     setSuccess(data.success);
-                });
+                    toast("Event has been created.")
+                }).catch((error) => {
+                    console.error("Error during form submission:", error);
+                    setError("An error occurred during submission.");
+                    toast("Error adding event.");
+                });;
         });
 
         console.log({ data })
     }
 
     return (
-        <div className='w-full p-5  bg-white rounded-md border-gray-300 border my-10'>
-            <div className="ml-5">
-                <Heading type="medium">
-                    Add Event
-                </Heading>
-            </div>
-            
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 p-5">
 
-                    <div className="grid grid-cols-2 gap-4 gap-x-10">
-                        {/* event name */}
+                    <div className="flex flex-col w-full justify-center gap-4 bg-white">
+                        <div className="flex w-full items-center justify-center gap-4">
+                        <Image src="/events-thumbnail.png" alt="intro" width={300} height={100} className="" />
+                            <div className="space-y-2">
+                              <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
+                                  <Pencil className='w-4 h-4'/>Add Image
+                              </Button>
+                              <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 border-errorRed text-errorRed gap-2 hover:bg-errorRed hover:text-white'>
+                                  <Trash2 className='w-4 h-4'/>Remove Image
+                              </Button>
+                    </div>
+                        </div>
+                    
+
+                <div className="grid flex-1 grid-cols-2 gap-2">
+
                         <FormField
                             control={form.control}
                             name="name"
@@ -200,16 +219,19 @@ const AddEvent = () => {
                             )}
                         />
                     </div>
+                    </div>
 
                     <FormError message={error} />
-                    <FormSuccess message={success} />
-                    <div className="flex justify-end pt-3">
-                        <Button type="submit" className="h-[50%]">Save changes</Button>
-                    </div>
-                </form>
+                <FormSuccess message={success} />
+                <div className='flex justify-between'>
+
+                    <Button type="button" className='border-2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>close</Button>
+                    <Button type="submit" className='border-2 border-sucessGreen bg-white text-sucessGreen hover:bg-sucessGreen hover:text-white' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
+                </div>
+
+            </form>
             </Form>
-        </div>
     )
 }
 
-export default AddEvent
+export default AddEventForm
