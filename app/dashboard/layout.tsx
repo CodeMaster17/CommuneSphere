@@ -11,8 +11,8 @@ const layout = ({
 
     return (
         <>
-            <div className="relative flex h-screen w-full justify-between bg-blueBackground">
-                <div className='relative w-[8vw]'>
+            <div className="relative flex  w-full justify-between bg-blueBackground">
+                <div className=' sticky w-[8vw]'>
                     <Sidebar />
                 </div>
                 <div className="w-[calc(100vw-10vw)]  pt-8">
