@@ -105,6 +105,74 @@ export const SIDEBAR_MENU: SideNavItem[] = [
   },
 ];
 
+export const SPONSOR = [
+  
+  {
+    "id": 1,
+    "image": "https://example.com/image2.jpg",
+    "name": "Sponsor B",
+    "events": ["Event 3", "Event 4"],
+    "amount": 7000,
+  },
+  {
+    "id": 2,
+    "image": "https://example.com/image3.jpg",
+    "name": "Sponsor C",
+    "events": ["Event 5", "Event 6"],
+    "amount": 3000,
+  },
+  {
+    "id": 3,
+    "image": "https://example.com/image4.jpg",
+    "name": "Sponsor D",
+    "events": ["Event 7", "Event 8"],
+    "amount": 9000,
+  },
+  {
+    "id": 4,
+    "image": "https://example.com/image5.jpg",
+    "name": "Sponsor E",
+    "events": ["Event 9", "Event 10"],
+    "amount": 6000,
+  },
+  {
+    "id": 5,
+    "image": "https://example.com/image6.jpg",
+    "name": "Sponsor F",
+    "events": ["Event 11", "Event 12"],
+    "amount": 4000,
+  },
+  {
+    "id": 6,
+    "image": "https://example.com/image7.jpg",
+    "name": "Sponsor G",
+    "events": ["Event 13", "Event 14"],
+    "amount": 8000,
+  },
+  {
+    "id": 7,
+    "image": "https://example.com/image8.jpg",
+    "name": "Sponsor H",
+    "events": ["Event 15", "Event 16"],
+    "amount": 5500,
+  },
+  {
+    "id": 8,
+    "image": "https://example.com/image9.jpg",
+    "name": "Sponsor I",
+    "events": ["Event 17", "Event 18"],
+    "amount": 6500,
+  },
+  {
+    "id": 9,
+    "image": "https://example.com/image10.jpg",
+    "name": "Sponsor J",
+    "events": ["Event 19", "Event 20"],
+    "amount": 7500,
+  }
+]
+
+
 export const MEMBERS_DATA: MembersDataItem[] = [
   {
     iconURL: "/logo/Ellipse 2.svg",
