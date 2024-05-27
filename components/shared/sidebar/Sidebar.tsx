@@ -1,4 +1,4 @@
-
+"use client"
 import React from "react";
 import { MenuItem } from "./Menuitem";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -13,8 +13,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { LogOut, Menu, Moon, Settings } from 'lucide-react';
+import { GetCurrentUser } from "@/hooks/get-current-user";
+
 
 const Sidebar = () => {
+  const {user,status} = GetCurrentUser();
+  
   return (
     <div className="sticky left-4 top-4 z-10 flex h-[95vh] w-[10vw] justify-between rounded-[12px] bg-bluePrimary  lg:w-[4vw]">
       <div className="relative flex w-full flex-col p-4">
@@ -68,8 +72,16 @@ const Sidebar = () => {
                     <AvatarFallback>CM</AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-light text-white">Harshit Yadav</p>
-                    <p className="text-xs font-light text-white">harshityadav172003@gmail.com</p>
+                  {status === "loading" ? (
+                      <p className="text-sm font-light text-white">Loading...</p>
+                    ) : user ? (
+                      <>
+                        <p className="text-sm font-light text-white">{user.name}</p>
+                        <p className="text-xs font-light text-white">{user.email}</p>
+                      </>
+                    ) : (
+                      <p className="text-sm font-light text-white">No user data</p>
+                    )}
                   </div>
                 </div>
               </SheetFooter>
