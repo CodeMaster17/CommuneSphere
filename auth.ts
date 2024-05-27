@@ -36,7 +36,10 @@ export const {
       return token;
     },
   },
-  session: { strategy: "jwt" },
+  session: {
+    maxAge: 60 * 60,
+    strategy: "jwt",
+  },
   ...authConfig,
 });
 
