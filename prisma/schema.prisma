@@ -100,6 +100,10 @@ model User {
   domain      domain @default(web)
   event       Event[] 
   gender      gender @default(male)
+
+  // projects
+  project_contribution Projects[]
+  project_team Projects[]
 }
 
 
@@ -138,4 +142,32 @@ model Event {
   //updated_by              String?    @db.ObjectId
   created_at              DateTime @default(now())
   updated_at              DateTime? @updatedAt
+}
+
+
+enum status{
+  not_started // project is not started
+  started // project is just started
+  ongoing // project is ongoing
+  completed // project is completed
+  halted // project stopped for temporary time limit
+  discarded // project discarded by the team
+}
+
+model Projects{
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  project_name String
+  project_domain domain @default(web)
+  project_description String
+  project_poc User @relation(fields: [id], references: [id]) 
+  assigned_by User @relation(fields: [id], references:[id])
+  start_date DateTime
+  end_date DateTime
+  created_at DateTime @default(now())
+  status status @default(not_started)
+  project_members User[]
+  // project_resources 
+  // progress -> progress of how much the project is completed
+  // tasks -> array
+  // project_image
 }

@@ -15,11 +15,11 @@ export const sidebarTop = [
         name: "Events",
         route: "/dashboard/events"
     },
-    // {
-    //     component: <FolderGit2 color='white' />,
-    //     name: "Projects",
-    //     route: "/dashboard/projects"
-    // },/
+    {
+        component: <FolderGit2 color='white' />,
+        name: "Projects",
+        route: "/dashboard/projects"
+    },
     {
         component: <Handshake color='white' />,
         name: "Sponsors",
