@@ -4,6 +4,7 @@ import {
   ModalItem,
   // Events,
   Sponsors,
+  SponsorType,
 } from "@/types/types";
 
 export const Role = [
@@ -105,7 +106,7 @@ export const SIDEBAR_MENU: SideNavItem[] = [
   },
 ];
 
-export const SPONSOR = [
+export const SPONSOR: SponsorType[] = [
   
   {
     "id": 1,

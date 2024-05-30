@@ -24,11 +24,11 @@ import { registerUser } from '@/actions/user.register'
 import { toast } from "sonner"
 import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
-import { Trash2 } from 'lucide-react';
-import { Pencil } from 'lucide-react';
+import { Trash2,Pencil } from 'lucide-react';
 
 
-const AddMemberForm = ({ closeModalFunction }) => {
+
+const AddMemberForm = ({ closeModalFunction }: { closeModalFunction: (event: React.MouseEvent<HTMLButtonElement>) => void }) => {
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues: {

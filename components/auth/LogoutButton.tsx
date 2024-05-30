@@ -2,6 +2,7 @@
 
 import { logout } from "@/actions/auth/logout"
 import { Button } from "../ui/button"
+import React from "react"
 
 interface LogoutButtonProps {
     children?: React.ReactNode

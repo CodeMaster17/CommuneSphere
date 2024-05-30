@@ -92,3 +92,23 @@ export type Events = {
   location?: string;
   event_thumbnail?: string;
 };
+
+export type SponsorType = {
+  id: number;
+  image: string;
+  name: string;
+  events: string[];
+  amount: number;
+};
+
+export type EventType = {
+  id: string;
+  name: string;
+  date: string;
+  target_year: string; 
+  duration: number | null;
+  expected_participants: string;
+  actual_participants: string;
+  created_at: Date | null;
+  updated_at: Date | null;
+}

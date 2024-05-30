@@ -25,7 +25,7 @@ export type SponsorType = {
   id: string;
   image: string;
   name: string;
-  events: string;
+  events: string[];
   amount: string;
   
 };

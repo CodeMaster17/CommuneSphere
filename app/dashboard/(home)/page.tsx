@@ -4,18 +4,20 @@ import StatsHomeCard from '@/components/cards/StatsHomeCard'
 import { Heading } from '@/components/shared/Heading'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React from 'react'
 import { ExternalLink } from 'lucide-react';
-import { getAllEventsCount } from '@/actions/event.action'
-import { getTopEvents } from '@/actions/event.action'
+import { getAllEventsCount,getTopEvents } from '@/actions/event.action'
 
 import MemberChart from '@/components/charts/MemberChart'
 import Image from 'next/image'
+import { EventType } from '@/types/types'
+
+
 
 const Dashboard = () => {
     const [memberCount, setMemberCount] = React.useState<number | null>(null)
     const [eventCount, setEventCount] = React.useState<number | null>(null)
-    const [topEvents, setTopEvents] = useState([])
+    const [topEvents, setTopEvents] = React.useState<EventType[] | null>(null)
 
     async function getData() {
         try {

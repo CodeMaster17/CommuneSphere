@@ -32,14 +32,13 @@ import { FormSuccess } from "@/components/shared/form-success/FormSuccess"
 import { FormError } from "@/components/shared/form-error/FormError"
 import { toast } from "sonner"
 
-import { useState, useTransition } from "react"
+import React, { useState, useTransition } from "react"
 import { registerEvent } from "@/actions/event.action"
 import { Heading } from '@/components/shared/Heading'
-import { Trash2 } from 'lucide-react';
-import { Pencil } from 'lucide-react';
+import { Trash2,Pencil } from 'lucide-react';
 
 
-const AddEventForm = ({ closeModalFunction }) => {
+const AddEventForm = ({ closeModalFunction }: { closeModalFunction: (event: React.MouseEvent<HTMLButtonElement>) => void }) => {
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
