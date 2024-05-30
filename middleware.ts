@@ -9,8 +9,10 @@ import {
   publicRoutes,
 } from "./route";
 
-const { auth } = NextAuth(authConfig);
+const {auth} = NextAuth(authConfig);
 
+
+// @ts-ignore: Ignoring type error
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;

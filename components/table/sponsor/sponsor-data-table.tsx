@@ -36,8 +36,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-
-
 import {
     Command,
     CommandGroup,
@@ -49,23 +47,23 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
-import { FilterX, Check, Filter, ChevronsUpDown } from "lucide-react"
+import { FilterX, Check, ChevronsUpDown } from "lucide-react"
 import { TargetYear } from "@/constants"
+import { SponsorType } from "@/types/types"
 
 // ########################################## Definitions #########################################################
 interface MyData {
     id: string
 }
 
-interface DataTableProps<TData extends MyData, TValue> {
+interface DataTableProps<TData extends SponsorType, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[],
 
 }
 
-
 // main component starts here
-export function DataTable<TData extends MyData, TValue>({
+export function DataTable<TData extends SponsorType, TValue>({
     columns,
     data,
 
@@ -106,7 +104,6 @@ export function DataTable<TData extends MyData, TValue>({
     const handleClearFilters = () => {
         setValueTY("")
     }
-
     // ################################################################### Component ##########################
     return (
         <div>

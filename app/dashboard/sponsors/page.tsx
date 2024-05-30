@@ -5,9 +5,6 @@ import { DataTable } from '@/components/table/sponsor/sponsor-data-table';
 import {columns } from "@/components/table/sponsor/sponsor-column"
 import { SPONSOR } from '@/constants';
 import OnClickSponsorView from '@/components/sponsor/OnClickSponsorView';
-
-
-
 import {
     Tabs,
     TabsContent,
@@ -31,7 +28,7 @@ const SponsorsPage = () => {
 
                         {/* table data */}
                         {/* <TableData data={data} columns={columns} /> */}
-                        <DataTable columns={columns} data={SPONSOR} />
+                        {/* <DataTable columns={columns} data={SPONSOR} /> */}
 
 
                     </TabsContent>
