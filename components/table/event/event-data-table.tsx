@@ -128,7 +128,7 @@ export function DataTable<TData extends MyData, TValue>({
                             variant="outline"
                             role="combobox"
                             aria-expanded={openTYDropdown}
-                            className="ml-4 h-8 px-3 rounded-lg text-xs font-light"
+                            className="ml-4 h-8 rounded-lg px-3 text-xs font-light"
                         >
                             {!valueTY
                                 ? "Select Year..."
@@ -166,7 +166,7 @@ export function DataTable<TData extends MyData, TValue>({
 
 
                 {/* TODO: clear filter */}
-                <Button variant="outline" className="ml-4 h-8 px-3 rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
+                <Button variant="outline" className="ml-4 h-8 rounded-lg px-3 text-xs font-light" onClick={() => handleClearFilters} >
                     Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
                 </Button>
 

@@ -30,13 +30,13 @@ const OnClickSponsorView = () => {
                     {/* pencil icons */}
                 </div>
                 <div className='flex w-full gap-4 bg-white'>
-                    <Image src="/Banner.png" alt="intro" width={200} height={100} className="border rounded-sm" />
+                    <Image src="/Banner.png" alt="intro" width={200} height={100} className="rounded-sm border" />
                     <div className='flex flex-col gap-3'>
-                        <p className='text-2xl text-black font-medium'>{eventData.name}</p>
+                        <p className='text-2xl font-medium text-black'>{eventData.name}</p>
                         <div className='flex flex-wrap gap-1 font-medium'>
-                            <p className='text-sm px-5 leading-0 bg-orange-500 text-amber-900 rounded-lg'>Food</p>
-                            <p className='text-sm px-5 leading-0 bg-orange-200 text-orange-700 rounded-lg'>Gold</p>
-                            <p className='text-sm px-5 leading-0 bg-greenTab text-greenText rounded-lg'>Active</p>
+                            <p className='rounded-lg bg-orange-200 px-5 text-sm text-orange-700'>Gold</p>
+                            <p className='rounded-lg bg-orange-500 px-5 text-sm text-amber-900'>Food</p>
+                            <p className='rounded-lg bg-greenTab px-5 text-sm text-greenText'>Active</p>
                         </div>
                     </div>
                 </div>
@@ -55,9 +55,9 @@ const OnClickSponsorView = () => {
                     </div>
                 </div>
 
-                <div className='flex justify-between items-center mt-3'>
+                <div className='mt-3 flex items-center justify-between'>
                         <p className='text-sm font-medium'>Website</p>
-                        <div className='w-[70%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium h-8'>
+                        <div className='h-8 w-[70%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium'>
                             <p>
                                 
                             </p>
@@ -68,26 +68,26 @@ const OnClickSponsorView = () => {
                    POC Details
                 </div>
 
-                <div className='mt-1 flex flex-col w-full gap-2'>
-                <div className='flex justify-between items-center'>
+                <div className='mt-1 flex w-full flex-col gap-2'>
+                <div className='flex items-center justify-between'>
                         <p className='text-sm font-medium'>Name</p>
-                        <div className='w-[80%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium h-8'>
+                        <div className='h-8 w-[80%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium'>
                             <p>
                                 
                             </p>
                         </div>
                     </div>
-                    <div className='flex justify-between items-center'>
+                    <div className='flex items-center justify-between'>
                         <p className='text-sm font-medium'>Phone</p>
-                        <div className='w-[80%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium h-8'>
+                        <div className='h-8 w-[80%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium'>
                             <p>
                                 
                             </p>
                         </div>
                     </div>
-                    <div className='flex justify-between items-center'>
+                    <div className='flex items-center justify-between'>
                         <p className='text-sm font-medium'>Email</p>
-                        <div className='w-[80%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium h-8'>
+                        <div className='h-8 w-[80%] rounded-md border-[2px] py-1 pl-3 text-sm font-medium'>
                             <p>
                                 
                             </p>
@@ -99,7 +99,7 @@ const OnClickSponsorView = () => {
                     Onboarded By
                 </p>
 
-                <div className='w-full rounded-md border-[2px] py-1 pl-3 text-sm font-medium h-8'>
+                <div className='h-8 w-full rounded-md border-[2px] py-1 pl-3 text-sm font-medium'>
                             <p>
                                 
                             </p>
@@ -109,13 +109,13 @@ const OnClickSponsorView = () => {
                     Events
                 </p>
 
-                <div className='flex flex-wrap gap-2 p-2 border-2 rounded-md'>
-                <p className='bg-greyTab p-1 text-xs rounded-lg'>ProjectWing</p>
-                <p className='bg-greyTab p-1 text-xs rounded-lg'>StarkExpo</p>
-                <p className='bg-greyTab p-1 text-xs rounded-lg'>Defcon</p>
-                <p className='bg-greyTab p-1 text-xs rounded-lg'>ProjectWing</p>
-                <p className='bg-greyTab p-1 text-xs rounded-lg'>StarkExpo</p>
-                <p className='bg-greyTab p-1 text-xs rounded-lg'>Defcon</p>
+                <div className='flex flex-wrap gap-2 rounded-md border-2 p-2'>
+                <p className='rounded-lg bg-greyTab p-1 text-xs'>ProjectWing</p>
+                <p className='rounded-lg bg-greyTab p-1 text-xs'>StarkExpo</p>
+                <p className='rounded-lg bg-greyTab p-1 text-xs'>Defcon</p>
+                <p className='rounded-lg bg-greyTab p-1 text-xs'>ProjectWing</p>
+                <p className='rounded-lg bg-greyTab p-1 text-xs'>StarkExpo</p>
+                <p className='rounded-lg bg-greyTab p-1 text-xs'>Defcon</p>
                 </div>
             </div>
         ) : <div className='mt-2 flex h-[40vh] w-full items-center justify-center rounded-[7.54px] bg-white p-4'>

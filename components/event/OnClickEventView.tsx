@@ -29,11 +29,11 @@ const OnClickEventView = () => {
                 <div className='flex w-full justify-end'>
                     {/* pencil icons */}
                 </div>
-                <div className='flex w-full gap-4 bg-white relative'>
-                    <Image src="/events-thumbnail.png" alt="intro" width={400} height={100} className="w-full h-28" />
-                    <p className='absolute bottom-2 left-2 bg-white opacity-85 text-black font-medium rounded-md px-2'>{eventData.name}</p>
+                <div className='relative flex w-full gap-4 bg-white'>
+                    <Image src="/events-thumbnail.png" alt="intro" width={400} height={100} className="h-28 w-full" />
+                    <p className='absolute bottom-2 left-2 rounded-md bg-white px-2 font-medium text-black opacity-85'>{eventData.name}</p>
                 </div>
-                <div className='text-xs my-5'>
+                <div className='my-5 text-xs'>
                     Created at 4/03/2024
                 </div>
                 <div className='mt-4 grid w-full grid-cols-3 gap-3'>
@@ -60,20 +60,20 @@ const OnClickEventView = () => {
                     Details
                 </div>
 
-                <div className='mt-1 flex flex-col w-full gap-4'>
-                        <div className='w-full flex gap-1 justify-between'>
+                <div className='mt-1 flex w-full flex-col gap-4'>
+                        <div className='flex w-full justify-between gap-1'>
                             <p className='font-medium'>Location</p>
                             <p>{eventData.location}</p>
                         </div>
-                        <div className='w-full flex gap-1 justify-between'>
+                        <div className='flex w-full justify-between gap-1'>
                             <p className='font-medium'>Duration</p>
                             <p>{eventData.duration}h</p>
                         </div>
-                        <div className='w-full flex gap-1 justify-between'>
+                        <div className='flex w-full justify-between gap-1'>
                             <p className='font-medium'>Target Year</p>
                             <p>{eventData.target_year ? useDisplayCurrentYear(eventData.target_year) : ''}</p>
                         </div>
-                        <div className='w-full flex gap-1 justify-between'>
+                        <div className='flex w-full justify-between gap-1'>
                             <p className='font-medium'>Domain</p>
                             <p>Creative</p>
                         </div>
@@ -110,16 +110,16 @@ const OnClickEventView = () => {
                     </div>
                 </div>
 
-                <div className='mt-3 flex flex-col w-full gap-4'>
-                <div className='w-full flex gap-1 justify-between'>
+                <div className='mt-3 flex w-full flex-col gap-4'>
+                <div className='flex w-full justify-between gap-1'>
                             <p className='font-medium'>Sponsors</p>
-                            <p className='bg-greyTab p-1 text-xs rounded-lg'>Redbull</p>
+                            <p className='rounded-lg bg-greyTab p-1 text-xs'>Redbull</p>
                         </div>
                 </div>
 
-                <div className='flex justify-between items-center mt-3'>
+                <div className='mt-3 flex items-center justify-between'>
                         <p className='text-sm font-medium'>Drive Link</p>
-                        <div className='w-[70%] rounded-sm border-[1px] py-1 pl-3 text-sm font-medium h-8'>
+                        <div className='h-8 w-[70%] rounded-sm border-[1px] py-1 pl-3 text-sm font-medium'>
                             <p>
                                 {eventData.thumbnail ? eventData.thumbnail : ''}
                             </p>

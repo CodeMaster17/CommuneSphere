@@ -59,16 +59,16 @@ const LoginForm: React.FC = () => {
 
   return (
     <div className='flex h-[100vh] w-full items-center justify-center bg-blueBackground'>
-      <div className='flex h-[70%] w-[50%] bg-white rounded-2xl shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
+      <div className='flex h-[70%] w-[50%] rounded-2xl bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
         <div className='w-1/2 p-4'>
           <Image src='/ImageContainer.png' width={500} height={500} alt='loginform' className='size-[100%] rounded-l-2xl' />
         </div>
-        <div className='w-1/2 flex items-center justify-center pr-8 pl-4 rounded-r-lg'>
+        <div className='flex w-1/2 items-center justify-center rounded-r-lg pl-4 pr-8'>
           <div className=' w-full'>
             <div className='border-b-2 pb-4'>
               {/* <h1 className='text-center text-3xl font-semibold'>Managing made <span className='font-bold underline decoration-4 underline-offset-8'>EZ</span>.</h1> */}
               <h1 className='text-3xl font-semibold'>Login</h1>
-              <h3 className='text-sm text-gray-400 mt-2 font-semibold'>Login with your given email & password</h3>
+              <h3 className='mt-2 text-sm font-semibold text-gray-400'>Login with your given email & password</h3>
             </div>
             {/* <div className='my-12 flex justify-center'>
               <Image src="/mlsaLogo.png" alt='mlsa logo' width={100} height={100} />
@@ -109,7 +109,7 @@ const LoginForm: React.FC = () => {
                   <FormError message={error} />
                   <FormSuccess message={success} />
                   {/* <Checkbox id="terms1" className='w-4 h-4 border-gray-400'/><FormLabel className='pl-2'>Remember me</FormLabel> */}
-                  <Button type="submit" className='h-10 w-full bg-blueActiveTab hover:bg-bluePrimary text-white'>Login</Button>
+                  <Button type="submit" className='h-10 w-full bg-blueActiveTab text-white hover:bg-bluePrimary'>Login</Button>
                 </form>
               </Form>
               {/* <div>

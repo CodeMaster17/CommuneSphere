@@ -65,7 +65,7 @@ const AddEvent = () => {
     }
 
     return (
-        <div className='w-full p-5  bg-white rounded-md border-gray-300 border my-10'>
+        <div className='my-10 w-full  rounded-md border border-gray-300 bg-white p-5'>
             <div className="ml-5">
                 <Heading type="medium">
                     Add Event
@@ -73,7 +73,7 @@ const AddEvent = () => {
             </div>
             
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 p-5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6 p-5">
 
                     <div className="grid grid-cols-2 gap-4 gap-x-10">
                         {/* event name */}

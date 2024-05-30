@@ -77,17 +77,17 @@ const AddEventForm = ({ closeModalFunction }: { closeModalFunction: (event: Reac
 
     return (
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3 p-5">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6 p-5">
 
-                    <div className="flex flex-col w-full justify-center gap-4 bg-white">
+                    <div className="flex w-full flex-col justify-center gap-4 bg-white">
                         <div className="flex w-full items-center justify-center gap-4">
                         <Image src="/events-thumbnail.png" alt="intro" width={300} height={100} className="" />
                             <div className="space-y-2">
-                              <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
-                                  <Pencil className='w-4 h-4'/>Add Image
+                              <Button className='flex h-9 w-40 gap-2 rounded-md border-2 border-bluePrimary bg-bluePrimary text-xs text-white hover:bg-white hover:text-bluePrimary'>
+                                  <Pencil className='size-4'/>Add Image
                               </Button>
-                              <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 border-errorRed text-errorRed gap-2 hover:bg-errorRed hover:text-white'>
-                                  <Trash2 className='w-4 h-4'/>Remove Image
+                              <Button className='flex h-9 w-40 gap-2 rounded-md border-2 border-errorRed bg-white text-xs text-errorRed hover:bg-errorRed hover:text-white'>
+                                  <Trash2 className='size-4'/>Remove Image
                               </Button>
                     </div>
                         </div>

@@ -50,7 +50,7 @@ export function SelectForm() {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 col-span-3">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="col-span-3 w-full space-y-6">
                 <FormField
                     control={form.control}
                     name="email"

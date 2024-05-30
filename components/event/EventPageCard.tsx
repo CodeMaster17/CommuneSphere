@@ -27,8 +27,8 @@ const EventPageCard = async () => {
 
                 {topEvents.map((event, index) => (
                  <Card key={index} className='flex flex-col items-center justify-center p-2'>
-                  <Image src='/events-thumbnail.png' alt='intro' width={400} height={100} className='w-full h-24 rounded-lg' />
-                  <div className='flex justify-between items-center mt-2 w-full'>
+                  <Image src='/events-thumbnail.png' alt='intro' width={400} height={100} className='h-24 w-full rounded-lg' />
+                  <div className='mt-2 flex w-full items-center justify-between'>
                     <p className='text-xs font-semibold'>{event.name}</p>
                    <p className='rounded-sm bg-greenTab px-3 text-xs text-greenText'>{event.actual_participants} Participants</p>
                  </div>

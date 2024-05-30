@@ -6,7 +6,7 @@ const EventCount = async () => {
         const eventsCount = await getAllEventsCount();
         console.log("event count");
         console.log({eventsCount});
-        return (<div className=' text-gray-500 flex'>
+        return (<div className=' flex text-gray-500'>
             <div>(</div>
               {eventsCount}
             <div>)</div>

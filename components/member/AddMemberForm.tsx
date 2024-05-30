@@ -74,11 +74,11 @@ const AddMemberForm = ({ closeModalFunction }: { closeModalFunction: (event: Rea
                         <AvatarFallback>CM</AvatarFallback>
                     </Avatar>
                     <div className='space-y-2'>
-                        <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
-                            <Pencil className='w-4 h-4'/>Add Image
+                        <Button className='flex h-9 w-40 gap-2 rounded-md border-2 border-bluePrimary bg-bluePrimary text-xs text-white hover:bg-white hover:text-bluePrimary'>
+                            <Pencil className='size-4'/>Add Image
                         </Button>
-                        <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 border-errorRed text-errorRed gap-2 hover:bg-errorRed hover:text-white'>
-                            <Trash2 className='w-4 h-4'/>Remove Image
+                        <Button className='flex h-9 w-40 gap-2 rounded-md border-2 border-errorRed bg-white text-xs text-errorRed hover:bg-errorRed hover:text-white'>
+                            <Trash2 className='size-4'/>Remove Image
                         </Button>
                         {/* <br /> */}
                         {/* <span className='rounded-md bg-golden p-1 text-xs text-darkGolden'>Domain</span> */}
@@ -302,8 +302,8 @@ const AddMemberForm = ({ closeModalFunction }: { closeModalFunction: (event: Rea
                 <FormSuccess message={success} />
                 <div className='flex w-full gap-2'>
 
-                    <Button type="button" className='border-2 w-1/2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>Discard</Button>
-                    <Button type="submit" className='border-2 w-1/2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
+                    <Button type="button" className='w-1/2 border-2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>Discard</Button>
+                    <Button type="submit" className='w-1/2 border-2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
                 </div>
 
             </form>

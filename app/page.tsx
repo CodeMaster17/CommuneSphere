@@ -31,7 +31,7 @@ export default function Home() {
         <Pricing />
         <Testimonial />
 
-        <footer className="mt-44 flex h-20 justify-between py-8 text-lg text-white bg-bluePrimary">
+        <footer className="mt-44 flex h-20 justify-between bg-bluePrimary py-8 text-lg text-white">
           <div className="md:ml-[1rem] lg:ml-[2rem] 2xl:ml-[5rem]">
             © 2024 CommuneSphere. All rights reserved.
           </div>

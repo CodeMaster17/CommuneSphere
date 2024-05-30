@@ -37,7 +37,7 @@ export const columns: ColumnDef<SponsorType>[] = [
         cell: ({ row }) => {
             const sponsor = row.original;
             return (
-                <span className="rounded-md bg-gray-300 py-1.5 px-3.5 "></span>
+                <span className="rounded-md bg-gray-300 px-3.5 py-1.5 "></span>
             );
         },
         size: 250
