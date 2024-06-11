@@ -35,6 +35,7 @@ export const columns: ColumnDef<SponsorType>[] = [
         accessorKey: "image",
         header: "Image",
         cell: ({ row }) => {
+            // eslint-disable-next-line no-unused-vars
             const sponsor = row.original;
             return (
                 <span className="rounded-md bg-gray-300 px-3.5 py-1.5 "></span>

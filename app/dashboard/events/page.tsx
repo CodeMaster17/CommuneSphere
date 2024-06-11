@@ -1,8 +1,5 @@
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import Breadcrumb from '@/components/shared/Breadcrumb';
-import { Heading } from '@/components/shared/Heading'
-import EventCount from '@/components/event/EventCount';
 import { EventType, columns } from "@/components/table/event/event-column"
 import { DataTable } from "@/components/table/event/event-data-table"
 import { getAllEvents } from '@/actions/event.action';

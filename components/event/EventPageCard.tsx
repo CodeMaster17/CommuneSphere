@@ -1,9 +1,7 @@
 
 import { getAllEventsCount, countAvgParticipation, countAvgRegistration, getTopEvents } from "@/actions/event.action"
 import { Heading } from "../shared/Heading"
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Card } from "../ui/card"
-import { domain } from "@/constants/domains"
 import Image from "next/image"
 
 
@@ -12,6 +10,7 @@ const EventPageCard = async () => {
 
     const totalEvents = await getAllEventsCount()
     const AvgParticipation = await countAvgParticipation()
+    // eslint-disable-next-line no-unused-vars
     const AvgRegistration = await countAvgRegistration()
     const topEvents = await getTopEvents(2);
 

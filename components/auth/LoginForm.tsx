@@ -19,7 +19,6 @@ import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { LoginSchema } from '@/schema';
 import Image from 'next/image';
-import { Checkbox } from "@/components/ui/checkbox"
 
 
 

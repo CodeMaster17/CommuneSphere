@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
 import React, { useEffect, useState } from 'react';
-import { Github, Facebook, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useSelector } from 'react-redux';
 import { getUserById } from '@/actions/user.action';

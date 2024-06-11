@@ -1,7 +1,6 @@
 'use client'
 import { Input } from "@/components/ui/input"
 import { Button } from '../ui/button'
-import { Label } from "@/components/ui/label"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -25,7 +24,6 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 import { EventRegisterSchema } from "@/schema/event-schema"
 import { FormSuccess } from "@/components/shared/form-success/FormSuccess"
@@ -34,7 +32,6 @@ import { toast } from "sonner"
 
 import React, { useState, useTransition } from "react"
 import { registerEvent } from "@/actions/event.action"
-import { Heading } from '@/components/shared/Heading'
 import { Trash2,Pencil } from 'lucide-react';
 
 
@@ -42,7 +39,7 @@ const AddEventForm = ({ closeModalFunction }: { closeModalFunction: (event: Reac
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
-    const [isPending, startTransition] = useTransition();
+    const [, startTransition] = useTransition();
 
 
     const form = useForm<z.infer<typeof EventRegisterSchema>>({

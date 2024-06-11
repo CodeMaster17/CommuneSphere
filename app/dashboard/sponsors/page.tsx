@@ -1,9 +1,6 @@
 import Breadcrumb from '@/components/shared/Breadcrumb';
 import { Button } from '@/components/ui/button'
 import SponsorPageCard from '@/components/sponsor/SponsorPageCard';
-import { DataTable } from '@/components/table/sponsor/sponsor-data-table';
-import {columns } from "@/components/table/sponsor/sponsor-column"
-import { SPONSOR } from '@/constants';
 import OnClickSponsorView from '@/components/sponsor/OnClickSponsorView';
 import {
     Tabs,

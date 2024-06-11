@@ -1,10 +1,7 @@
 
 
 import { DataTable } from '../table/member/member-data-table'
-import { getAllUsers, getUserById } from '@/actions/user.action'
-import { useSelector } from 'react-redux'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import Link from 'next/link'
+import { getAllUsers } from '@/actions/user.action'
 import { useDisplayYear } from '@/hooks/use-display-data'
 import { UserType } from '../table/member/member-column'
 
@@ -14,6 +11,7 @@ interface TableDataProps {
     data: any
     columns: any
 }
+// eslint-disable-next-line no-unused-vars
 async function getData(): Promise<UserType[]> {
 
     const data = await getAllUsers()

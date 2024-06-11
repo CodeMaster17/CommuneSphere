@@ -52,6 +52,7 @@ import { TargetYear } from "@/constants"
 import { SponsorType } from "@/types/types"
 
 // ########################################## Definitions #########################################################
+// eslint-disable-next-line no-unused-vars
 interface MyData {
     id: string
 }

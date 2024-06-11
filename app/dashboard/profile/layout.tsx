@@ -1,4 +1,3 @@
-import { Navbar } from "./_components/Navbar";
 import React from "react";
 
 

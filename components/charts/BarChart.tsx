@@ -10,6 +10,7 @@ function Example() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
         
+        // eslint-disable-next-line no-unused-vars
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {

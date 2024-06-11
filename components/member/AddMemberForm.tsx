@@ -11,7 +11,6 @@ import {
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -19,7 +18,6 @@ import { useForm } from "react-hook-form"
 
 import { RegisterSchema } from '@/schema'
 import { Button } from '../ui/button'
-import { DialogFooter } from '../ui/dialog'
 import { registerUser } from '@/actions/user.register'
 import { toast } from "sonner"
 import { FormError } from '../form-error'
@@ -41,7 +39,7 @@ const AddMemberForm = ({ closeModalFunction }: { closeModalFunction: (event: Rea
     })
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
-    const [isPending, startTransition] = useTransition();
+    const [, startTransition] = useTransition();
 
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof RegisterSchema>) {
