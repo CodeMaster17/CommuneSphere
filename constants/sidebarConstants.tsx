@@ -1,4 +1,4 @@
-import { Home, UsersRound, CalendarCheck2, FolderGit2, LogOut, Handshake } from 'lucide-react';
+import { Home, UsersRound, CalendarCheck2, FolderGit2, LogOut, Handshake, User } from 'lucide-react';
 export const sidebarTop = [
     {
         component: <Home color='white' size={20} />,
@@ -15,15 +15,20 @@ export const sidebarTop = [
         name: "Events",
         route: "/dashboard/events"
     },
-    // {
-    //     component: <FolderGit2 color='white' />,
-    //     name: "Projects",
-    //     route: "/dashboard/projects"
-    // },/
+    {
+        component: <FolderGit2 color='white' size={20} />,
+        name: "Projects",
+        route: "/dashboard/projects"
+    },
     {
         component: <Handshake color='white' size={20} />,
         name: "Sponsors",
         route: "/dashboard/sponsors"
+    },
+    {
+        component: <User color='white' size={20} />,
+        name: "User",
+        route: "/dashboard/profile"
     },
 
 ]
