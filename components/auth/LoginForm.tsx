@@ -19,7 +19,6 @@ import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { LoginSchema } from '@/schema';
 import Image from 'next/image';
-import { Checkbox } from "@/components/ui/checkbox"
 
 
 
@@ -51,9 +50,9 @@ const LoginForm: React.FC = () => {
             setError(data.error);
           }
 
-          if (data?.success) {
+          if (data && 'success' in data) {
             form.reset();
-            setSuccess(data.success);
+            setSuccess(data as any);
           }
         })
         .catch(() => setError("Something went wrong"));

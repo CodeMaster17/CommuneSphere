@@ -15,17 +15,17 @@ export const MenuItem = ({ route, name, component }: MenuItemProps) => {
   const pathname = usePathname();
 
   return (
-    <div className=" text-[#FFF]">
+    <div className=" text-[#FFF] ">
       {
         <Link
           href={route}
-          className={`flex flex-row items-center space-x-[1.3rem] py-[0.8rem] pl-4  ${route === pathname
+          className={`flex flex-row cursor-pointer items-center space-x-[1.0rem] xl:py-[0.4rem] 2xl:py-[0.8rem] pl-4  ${route === pathname
             ? " rounded-[10px] border-[1px] border-borderActiveTab bg-blueActiveTab  text-white "
             : "text-white"
             }`}
         >
           {component}
-          <span className="flex text-[1rem] font-normal">{name}</span>
+          <span className="flex text-[0.8rem] font-normal">{name}</span>
         </Link>
       }
     </div>
