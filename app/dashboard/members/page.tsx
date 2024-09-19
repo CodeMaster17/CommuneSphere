@@ -40,6 +40,7 @@ async function getData(): Promise<UserType[]> {
 }
 
 const Members = async () => {
+    // fetching data from user
     const data = await getData()
 
     return (
@@ -47,8 +48,6 @@ const Members = async () => {
         <section className='flex w-full gap-4   '>
             <div className='w-[70%]'>
                 <Breadcrumb />
-
-
                 {/* top cards */}
                 <MemberPageCard />
 
@@ -73,6 +72,8 @@ const Members = async () => {
                 </Tabs>
             </div>
             <div className='w-[30%]  pr-4'>
+
+                {/* action buttons */}
                 <div className='flex w-full items-center justify-end gap-4'>
                     <AddFormModal />
                     <Button variant="outline">

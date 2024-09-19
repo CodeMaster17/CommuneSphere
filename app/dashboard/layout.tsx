@@ -7,8 +7,6 @@ const layout = ({
 }: Readonly<{
     children: React.ReactNode;
 }>) => {
-
-
     return (
         <>
             <div className="relative flex  w-full justify-between bg-blueBackground">
