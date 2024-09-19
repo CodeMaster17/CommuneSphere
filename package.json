@@ -16,6 +16,14 @@
     "*.ts": [
       "npm run lint:fix",
       "npm run format:fix"
+    ],
+    "*.tsx": [
+      "npm run lint:fix",
+      "npm run format:fix"
+    ],
+    "*.js": [
+      "npm run lint:fix",
+      "npm run format:fix"
     ]
   },
   "dependencies": {
