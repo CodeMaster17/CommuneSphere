@@ -48,7 +48,8 @@ export const columns: ColumnDef<EventType>[] = [
         header: "Target Year",
         cell: ({ row }) => {
             const event = row.original;
-            return (
+            
+return (
                 <span className="rounded-md bg-blueTab px-2 py-1 text-blueText">{event.target_year}</span>
             );
         },
@@ -74,7 +75,8 @@ export const columns: ColumnDef<EventType>[] = [
                 console.log("Delete button clicked with id: ", id)
                 await deleteEvent(id);
             }
-            return (
+            
+return (
                 <>
                     <span className="flex">
                         <AlertDialog>

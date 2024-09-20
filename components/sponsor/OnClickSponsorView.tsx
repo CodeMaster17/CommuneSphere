@@ -23,7 +23,8 @@ const OnClickSponsorView = () => {
             fetchData();
         }
     }, [clickedViewId]);
-    return (
+    
+return (
         eventData ? (
             <div className='mt-4 w-full rounded-[7.54px] bg-white p-4'>
                 <div className='flex w-full justify-end'>

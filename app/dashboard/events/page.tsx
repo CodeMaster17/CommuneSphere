@@ -40,7 +40,9 @@ async function getData(): Promise<EventType[]> {
 
 const Events = async () => {
     const data = await getData()
-    return (
+    
+return (
+
         // <div className='w-full'>
         //     <div className='flex w-full justify-between'>
         //     <Breadcrumb />

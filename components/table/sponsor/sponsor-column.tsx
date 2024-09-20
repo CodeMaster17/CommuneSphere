@@ -36,7 +36,8 @@ export const columns: ColumnDef<SponsorType>[] = [
         header: "Image",
         cell: ({ row }) => {
             const sponsor = row.original;
-            return (
+            
+return (
                 <span className="rounded-md bg-gray-300 py-1.5 px-3.5 "></span>
             );
         },
@@ -51,7 +52,8 @@ export const columns: ColumnDef<SponsorType>[] = [
         header: "Events",
         cell: ({ row }) => {
             const sponsor = row.original;
-            return (
+            
+return (
                 <span className="flex flex-wrap gap-1">
                     {sponsor.events.map((event, index) => (
                         <span  className="rounded-md bg-greyTab px-2 py-1"  key={index}>{event}</span>
@@ -81,7 +83,8 @@ export const columns: ColumnDef<SponsorType>[] = [
                 console.log("Delete button clicked with id: ", id)
                 await deleteEvent(id);
             }
-            return (
+            
+return (
                 <>
                     <span className="flex">
                         <AlertDialog>

@@ -1,6 +1,6 @@
 // this function will take in string enum which is used to store the value in database, and will return readbale string
 
-export const useDisplayPosition = (position: String) => {
+export const useDisplayPosition = (position: string) => {
     switch (position) {
         case "Member":
             return "Member"
@@ -34,7 +34,7 @@ export const useDisplayPosition = (position: String) => {
 }
 
 // example year : Y_2025, extract 2025 from it
-export const useDisplayYear = (year: String) => {
+export const useDisplayYear = (year: string) => {
     return year.slice(2)
 }
 
@@ -44,7 +44,7 @@ export const useDisplayYear = (year: String) => {
 // third -> 3rd
 // fourth -> 4th
 
-export const useDisplayCurrentYear = (year: String) => {
+export const useDisplayCurrentYear = (year: string) => {
     switch (year) {
         case "first":
             return "1st"

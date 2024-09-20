@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/actions/redux/provider";
 import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,7 +20,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
-  return (
+  
+return (
     <SessionProvider session={session}>
       <html lang="en">
         <title>CommuneSphere</title>

@@ -1,24 +1,15 @@
 "use client"
 import * as React from "react"
+
 // to display table data
+import { Button } from "@/components/ui/button"
 import {
-    ColumnDef,
-    flexRender,
-    getCoreRowModel,
-    useReactTable,
-
-    // pagination
-    getPaginationRowModel,
-
-    // sorting
-    SortingState,
-    getSortedRowModel,
-
-    // filtering
-    ColumnFiltersState,
-    getFilteredRowModel,
-
-} from "@tanstack/react-table"
+    DropdownMenu,
+    DropdownMenuCheckboxItem,
+    DropdownMenuContent,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Input } from "@/components/ui/input"
 import {
     Table,
     TableBody,
@@ -27,14 +18,23 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import {
-    DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+    ColumnDef,
+
+    // filtering
+    ColumnFiltersState,
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+
+    // pagination
+    getPaginationRowModel,
+    getSortedRowModel,
+
+    // sorting
+    SortingState,
+    useReactTable,
+} from "@tanstack/react-table"
 
 
 
@@ -48,9 +48,9 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { cn } from "@/lib/utils"
-import { FilterX, Check, Filter, ChevronsUpDown } from "lucide-react"
 import { TargetYear } from "@/constants"
+import { cn } from "@/lib/utils"
+import { Check, ChevronsUpDown, FilterX } from "lucide-react"
 
 // ########################################## Definitions #########################################################
 interface MyData {
@@ -76,6 +76,7 @@ export function DataTable<TData extends MyData, TValue>({
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
     )
+
     // for filter
     const [openTYDropdown, setOpenTYDropdown] = React.useState(false) // to manage state of joinning year filter dropdwon
     const [valueTY, setValueTY] = React.useState("")
@@ -88,15 +89,18 @@ export function DataTable<TData extends MyData, TValue>({
         // sorting
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
+
         // filtering
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
 
         state: {
             sorting,
+
             // filtering
             columnFilters,
         },
+
         // resetColumnFilters: (defaultState?: boolean) => void
 
     })
@@ -122,9 +126,9 @@ export function DataTable<TData extends MyData, TValue>({
                 />
                 {/* joinning year filter */}
                 <div className="">
-                <Popover open={openTYDropdown} onOpenChange={setOpenTYDropdown}>
-                    <PopoverTrigger asChild>
-                        {/* <Button
+                    <Popover open={openTYDropdown} onOpenChange={setOpenTYDropdown}>
+                        <PopoverTrigger asChild>
+                            {/* <Button
                             variant="outline"
                             role="combobox"
                             aria-expanded={openTYDropdown}
@@ -135,72 +139,72 @@ export function DataTable<TData extends MyData, TValue>({
                                 : valueTY}
                             <Filter className="ml-2 size-4 shrink-0 opacity-50" />
                         </Button> */}
-                    </PopoverTrigger>
-                    <PopoverContent className="w-[180px] p-0">
-                        <Command>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[180px] p-0">
+                            <Command>
 
-                            <CommandGroup>
-                                {TargetYear.map((item) => (
-                                    <CommandItem
-                                        key={item.value}
-                                        value={item.value}
-                                        onSelect={(currentValue) => {
-                                            setValueTY(currentValue === valueTY ? "" : currentValue)
-                                            table.getColumn("target_year")?.setFilterValue(currentValue)
-                                            setOpenTYDropdown(false)
-                                        }}
-                                    >
-                                        <Check
-                                            className={cn(
-                                                "mr-2 h-4 w-4",
-                                                valueTY === item.value ? "opacity-100" : "opacity-0"
-                                            )}
-                                        />
-                                        {item.label}
-                                    </CommandItem>
-                                ))}
-                            </CommandGroup>
-                        </Command>
-                    </PopoverContent>
-                </Popover>
-
-
-                {/* TODO: clear filter */}
-                <Button variant="outline" className="ml-4 h-8 px-3 rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
-                    Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
-                </Button>
+                                <CommandGroup>
+                                    {TargetYear.map((item) => (
+                                        <CommandItem
+                                            key={item.value}
+                                            value={item.value}
+                                            onSelect={(currentValue) => {
+                                                setValueTY(currentValue === valueTY ? "" : currentValue)
+                                                table.getColumn("target_year")?.setFilterValue(currentValue)
+                                                setOpenTYDropdown(false)
+                                            }}
+                                        >
+                                            <Check
+                                                className={cn(
+                                                    "mr-2 h-4 w-4",
+                                                    valueTY === item.value ? "opacity-100" : "opacity-0"
+                                                )}
+                                            />
+                                            {item.label}
+                                        </CommandItem>
+                                    ))}
+                                </CommandGroup>
+                            </Command>
+                        </PopoverContent>
+                    </Popover>
 
 
-                {/* for column visibilty */}
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="outline" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light">
-                            Columns
-                            <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        {table
-                            .getAllColumns()
-                            .filter(
-                                (column) => column.getCanHide()
-                            )
-                            .map((column) => {
-                                return (
-                                    <DropdownMenuCheckboxItem
-                                        key={column.id}
-                                        className="capitalize"
-                                        checked={column.getIsVisible()}
-                                        onCheckedChange={(value) =>
-                                            column.toggleVisibility(!!value)
-                                        }
-                                    >
-                                        {column.id}
-                                    </DropdownMenuCheckboxItem>
+                    {/* TODO: clear filter */}
+                    <Button variant="outline" className="ml-4 h-8 px-3 rounded-lg text-xs font-light" onClick={() => handleClearFilters} >
+                        Clear Filters  <FilterX className="ml-2 size-4 shrink-0 opacity-50" />
+                    </Button>
+
+
+                    {/* for column visibilty */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="ml-4 h-8 w-[100px] rounded-lg text-xs font-light">
+                                Columns
+                                <ChevronsUpDown className="ml-2 size-4 shrink-0 opacity-50" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            {table
+                                .getAllColumns()
+                                .filter(
+                                    (column) => column.getCanHide()
                                 )
-                            })}
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                                .map((column) => {
+                                    return (
+                                        <DropdownMenuCheckboxItem
+                                            key={column.id}
+                                            className="capitalize"
+                                            checked={column.getIsVisible()}
+                                            onCheckedChange={(value) =>
+                                                column.toggleVisibility(!!value)
+                                            }
+                                        >
+                                            {column.id}
+                                        </DropdownMenuCheckboxItem>
+                                    )
+                                })}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
             </div>
             <div className="w-full rounded-md border">

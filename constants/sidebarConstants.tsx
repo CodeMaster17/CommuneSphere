@@ -1,4 +1,5 @@
 import { Home, UsersRound, CalendarCheck2, FolderGit2, LogOut, Handshake, User } from 'lucide-react';
+
 export const sidebarTop = [
     {
         component: <Home color='white' size={20} />,

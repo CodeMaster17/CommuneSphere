@@ -10,9 +10,11 @@ import {
 import { useSession } from 'next-auth/react';
 
 import LogoutButton from "@/components/auth/LogoutButton";
+
 const Navbar = () => {
   const { data: session } = useSession();
-  return (
+  
+return (
     <div className="sticky top-0 z-20 flex h-20 w-full justify-end bg-white shadow-md">
       <div className="flex items-center justify-center  ">
         <div className="w-full ">

@@ -1,24 +1,7 @@
 'use client'
-import React, { useState } from 'react'
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-
-import { Copy, Github, Instagram, Linkedin } from 'lucide-react'
-
+import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import AddEventForm from './AddEventForm'
-
-
-
-
 
 const EditFormModal = () => {
 
@@ -32,7 +15,8 @@ const EditFormModal = () => {
     function controlCloseModalState() {
         setModalState('closed')
     }
-    return (
+    
+return (
         <>
             <Button variant="outline" onClick={controlModalState} >
                 + Add Event

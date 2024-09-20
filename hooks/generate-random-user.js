@@ -1,4 +1,5 @@
 const{ PrismaClient } = require("@prisma/client");
+
 const prisma = new PrismaClient();
 
 // Function to generate random user data

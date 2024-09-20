@@ -2,7 +2,7 @@
 
 interface FormErrorProps {
     message?: string;
-};
+}
 
 export const FormError = ({
     message,

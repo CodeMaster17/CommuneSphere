@@ -60,7 +60,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                     console.error("Error during form submission:", error);
                     setError("An error occurred during submission.");
                     toast("Error adding member.");
-                });;
+                });
         });
 
     }

@@ -1,5 +1,6 @@
 "use client"
 import * as React from "react"
+
 // to display table data
 import {
     ColumnDef,
@@ -64,6 +65,7 @@ export function DataTable<TData extends MyData, TValue>({
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
     )
+
     // for filter
 
     const table = useReactTable({
@@ -74,15 +76,18 @@ export function DataTable<TData extends MyData, TValue>({
         // sorting
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
+
         // filtering
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
 
         state: {
             sorting,
+
             // filtering
             columnFilters,
         },
+
         // resetColumnFilters: (defaultState?: boolean) => void
 
     })
@@ -172,8 +177,10 @@ export function DataTable<TData extends MyData, TValue>({
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
+
                                     // onClick={() => clickedIdDispach(row.original.id)}
                                     className="rounded-lg bg-white "
+
                                 // onClick={() => console.log(row.original)}
                                 >
                                     {row.getVisibleCells().map((cell) => (

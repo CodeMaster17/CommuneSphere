@@ -32,7 +32,8 @@ const EditFormModal = () => {
     function controlCloseModalState() {
         setModalState('closed')
     }
-    return (
+    
+return (
         <>
             <Button variant="outline" onClick={controlModalState} >
                 + Add Member

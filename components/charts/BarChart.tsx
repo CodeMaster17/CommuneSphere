@@ -1,6 +1,7 @@
 'use client'
-import { useEffect } from "react"
 import { Chart } from "chart.js";
+import { useEffect } from "react";
+
 function Example() {
     useEffect(() => {
         const ctx = (document.getElementById('myChart') as HTMLCanvasElement).getContext('2d');
@@ -43,7 +44,7 @@ function Example() {
     return (
         <>
 
-            <div className=" flex  w-full">
+            <div className="flex  w-full">
                 <div className=' h-fit w-full rounded-xl   border-2 border-gray-400 pt-0  shadow-xl'>
                     <canvas id='myChart'></canvas>
                 </div>

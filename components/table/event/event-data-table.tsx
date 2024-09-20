@@ -1,5 +1,6 @@
 "use client"
 import * as React from "react"
+
 // to display table data
 import {
     ColumnDef,
@@ -76,6 +77,7 @@ export function DataTable<TData extends MyData, TValue>({
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
     )
+
     // for filter
     const [openTYDropdown, setOpenTYDropdown] = React.useState(false) // to manage state of joinning year filter dropdwon
     const [valueTY, setValueTY] = React.useState("")
@@ -88,15 +90,18 @@ export function DataTable<TData extends MyData, TValue>({
         // sorting
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
+
         // filtering
         onColumnFiltersChange: setColumnFilters,
         getFilteredRowModel: getFilteredRowModel(),
 
         state: {
             sorting,
+
             // filtering
             columnFilters,
         },
+
         // resetColumnFilters: (defaultState?: boolean) => void
 
     })

@@ -5,16 +5,18 @@ const EventCount = async () => {
     try {
         const eventsCount = await getAllEventsCount();
         console.log("event count");
-        console.log({eventsCount});
-        return (<div className=' text-gray-500 flex'>
+        console.log({ eventsCount });
+        
+return (<div className=' text-gray-500 flex'>
             <div>(</div>
-              {eventsCount}
+            {eventsCount}
             <div>)</div>
         </div>
         );
     } catch (error) {
         console.error('Error retrieving eventscount:', error);
-        return (
+        
+return (
             <div className='w-full'>
                 {/* Render an error message */}
             </div>

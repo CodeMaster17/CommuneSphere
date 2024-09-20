@@ -4,6 +4,7 @@ import { db } from "./lib/database.connection";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { getUserById } from "./actions/user.action";
 import { UserRole } from "@prisma/client";
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -25,13 +26,15 @@ export const {
       if (token.role && session.user) {
         session.user.role = token.role as UserRole; // stored it in session, now it can be accessed in fronted
       }
-      return session;
+      
+return session;
     },
     async jwt({ token }) {
       if (!token.sub) return token; // logged out user
       const exisitingUser = await getUserById(token.sub);
       if (!exisitingUser) return token; // user not found
       token.role = exisitingUser.role;
+
       // const existingAccount = await getUserById(exisitingUser.id);
       return token;
     },

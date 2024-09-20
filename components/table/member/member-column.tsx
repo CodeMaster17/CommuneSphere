@@ -52,7 +52,8 @@ export const columns: ColumnDef<UserType>[] = [
         header: "Role",
         cell: ({ row }) => {
             const user = row.original;
-            return (
+            
+return (
                 user.role === 'ADMIN' ? <span className="rounded-md bg-green-500 px-2 py-1 text-white">ADMIN</span> : <span className="rounded-md bg-blue-500 px-2 py-1 text-white">USER</span>
             );
         },
@@ -86,7 +87,8 @@ export const columns: ColumnDef<UserType>[] = [
                 console.log("Delete button clicked with id: ", id)
                 await deleteUser(id);
             }
-            return (
+            
+return (
                 <>
                     <span className="flex">
                         <AlertDialog>

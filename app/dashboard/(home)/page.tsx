@@ -52,7 +52,8 @@ const Dashboard = () => {
         getEventCount()
         fetchTopEvents()
     }, [])
-    return (
+    
+return (
         <section className="w-full border-2 pr-4">
             <Heading type="large">
                 Dashboard

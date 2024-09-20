@@ -1,10 +1,8 @@
 
-import { getAllEventsCount, countAvgParticipation, countAvgRegistration, getTopEvents } from "@/actions/event.action"
-import { Heading } from "../shared/Heading"
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
-import { Card } from "../ui/card"
-import { domain } from "@/constants/domains"
+import { countAvgParticipation, getAllEventsCount, getTopEvents } from "@/actions/event.action"
 import Image from "next/image"
+import { Heading } from "../shared/Heading"
+import { Card } from "../ui/card"
 
 
 const EventPageCard = async () => {
@@ -12,9 +10,7 @@ const EventPageCard = async () => {
 
     const totalEvents = await getAllEventsCount()
     const AvgParticipation = await countAvgParticipation()
-    const AvgRegistration = await countAvgRegistration()
     const topEvents = await getTopEvents(2);
-
 
     return (
         <div className='mt-2 grid grid-cols-2 gap-4 '>
@@ -25,15 +21,15 @@ const EventPageCard = async () => {
                 </Heading>
                 <div className='mt-2 grid grid-cols-2 gap-4'>
 
-                {topEvents.map((event, index) => (
-                 <Card key={index} className='flex flex-col items-center justify-center p-2'>
-                  <Image src='/events-thumbnail.png' alt='intro' width={400} height={100} className='w-full h-24 rounded-lg' />
-                  <div className='flex justify-between items-center mt-2 w-full'>
-                    <p className='text-xs font-semibold'>{event.name}</p>
-                   <p className='rounded-sm bg-greenTab px-3 text-xs text-greenText'>{event.actual_participants} Participants</p>
-                 </div>
-                 </Card>
-      ))}
+                    {topEvents.map((event, index) => (
+                        <Card key={index} className='flex flex-col items-center justify-center p-2'>
+                            <Image src='/events-thumbnail.png' alt='intro' width={400} height={100} className='w-full h-24 rounded-lg' />
+                            <div className='flex justify-between items-center mt-2 w-full'>
+                                <p className='text-xs font-semibold'>{event.name}</p>
+                                <p className='rounded-sm bg-greenTab px-3 text-xs text-greenText'>{event.actual_participants} Participants</p>
+                            </div>
+                        </Card>
+                    ))}
                 </div>
             </div>
             <div className='flex  flex-col gap-4  '>
