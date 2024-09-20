@@ -1,22 +1,19 @@
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import Breadcrumb from '@/components/shared/Breadcrumb';
-import { Heading } from '@/components/shared/Heading'
-import EventCount from '@/components/event/EventCount';
-import { EventType, columns } from "@/components/table/event/event-column"
-import { DataTable } from "@/components/table/event/event-data-table"
 import { getAllEvents } from '@/actions/event.action';
 import EventPageCard from '@/components/event/EventPageCard';
 import OnClickEventView from '@/components/event/OnClickEventView';
+import Breadcrumb from '@/components/shared/Breadcrumb';
+import { EventType, columns } from "@/components/table/event/event-column";
+import { DataTable } from "@/components/table/event/event-data-table";
+import { Button } from '@/components/ui/button';
 
+import EditFormModal from '@/components/event/AddFormModal';
+import DomainWiseData from '@/components/event/DomainWiseData';
 import {
     Tabs,
     TabsContent,
     TabsList,
     TabsTrigger,
-} from "@/components/ui/tabs"
-import DomainWiseData from '@/components/event/DomainWiseData';
-import EditFormModal from '@/components/event/AddFormModal';
+} from "@/components/ui/tabs";
 
 
 async function getData(): Promise<EventType[]> {
