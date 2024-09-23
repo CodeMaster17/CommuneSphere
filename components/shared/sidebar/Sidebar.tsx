@@ -8,11 +8,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { sidebarTop } from "@/constants/sidebarConstants";
 import { GetCurrentUser } from "@/hooks/get-current-user";
 import { LogOut, Menu, Moon, Settings } from 'lucide-react';
-import Link from "next/link";
 import { MenuItem } from "./Menuitem";
+
+
+import ClosedSidebar from "./ClosedSidebar";
+import OpenSidebar from "./OpenSidebar";
 
 
 const Sidebar = () => {
@@ -22,7 +24,7 @@ const Sidebar = () => {
     <div className="sticky left-4 top-4 z-10 flex h-[95vh] w-[10vw] justify-between rounded-[12px] bg-bluePrimary  lg:w-[4vw]">
       <div className="relative flex w-full flex-col p-2">
         <div className="flex w-full items-center justify-center border-b-2 pb-4">
-          <Sheet  >
+          <Sheet>
             <SheetTrigger asChild>
               <Menu color="white" cursor={"pointer"} />
             </SheetTrigger>
@@ -36,18 +38,22 @@ const Sidebar = () => {
                   </div>
                 </SheetTitle>
               </SheetHeader>
+
+
               <div className="w-full flex-col items-start justify-between ">
                 <div className="mt-4 flex  w-full flex-col justify-between xl:space-y-[1rem] 2xl:space-y-[1.4rem] ">
-                  {sidebarTop.map((item) => {
-                    return (<MenuItem key={item.id} name={item.name} route={item.route} component={item.component} />);
-                  })}
+                  <OpenSidebar />
                 </div>
+
+
                 <div className="mt-8 flex w-full flex-col ">
                   <MenuItem name="Logout" route="/" component={<LogOut size={20} />} />
                   <MenuItem name="Settings" route="/" component={<Settings size={20} />} />
                   <MenuItem name="Logout" route="/" component={<Moon size={20} />} />
                 </div>
               </div>
+
+
               <SheetFooter className="absolute bottom-0">
                 <div className="mt-8 flex w-full items-center justify-start gap-4 border-t-2 py-4">
                   <Avatar>
@@ -75,15 +81,7 @@ const Sidebar = () => {
           </Sheet>
         </div>
 
-        {sidebarTop.map((item) => {
-          return (
-
-            <Link href={item.route} key={item.id} className="flex h-16 w-full items-center justify-center">
-              {item.component}
-            </Link>
-
-          )
-        })}
+        <ClosedSidebar />
       </div>
     </div>
   );
