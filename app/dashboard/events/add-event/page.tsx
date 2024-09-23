@@ -38,6 +38,7 @@ const AddEvent = () => {
     const [success, setSuccess] = useState<string | undefined>("");
     const [isPending, startTransition] = useTransition();
 
+    console.log(isPending);
 
     const form = useForm<z.infer<typeof EventRegisterSchema>>({
         resolver: zodResolver(EventRegisterSchema),

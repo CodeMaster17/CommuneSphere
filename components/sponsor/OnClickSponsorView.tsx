@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 'use client'
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDisplayCurrentYear, useDisplayYear } from '@/hooks/use-display-data';
-import Image from 'next/image';
 import { SPONSOR } from '@/constants';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const OnClickSponsorView = () => {
     const clickedViewId = useSelector((state: any) => state.id);

@@ -1,7 +1,7 @@
 "use client"
 
-import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
@@ -12,8 +12,7 @@ import {
     FormDescription,
     FormField,
     FormItem,
-    FormLabel,
-    FormMessage,
+    FormMessage
 } from "@/components/ui/form"
 import {
     Select,
@@ -22,7 +21,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-
 
 const FormSchema = z.object({
     email: z
@@ -38,14 +36,7 @@ export function SelectForm() {
     })
 
     function onSubmit(data: z.infer<typeof FormSchema>) {
-        // toast({
-        //     title: "You submitted the following values:",
-        //     description: (
-        //         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-        //             <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        //         </pre>
-        //     ),
-        // })
+        console.log("Form submitted with data:", data)
     }
 
     return (
@@ -56,7 +47,6 @@ export function SelectForm() {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>

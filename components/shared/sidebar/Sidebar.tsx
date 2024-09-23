@@ -1,9 +1,5 @@
 "use client"
-import React from "react";
-import { MenuItem } from "./Menuitem";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { sidebarBottom, sidebarTop } from "@/constants/sidebarConstants";
-import Link from "next/link";
 import {
   Sheet,
   SheetContent,
@@ -11,9 +7,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { LogOut, Menu, Moon, Settings } from 'lucide-react';
+} from "@/components/ui/sheet";
+import { sidebarTop } from "@/constants/sidebarConstants";
 import { GetCurrentUser } from "@/hooks/get-current-user";
+import { LogOut, Menu, Moon, Settings } from 'lucide-react';
+import Link from "next/link";
+import { MenuItem } from "./Menuitem";
 
 
 const Sidebar = () => {

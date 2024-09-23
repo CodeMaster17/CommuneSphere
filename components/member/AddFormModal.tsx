@@ -1,30 +1,10 @@
 'use client'
-import React, { useState } from 'react'
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-
-import { Copy, Github, Instagram, Linkedin } from 'lucide-react'
-
+import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import AddMemberForm from './AddMemberForm'
 
-
-
-
-
 const EditFormModal = () => {
-
-
     const [modalState, setModalState] = useState('closed')
-
 
     function controlModalState() {
         setModalState('open')
