@@ -1,8 +1,8 @@
 'use client'
 import { getUserById } from '@/actions/user.action';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Icons } from '@/constants/icons';
 import { useDisplayCurrentYear, useDisplayYear } from '@/hooks/use-display-data';
-import { Github, Instagram, Linkedin } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -71,9 +71,9 @@ const OnClickProfileView = () => {
                 </div>
 
                 <div className='mt-4 flex w-full gap-4'>
-                    <Github />
-                    <Linkedin />
-                    <Instagram />
+                    <Icons.Github />
+                    <Icons.Linkedin />
+                    <Icons.Instagram />
                 </div>
                 <div className='mt-4 w-full gap-2'>
                     <p className='text-lg'>Details</p>
