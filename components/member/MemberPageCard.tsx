@@ -3,7 +3,7 @@ import { countAllUsers, countFemaleMembers, countMaleMembers } from "@/actions/u
 import { Heading } from "../shared/Heading"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Card } from "../ui/card"
-import { domain } from "@/constants/domains"
+import { domain } from "@/constants/domains_constants"
 
 
 const MemberPageCard = async () => {
