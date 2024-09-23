@@ -4,32 +4,38 @@ export const sidebarTop = [
     {
         component: <Home color='white' size={20} />,
         name: "Home",
-        route: "/dashboard"
+        route: "/dashboard",
+        id: "home",
     },
     {
         component: <UsersRound color='white' size={20} />,
         name: "Members",
-        route: "/dashboard/members"
+        route: "/dashboard/members",
+        id: "members",
     },
     {
         component: <CalendarCheck2 color='white' size={20} />,
         name: "Events",
-        route: "/dashboard/events"
+        route: "/dashboard/events",
+        id: "events",
     },
     {
         component: <FolderGit2 color='white' size={20} />,
         name: "Projects",
-        route: "/dashboard/projects"
+        route: "/dashboard/projects",
+        id: "projects",
     },
     {
         component: <Handshake color='white' size={20} />,
         name: "Sponsors",
-        route: "/dashboard/sponsors"
+        route: "/dashboard/sponsors",
+        id: "sponsors",
     },
     {
         component: <User color='white' size={20} />,
         name: "User",
-        route: "/dashboard/profile"
+        route: "/dashboard/profile",
+        id: "profile",
     },
 
 ]

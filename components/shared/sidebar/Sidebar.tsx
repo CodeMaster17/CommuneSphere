@@ -38,8 +38,8 @@ const Sidebar = () => {
               </SheetHeader>
               <div className="w-full flex-col items-start justify-between ">
                 <div className="mt-4 flex  w-full flex-col justify-between xl:space-y-[1rem] 2xl:space-y-[1.4rem] ">
-                  {sidebarTop.map((item, idx) => {
-                    return (<MenuItem key={idx} name={item.name} route={item.route} component={item.component} />);
+                  {sidebarTop.map((item) => {
+                    return (<MenuItem key={item.id} name={item.name} route={item.route} component={item.component} />);
                   })}
                 </div>
                 <div className="mt-8 flex w-full flex-col ">
@@ -75,13 +75,13 @@ const Sidebar = () => {
           </Sheet>
         </div>
 
-        {sidebarTop.map((item, index) => {
+        {sidebarTop.map((item) => {
           return (
-            <>
-              <Link href={item.route} key={index} className="flex h-16 w-full items-center justify-center">
-                {item.component}
-              </Link>
-            </>
+
+            <Link href={item.route} key={item.id} className="flex h-16 w-full items-center justify-center">
+              {item.component}
+            </Link>
+
           )
         })}
       </div>

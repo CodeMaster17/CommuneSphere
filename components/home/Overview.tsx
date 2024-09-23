@@ -1,0 +1,96 @@
+"use client"
+
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
+
+const data = [
+    {
+        name: "Jan",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 1,
+    },
+    {
+        name: "Feb",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 2,
+    },
+    {
+        name: "Mar",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 3,
+
+    },
+    {
+        name: "Apr",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 4,
+    },
+    {
+        name: "May",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 5,
+    },
+    {
+        name: "Jun",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 6,
+    },
+    {
+        name: "Jul",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 7,
+    },
+    {
+        name: "Aug",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 8,
+    },
+    {
+        name: "Sep",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 9,
+    },
+    {
+        name: "Oct",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 10,
+    },
+    {
+        name: "Nov",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 11,
+    },
+    {
+        name: "Dec",
+        total: Math.floor(Math.random() * 5000) + 1000,
+        id: 12,
+    },
+]
+
+export function Overview() {
+    return (
+        <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={data}>
+                <XAxis
+                    dataKey="name"
+                    stroke="#888888"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                />
+                <YAxis
+                    stroke="#888888"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                    tickFormatter={(value) => `$${value}`}
+                />
+                <Bar
+                    dataKey="total"
+                    fill="#9AB7FF"
+                    radius={[4, 4, 0, 0]}
+                    className="fill-#2B5FE5"
+                />
+            </BarChart>
+        </ResponsiveContainer>
+    )
+}
