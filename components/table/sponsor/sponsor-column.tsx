@@ -25,7 +25,7 @@ export type SponsorType = {
   id: string;
   image: string;
   name: string;
-  events: string;
+  events: string[];
   amount: string;
   
 };
@@ -34,8 +34,7 @@ export const columns: ColumnDef<SponsorType>[] = [
     {
         accessorKey: "image",
         header: "Image",
-        cell: ({ row }) => {
-            const sponsor = row.original;
+        cell: () => {
             
 return (
                 <span className="rounded-md bg-gray-300 py-1.5 px-3.5 "></span>

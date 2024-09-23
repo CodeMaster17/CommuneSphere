@@ -44,7 +44,7 @@ export const useDisplayYear = (year: string) => {
 // third -> 3rd
 // fourth -> 4th
 
-export const useDisplayCurrentYear = (year: string) => {
+export const useDisplayCurrentYear = (year: string): string=> {
     switch (year) {
         case "first":
             return "1st"

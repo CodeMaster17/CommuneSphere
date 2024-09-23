@@ -12,6 +12,14 @@ const OnClickProfileView = () => {
 
     console.log("ClickedViewId", clickedViewId);
 
+    const DisplayCurrentYear = (current_year:string)=>{
+     return useDisplayCurrentYear(current_year);
+    }
+
+    const DisplayYearOfJoining = (year_of_joining:string)=>{
+        return useDisplayYear(year_of_joining);
+    }
+
     useEffect(() => {
         async function fetchData() {
             const data = await getUserById(clickedViewId);
@@ -47,13 +55,13 @@ const OnClickProfileView = () => {
                         <p>Year</p>
                         <p className='text-2xl font-bold'>
 
-                            {userData.current_year ? useDisplayCurrentYear(userData.current_year) : ''}
+                            {userData.current_year ? DisplayCurrentYear(userData.current_year) : ''}
                         </p>
                     </div>
                     <div className='flex flex-col items-center justify-center border-r-2'>
                         <p>Joined On</p>
                         <p className='text-2xl font-bold'>
-                            {userData.year_of_joining ? useDisplayYear(userData.year_of_joining) : ''}
+                            {userData.year_of_joining ? DisplayYearOfJoining(userData.year_of_joining) : ''}
                         </p>
                     </div>
                     <div className='flex flex-col items-center justify-center'>

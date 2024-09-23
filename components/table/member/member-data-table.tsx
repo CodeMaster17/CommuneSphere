@@ -171,7 +171,7 @@ export function DataTable<TData extends MyData, TValue>({
                     </TableHeader>
                     <TableBody className="rounded-lg pl-8 ">
                         {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row, index) =>
+                            table.getRowModel().rows.map((row) =>
 
                             (
                                 <TableRow

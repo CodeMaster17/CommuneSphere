@@ -19,12 +19,12 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
 
   // order of condion matters here
-  if (isApiAuthRoute) return null;
+  if (isApiAuthRoute) return;
 
   if (isAuthRoute) {
     if (isLoggedIn) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
-    } else return null;
+    } else return;
   }
 
   // if user is not logged in and the route is not public
@@ -42,7 +42,7 @@ export default auth((req) => {
     );
   }
 
-  return null;
+  return;
 });
 
 export const config = {

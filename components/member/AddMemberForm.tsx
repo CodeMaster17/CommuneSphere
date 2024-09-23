@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useTransition } from 'react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
     Form,
     FormControl,
@@ -8,27 +8,28 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import React, { useState, useTransition } from 'react'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
-import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { z } from "zod"
 
-import { RegisterSchema } from '@/schema'
-import { Button } from '../ui/button'
-import { DialogFooter } from '../ui/dialog'
 import { registerUser } from '@/actions/user.register'
+import { RegisterSchema } from '@/schema'
+import { Pencil, Trash2 } from 'lucide-react'
 import { toast } from "sonner"
 import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
-import { Trash2 } from 'lucide-react';
-import { Pencil } from 'lucide-react';
+import { Button } from '../ui/button'
 
 
-const AddMemberForm = ({ closeModalFunction }) => {
+interface AddMemberFormProps {
+    closeModalFunction: () => void;
+}
+
+const AddMemberForm: React.FC<AddMemberFormProps> = ({ closeModalFunction }) => {
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues: {
@@ -42,6 +43,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
     const [isPending, startTransition] = useTransition();
+    console.log(isPending);
 
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof RegisterSchema>) {
@@ -74,7 +76,7 @@ const AddMemberForm = ({ closeModalFunction }) => {
                         <AvatarFallback>CM</AvatarFallback>
                     </Avatar>
                     <div className='space-y-2'>
-                        <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
+                        <Button className='rounded-md text-xs h-9 w-40 flex border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
                             <Pencil className='w-4 h-4'/>Add Image
                         </Button>
                         <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 border-errorRed text-errorRed gap-2 hover:bg-errorRed hover:text-white'>
@@ -303,7 +305,8 @@ const AddMemberForm = ({ closeModalFunction }) => {
                 <div className='flex w-full gap-2'>
 
                     <Button type="button" className='border-2 w-1/2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>Discard</Button>
-                    <Button type="submit" className='border-2 w-1/2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
+                    <Button type="submit" className='border-2 w-1/2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen' onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); }}>Save changes</Button>
+
                 </div>
 
             </form>

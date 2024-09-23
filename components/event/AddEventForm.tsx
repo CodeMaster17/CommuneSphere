@@ -35,8 +35,12 @@ import { registerEvent } from "@/actions/event.action"
 import { Pencil, Trash2 } from 'lucide-react'
 import { useState, useTransition } from "react"
 
+interface IAddEventFormProps{
+    closeModalFunction : ()=>void
+}
 
-const AddEventForm = ({ closeModalFunction }) => {
+
+const AddEventForm:React.FC<IAddEventFormProps> = ({ closeModalFunction }) => {
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
@@ -224,7 +228,7 @@ const AddEventForm = ({ closeModalFunction }) => {
                 <div className='flex justify-between'>
 
                     <Button type="button" className='border-2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>close</Button>
-                    <Button type="submit" className='border-2 border-sucessGreen bg-white text-sucessGreen hover:bg-sucessGreen hover:text-white' onClick={(event: React.MouseEvent<HTMLButtonElement>) => onSubmit(form.getValues())}>Save changes</Button>
+                    <Button type="submit" className='border-2 border-sucessGreen bg-white text-sucessGreen hover:bg-sucessGreen hover:text-white' onClick={() => onSubmit(form.getValues())}>Save changes</Button>
                 </div>
 
             </form>
