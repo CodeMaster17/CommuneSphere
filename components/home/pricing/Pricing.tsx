@@ -19,27 +19,27 @@ const Pricing = () => {
                             <h1 className="mb-4 border-b border-gray-200 pb-4 text-5xl leading-none text-gray-900">Free</h1>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Community Building
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Conversion Rates
                             </p>
                             <p className="mb-6 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Enhanced Trust & Loyalty
                             </p>
                             <button className="mt-auto flex w-full items-center rounded border-0 bg-gray-400 px-4 py-2 text-white hover:bg-gray-500 focus:outline-none">Checkout
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="ml-auto size-4" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="ml-auto size-4" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
@@ -56,34 +56,34 @@ const Pricing = () => {
                             </h1>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Efficient Search & Filters
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Multimedia Integration
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Regular Updates
                             </p>
                             <p className="mb-6 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Instant Access
                             </p>
                             <button className="mt-auto flex w-full items-center rounded border-0 bg-bluePrimary px-4 py-2 text-white hover:bg-blueActiveTab focus:outline-none">Checkout
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="ml-auto size-4" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="ml-auto size-4" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
@@ -99,41 +99,41 @@ const Pricing = () => {
                             </h1>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Continuous Updates
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Responsive Design
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Interactive Timelines
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>User-Friendly Features
                             </p>
                             <p className="mb-6 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Multimedia Integration
                             </p>
                             <button className="mt-auto flex w-full items-center rounded border-0 bg-gray-400 px-4 py-2 text-white hover:bg-gray-500 focus:outline-none">Checkout
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="ml-auto size-4" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="ml-auto size-4" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>
@@ -149,41 +149,41 @@ const Pricing = () => {
                             </h1>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Strategic Synergy
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Mutual Empowerment
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Shared Vision
                             </p>
                             <p className="mb-2 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Long-Term Sustainability
                             </p>
                             <p className="mb-6 flex items-center text-gray-600">
                                 <span className="mr-2 inline-flex size-4 shrink-0 items-center justify-center rounded-full bg-gray-400 text-white">
-                                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" className="size-3" viewBox="0 0 24 24">
+                                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" className="size-3" viewBox="0 0 24 24">
                                         <path d="M20 6L9 17l-5-5"></path>
                                     </svg>
                                 </span>Real-Time Threat Detection
                             </p>
                             <button className="mt-auto flex w-full items-center rounded border-0 bg-gray-400 px-4 py-2 text-white hover:bg-gray-500 focus:outline-none">Checkout
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="ml-auto size-4" viewBox="0 0 24 24">
+                                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="ml-auto size-4" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
                                 </svg>
                             </button>

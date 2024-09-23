@@ -19,7 +19,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { RegisterSchema } from "@/schema"
+import { RegisterSchema } from "@/schema/register.schema"
 
 import { useState, useTransition } from "react"
 import { registerUser } from "@/actions/user.register"
@@ -27,6 +27,8 @@ import { registerUser } from "@/actions/user.register"
 import { FormSuccess } from "@/components/shared/form-success/FormSuccess"
 import { FormError } from "@/components/shared/form-error/FormError"
 import { Button } from "@/components/ui/button"
+import { ROLE_USER } from "@/constants/role.constant"
+import { SUCCESS_MEMBER_CREATED } from "@/constants/success.message"
 
 const AddMember = () => {
 
@@ -38,7 +40,7 @@ const AddMember = () => {
     const form = useForm<z.infer<typeof RegisterSchema>>({
         resolver: zodResolver(RegisterSchema),
         defaultValues: {
-            role: "USER",
+            role: ROLE_USER,
             email: "",
             password: "",
             name: "",
@@ -47,14 +49,6 @@ const AddMember = () => {
     })
 
     function onSubmit(data: z.infer<typeof RegisterSchema>) {
-        // toast({
-        //     title: "You submitted the following values:",
-        //     description: (
-        //         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-        //             <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        //         </pre>
-        //     ),
-        // })
         setError("");
         setSuccess("");
 
@@ -65,9 +59,8 @@ const AddMember = () => {
                     setSuccess(data.success);
                 });
         });
-        toast("Member has been created.")
+        toast(SUCCESS_MEMBER_CREATED)
 
-        console.log({ data })
     }
 
     return (

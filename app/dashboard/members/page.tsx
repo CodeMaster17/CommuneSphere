@@ -1,9 +1,8 @@
 
-import { Button } from '@/components/ui/button'
-import { UserType, columns } from "@/components/table/member/member-column"
 import { getAllUsers } from '@/actions/user.action'
-import { useDisplayYear } from '@/hooks/use-display-data'
 import Breadcrumb from '@/components/shared/Breadcrumb'
+import { UserType, columns } from "@/components/table/member/member-column"
+import { useDisplayYear } from '@/hooks/use-display-data'
 
 import TableData from '@/components/member/TableData'
 import {
@@ -15,9 +14,9 @@ import {
 
 
 import DomainWiseData from '@/components/member/DomainWiseData'
+import MemberPageActionButtons from '@/components/member/MemberPageActionButtons'
 import MemberPageCard from '@/components/member/MemberPageCard'
 import OnClickProfileView from '@/components/member/OnClickProfileView'
-import AddFormModal from '@/components/member/AddFormModal'
 
 
 async function getData(): Promise<UserType[]> {
@@ -40,6 +39,7 @@ async function getData(): Promise<UserType[]> {
 }
 
 const Members = async () => {
+
     // fetching data from user
     const data = await getData()
 
@@ -74,12 +74,7 @@ const Members = async () => {
             <div className='w-[30%]  pr-4'>
 
                 {/* action buttons */}
-                <div className='flex w-full items-center justify-end gap-4'>
-                    <AddFormModal />
-                    <Button variant="outline">
-                        Import from CSV
-                    </Button>
-                </div>
+                <MemberPageActionButtons />
 
 
                 {/* side profile view */}

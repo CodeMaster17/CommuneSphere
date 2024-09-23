@@ -11,8 +11,8 @@
 <rect x="-446.5" y="-7.5" width="476" height="33" rx="6.5" fill="white"/>
 <rect x="-446.5" y="-7.5" width="476" height="33" rx="6.5" stroke="#CBD5E1"/>
 <g id="icon/search">
-<path id="Vector" d="M7.79167 13.9583C10.9213 13.9583 13.4583 11.4213 13.4583 8.29167C13.4583 5.16205 10.9213 2.625 7.79167 2.625C4.66205 2.625 2.125 5.16205 2.125 8.29167C2.125 11.4213 4.66205 13.9583 7.79167 13.9583Z" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M14.8742 15.3752L11.793 12.2939" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector" d="M7.79167 13.9583C10.9213 13.9583 13.4583 11.4213 13.4583 8.29167C13.4583 5.16205 10.9213 2.625 7.79167 2.625C4.66205 2.625 2.125 5.16205 2.125 8.29167C2.125 11.4213 4.66205 13.9583 7.79167 13.9583Z" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path id="Vector_2" d="M14.8742 15.3752L11.793 12.2939" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </g>
 </g>
 </g>

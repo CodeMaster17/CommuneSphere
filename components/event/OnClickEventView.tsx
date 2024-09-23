@@ -10,13 +10,11 @@ const OnClickEventView = () => {
     const clickedViewId = useSelector((state: any) => state.id);
     const [eventData, setEventData] = useState<any>(null);
 
-    console.log("ClickedViewId", clickedViewId);
 
     useEffect(() => {
         async function fetchData() {
             const data = await getEventId(clickedViewId);
             setEventData(data);
-            console.log("Event ka data hai ji Data", data);
         }
         fetchData();
     }, [clickedViewId]);
@@ -59,22 +57,22 @@ const OnClickEventView = () => {
                 </div>
 
                 <div className='mt-1 flex flex-col w-full gap-4'>
-                        <div className='w-full flex gap-1 justify-between'>
-                            <p className='font-medium'>Location</p>
-                            <p>{eventData.location}</p>
-                        </div>
-                        <div className='w-full flex gap-1 justify-between'>
-                            <p className='font-medium'>Duration</p>
-                            <p>{eventData.duration}h</p>
-                        </div>
-                        <div className='w-full flex gap-1 justify-between'>
-                            <p className='font-medium'>Target Year</p>
-                            <p>{eventData.target_year ? useDisplayCurrentYear(eventData.target_year) : ''}</p>
-                        </div>
-                        <div className='w-full flex gap-1 justify-between'>
-                            <p className='font-medium'>Domain</p>
-                            <p>Creative</p>
-                        </div>
+                    <div className='w-full flex gap-1 justify-between'>
+                        <p className='font-medium'>Location</p>
+                        <p>{eventData.location}</p>
+                    </div>
+                    <div className='w-full flex gap-1 justify-between'>
+                        <p className='font-medium'>Duration</p>
+                        <p>{eventData.duration}h</p>
+                    </div>
+                    <div className='w-full flex gap-1 justify-between'>
+                        <p className='font-medium'>Target Year</p>
+                        <p>{eventData.target_year ? useDisplayCurrentYear(eventData.target_year) : ''}</p>
+                    </div>
+                    <div className='w-full flex gap-1 justify-between'>
+                        <p className='font-medium'>Domain</p>
+                        <p>Creative</p>
+                    </div>
 
 
 
@@ -109,20 +107,20 @@ const OnClickEventView = () => {
                 </div>
 
                 <div className='mt-3 flex flex-col w-full gap-4'>
-                <div className='w-full flex gap-1 justify-between'>
-                            <p className='font-medium'>Sponsors</p>
-                            <p className='bg-greyTab p-1 text-xs rounded-lg'>Redbull</p>
-                        </div>
+                    <div className='w-full flex gap-1 justify-between'>
+                        <p className='font-medium'>Sponsors</p>
+                        <p className='bg-greyTab p-1 text-xs rounded-lg'>Redbull</p>
+                    </div>
                 </div>
 
                 <div className='flex justify-between items-center mt-3'>
-                        <p className='text-sm font-medium'>Drive Link</p>
-                        <div className='w-[70%] rounded-sm border-[1px] py-1 pl-3 text-sm font-medium h-8'>
-                            <p>
-                                {eventData.thumbnail ? eventData.thumbnail : ''}
-                            </p>
-                        </div>
+                    <p className='text-sm font-medium'>Drive Link</p>
+                    <div className='w-[70%] rounded-sm border-[1px] py-1 pl-3 text-sm font-medium h-8'>
+                        <p>
+                            {eventData.thumbnail ? eventData.thumbnail : ''}
+                        </p>
                     </div>
+                </div>
             </div>
         ) : <div className='mt-2 flex h-[40vh] w-full items-center justify-center rounded-[7.54px] bg-white p-4'>
             <p className='text-gray-500'>Select event to view details</p>

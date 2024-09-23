@@ -35,12 +35,12 @@ import { registerEvent } from "@/actions/event.action"
 import { Pencil, Trash2 } from 'lucide-react'
 import { useState, useTransition } from "react"
 
-interface IAddEventFormProps{
-    closeModalFunction : ()=>void
+interface IAddEventFormProps {
+    closeModalFunction: () => void
 }
 
 
-const AddEventForm:React.FC<IAddEventFormProps> = ({ closeModalFunction }) => {
+const AddEventForm: React.FC<IAddEventFormProps> = ({ closeModalFunction }) => {
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
@@ -74,7 +74,6 @@ const AddEventForm:React.FC<IAddEventFormProps> = ({ closeModalFunction }) => {
                 });
         });
 
-        console.log({ data })
         console.log("isPending", isPending)
     }
 

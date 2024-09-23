@@ -39,7 +39,7 @@ const Sidebar = () => {
               <div className="w-full flex-col items-start justify-between ">
                 <div className="mt-4 flex  w-full flex-col justify-between xl:space-y-[1rem] 2xl:space-y-[1.4rem] ">
                   {sidebarTop.map((item, idx) => {
-                    return <MenuItem key={idx} name={item.name} route={item.route} component={item.component} />;
+                    return (<MenuItem key={idx} name={item.name} route={item.route} component={item.component} />);
                   })}
                 </div>
                 <div className="mt-8 flex w-full flex-col ">

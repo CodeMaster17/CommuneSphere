@@ -10,13 +10,12 @@ const OnClickProfileView = () => {
     const clickedViewId = useSelector((state: any) => state.id);
     const [userData, setUserData] = useState<any>(null);
 
-    console.log("ClickedViewId", clickedViewId);
 
-    const DisplayCurrentYear = (current_year:string)=>{
-     return useDisplayCurrentYear(current_year);
+    const DisplayCurrentYear = (current_year: string) => {
+        return useDisplayCurrentYear(current_year);
     }
 
-    const DisplayYearOfJoining = (year_of_joining:string)=>{
+    const DisplayYearOfJoining = (year_of_joining: string) => {
         return useDisplayYear(year_of_joining);
     }
 
@@ -24,7 +23,6 @@ const OnClickProfileView = () => {
         async function fetchData() {
             const data = await getUserById(clickedViewId);
             setUserData(data);
-            console.log("UserData", data);
         }
         fetchData();
     }, [clickedViewId]);

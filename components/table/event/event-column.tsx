@@ -69,10 +69,8 @@ return (
             const dispatch = useDispatch()
             const clickedIdDispach = (id: string) => {
                 dispatch(setId(id))
-                console.log("Clicked id: ", id)
             }
             const deleteButttonHandler = async (id: string) => {
-                console.log("Delete button clicked with id: ", id)
                 await deleteEvent(id);
             }
             

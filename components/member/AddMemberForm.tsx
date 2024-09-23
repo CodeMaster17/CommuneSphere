@@ -17,7 +17,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { registerUser } from '@/actions/user.register'
-import { RegisterSchema } from '@/schema'
+import { RegisterSchema } from '@/schema/register.schema'
 import { Pencil, Trash2 } from 'lucide-react'
 import { toast } from "sonner"
 import { FormError } from '../form-error'
@@ -45,13 +45,10 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ closeModalFunction }) => 
     const [isPending, startTransition] = useTransition();
     console.log(isPending);
 
-    // 2. Define a submit handler.
+    // Form submit handler.
     function onSubmit(values: z.infer<typeof RegisterSchema>) {
-        console.log("Button Clicked")
-        console.log(values)
         setError("");
         setSuccess("");
-
         startTransition(() => {
             registerUser(values)
                 .then((data: any) => {
@@ -59,9 +56,9 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ closeModalFunction }) => 
                     setSuccess(data.success);
                     toast("Member has been created.")
                 }).catch((error) => {
-                    console.error("Error during form submission:", error);
                     setError("An error occurred during submission.");
                     toast("Error adding member.");
+                    throw error;
                 });
         });
 
@@ -77,13 +74,11 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ closeModalFunction }) => 
                     </Avatar>
                     <div className='space-y-2'>
                         <Button className='rounded-md text-xs h-9 w-40 flex border-2 bg-bluePrimary border-bluePrimary text-white gap-2 hover:bg-white hover:text-bluePrimary'>
-                            <Pencil className='w-4 h-4'/>Add Image
+                            <Pencil className='w-4 h-4' />Add Image
                         </Button>
                         <Button className='rounded-md text-xs h-9 w-40 flex bg-white border-2 border-errorRed text-errorRed gap-2 hover:bg-errorRed hover:text-white'>
-                            <Trash2 className='w-4 h-4'/>Remove Image
+                            <Trash2 className='w-4 h-4' />Remove Image
                         </Button>
-                        {/* <br /> */}
-                        {/* <span className='rounded-md bg-golden p-1 text-xs text-darkGolden'>Domain</span> */}
                     </div>
                 </div>
                 {/* edit form */}
@@ -302,10 +297,14 @@ const AddMemberForm: React.FC<AddMemberFormProps> = ({ closeModalFunction }) => 
                 <br />
                 <FormError message={error} />
                 <FormSuccess message={success} />
+
+
                 <div className='flex w-full gap-2'>
 
                     <Button type="button" className='border-2 w-1/2 border-errorRed bg-white text-errorRed hover:bg-errorRed hover:text-white' onClick={closeModalFunction}>Discard</Button>
-                    <Button type="submit" className='border-2 w-1/2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen' onClick={(event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); }}>Save changes</Button>
+
+
+                    <Button type="submit" className='border-2 w-1/2 border-sucessGreen bg-sucessGreen text-white hover:bg-white hover:text-sucessGreen'>Save changes</Button>
 
                 </div>
 

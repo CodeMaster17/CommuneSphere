@@ -178,17 +178,16 @@ export function DataTable<TData extends MyData, TValue>({
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
 
-                                    // onClick={() => clickedIdDispach(row.original.id)}
+
                                     className="rounded-lg bg-white "
 
-                                // onClick={() => console.log(row.original)}
+
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id} className="pl-8" >
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
-                                    {/* {console.log(row)} */}
                                 </TableRow>
                             ))
                         ) : (

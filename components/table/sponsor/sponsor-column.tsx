@@ -22,12 +22,12 @@ import { deleteEvent } from "@/actions/event.action";
 
 
 export type SponsorType = {
-  id: string;
-  image: string;
-  name: string;
-  events: string[];
-  amount: string;
-  
+    id: string;
+    image: string;
+    name: string;
+    events: string[];
+    amount: string;
+
 };
 
 export const columns: ColumnDef<SponsorType>[] = [
@@ -35,8 +35,8 @@ export const columns: ColumnDef<SponsorType>[] = [
         accessorKey: "image",
         header: "Image",
         cell: () => {
-            
-return (
+
+            return (
                 <span className="rounded-md bg-gray-300 py-1.5 px-3.5 "></span>
             );
         },
@@ -51,17 +51,17 @@ return (
         header: "Events",
         cell: ({ row }) => {
             const sponsor = row.original;
-            
-return (
+
+            return (
                 <span className="flex flex-wrap gap-1">
                     {sponsor.events.map((event, index) => (
-                        <span  className="rounded-md bg-greyTab px-2 py-1"  key={index}>{event}</span>
+                        <span className="rounded-md bg-greyTab px-2 py-1" key={index}>{event}</span>
                     ))}
                 </span>
             );
         },
         size: 250
-    },    
+    },
     {
         accessorKey: "amount",
         header: "Amount",
@@ -76,14 +76,14 @@ return (
             const dispatch = useDispatch()
             const clickedIdDispach = (id: string) => {
                 dispatch(setId(id))
-                console.log("Clicked id of sponsor: ", id)
+
             }
             const deleteButttonHandler = async (id: string) => {
-                console.log("Delete button clicked with id: ", id)
+
                 await deleteEvent(id);
             }
-            
-return (
+
+            return (
                 <>
                     <span className="flex">
                         <AlertDialog>

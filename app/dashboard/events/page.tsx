@@ -14,6 +14,8 @@ import {
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs";
+import { TEXT_GENDER, TEXT_YEAR } from '@/constants';
+import { ERR_NO_GRAPH_TO_SHOW } from '@/constants/error.message';
 
 
 async function getData(): Promise<EventType[]> {
@@ -37,26 +39,9 @@ async function getData(): Promise<EventType[]> {
 
 const Events = async () => {
     const data = await getData()
-    
-return (
 
-        // <div className='w-full'>
-        //     <div className='flex w-full justify-between'>
-        //     <Breadcrumb />
-        //         <Button asChild variant="outline">
-        //             <Link href="/dashboard/events/add-event">Add Event</Link>
-        //         </Button>
-        //     </div>
-        //     <div className='mt-4 w-full flex items-center gap-2'>
-        //         <Heading type="medium">
-        //             Events
-        //         </Heading>
-        //         <EventCount />
-        //     </div>
-        //     <div>
-        //         <DataTable columns={columns} data={data} />
-        //     </div>
-        // </div>
+    return (
+
         <section className='flex w-full gap-4   '>
             <div className='w-[70%]'>
                 <Breadcrumb />
@@ -73,7 +58,6 @@ return (
                     <TabsContent value="table">
 
                         {/* table data */}
-                        {/* <TableData data={data} columns={columns} /> */}
                         <DataTable columns={columns} data={data} />
 
 
@@ -102,20 +86,20 @@ return (
 
                 {/* graph */}
                 <div className='mt-4 h-[40vh] w-full rounded-[7.54px]  bg-white p-4'>
-                    <Tabs defaultValue="Year" className=" w-full">
-                        <TabsList defaultValue={"Year"} className="grid w-full grid-cols-3">
-                            <TabsTrigger defaultValue={"Year"} value="Year">Year</TabsTrigger>
-                            <TabsTrigger value="Gender">Gender</TabsTrigger>
+                    <Tabs defaultValue={TEXT_YEAR} className=" w-full">
+                        <TabsList defaultValue={TEXT_YEAR} className="grid w-full grid-cols-3">
+                            <TabsTrigger defaultValue={TEXT_YEAR} value={TEXT_YEAR}>Year</TabsTrigger>
+                            <TabsTrigger value={TEXT_GENDER}>Gender</TabsTrigger>
                             <TabsTrigger value="Domain">Domain</TabsTrigger>
                         </TabsList>
-                        <TabsContent value="Year" className='flex size-full items-center justify-center'>
-                            No graph to show
+                        <TabsContent value={TEXT_YEAR} className='flex size-full items-center justify-center'>
+                            {ERR_NO_GRAPH_TO_SHOW}
                         </TabsContent>
-                        <TabsContent value="Gender" className='flex size-full items-center justify-center'>
-                            No graph to show
+                        <TabsContent value={TEXT_GENDER} className='flex size-full items-center justify-center'>
+                            {ERR_NO_GRAPH_TO_SHOW}
                         </TabsContent>
                         <TabsContent value="Domain" className='flex size-full items-center justify-center'>
-                            No graph to show
+                            {ERR_NO_GRAPH_TO_SHOW}
                         </TabsContent>
                     </Tabs>
                 </div>
