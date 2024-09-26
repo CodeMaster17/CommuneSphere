@@ -1,22 +1,31 @@
 
-import { auth } from '@/auth'
+import { getUserById } from '@/actions/user.action';
+import { auth } from '@/auth';
+import AvatarUpload from '@/components/shared/file-upload/AvatarUploadURL';
 import { Icons } from '@/constants/icons';
 import Link from 'next/link';
 
 
 const Profile = async () => {
 
-
     const getUser = await auth()
-    const data = getUser?.user
+    const data = getUser?.user;
+    let user;
+    if (data !== undefined && data?.id !== undefined) {
+        user = await getUserById(data.id);
+    }
+
+
 
     return (
         <section className="relative pt-36 pb-24 min-h-screen w-[95%]">
             <img src="https://pagedone.io/asset/uploads/1705471739.png" alt="cover" className="w-full absolute top-0 left-0 z-0 h-60 object-cover" />
             <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
                 <div className="flex items-center justify-center relative z-10 mb-2.5">
-                    <img src="https://pagedone.io/asset/uploads/1705471668.png" alt="user-avatar" className="border-4 border-solid border-white rounded-full object-cover" />
+                    {/* <img src="https://pagedone.io/asset/uploads/1705471668.png" alt="user-avatar" className="border-4 border-solid border-white rounded-full object-cover" /> */}
+                    <AvatarUpload userData={user} />
                 </div>
+
                 <div className="flex flex-col sm:flex-row max-sm:gap-5 items-center justify-between mb-5">
                     <ul className="flex items-center gap-5">
                         <li>
@@ -26,13 +35,11 @@ const Profile = async () => {
 
                         </li>
                         <li>
-                            <a href="javascript:void(0);" className="flex items-center gap-2 cursor-pointer group">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="20" viewBox="0 0 5 20" fill="none">
-                                    <path d="M4.12567 1.13672L1 18.8633" stroke="#E5E7EB" strokeWidth="1.6" strokeLinecap="round" />
-                                </svg>
+                            <Link href="" className="flex items-center gap-2 cursor-pointer group">
+
                                 <span className="font-medium text-base leading-7 text-gray-400">Profile</span>
                                 <span className="rounded-full py-1.5 px-2.5 bg-indigo-50 flex items-center justify-center font-medium text-xs text-indigo-600">New</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <div className="flex items-center gap-4">

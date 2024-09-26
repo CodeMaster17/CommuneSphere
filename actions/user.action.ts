@@ -108,32 +108,22 @@ export const countMaleMembers = async () => {
 	}
 };
 
-// domain wise filter on the members
-/*
+// update the image of the user
+export async function updateProfileImage(userId: string, imageUrl: string) {
+	if (!userId || !imageUrl) {
+		throw new Error('Missing required data');
+	}
 
-enum domain{
-  web
- app
- cloud
- cyber
- ml
- video_editing
- graphics_designing
- content_writing
- marketing
- finance
- public_relations
- creative
- design
+	try {
+		// Update the user's profile with the new image URL
+		await db.user.update({
+			where: { id: userId },
+			data: { image: imageUrl },
+		});
+
+		return { success: true, message: 'Profile image updated successfully' };
+	} catch (error) {
+		console.error('Error updating profile image:', error);
+		throw new Error('Internal server error');
+	}
 }
-*/
-// export const countDomainWiseMembers = async (domainString: string) => {
-//   try {
-//     const count = await db.user.count({
-//       where: { domain: { equals: domainString } },
-//     });
-//     return count;
-//   } catch {
-//     return null;
-//   }
-// };

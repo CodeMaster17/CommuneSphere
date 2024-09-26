@@ -7,6 +7,7 @@ import { Providers } from "@/actions/redux/provider";
 import { auth } from '@/auth'
 import { SessionProvider } from 'next-auth/react'
 import { APP_NAME } from '../constants/index';
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,9 @@ export default async function RootLayout({
         <title>CommuneSphere</title>
         <body className={inter.className}>
           <Providers>
-            {children}
+            <EdgeStoreProvider>
+              {children}
+            </EdgeStoreProvider>
           </Providers>
           <Toaster />
         </body>
