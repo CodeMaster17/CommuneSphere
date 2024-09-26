@@ -33,6 +33,7 @@ export const useDisplayPosition = (position: string) => {
     }
 }
 
+// hook
 // example year : Y_2025, extract 2025 from it
 export const useDisplayYear = (year: string) => {
     return year.slice(2)
@@ -44,7 +45,7 @@ export const useDisplayYear = (year: string) => {
 // third -> 3rd
 // fourth -> 4th
 
-export const useDisplayCurrentYear = (year: string): string=> {
+export const useDisplayCurrentYear = (year: string): string => {
     switch (year) {
         case "first":
             return "1st"

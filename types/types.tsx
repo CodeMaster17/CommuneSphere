@@ -92,3 +92,113 @@ export type Events = {
   location?: string;
   event_thumbnail?: string;
 };
+
+export interface IUser {
+  id: string;
+  name?: string; // Name of the member, optional
+  email: string;
+  password: string;
+  role: UserRole; // Enum type
+  image?: string; // Optional profile image
+  roll_number?: string; // Optional roll number
+  phone?: string; // Optional phone number
+  current_year?: CurrentYearOfStudent; // Enum type for year of the student
+  branch: Branch; // Enum type for branch
+  year_of_joining: YearOfJoining; // Enum type for year of joining
+  position: Position; // Enum type for position
+  github?: string; // Optional GitHub URL
+  linkedin?: string; // Optional LinkedIn URL
+  twitter?: string; // Optional Twitter URL
+  instagram?: string; // Optional Instagram URL
+  facebook?: string; // Optional Facebook URL
+  personal_email?: string; // Optional personal email
+  domain: Domain; // Enum type for domain
+  event?: Event[]; // Array of events the user is associated with
+  gender: Gender; // Enum type for gender
+}
+
+export enum UserRole {
+  ADMIN = "ADMIN",
+  USER = "USER"
+}
+
+export enum Branch {
+  CSE = "CSE",
+  ECE = "ECE",
+  ME = "ME",
+  CE = "CE",
+  EE = "EE",
+  IT = "IT",
+  MCA = "MCA",
+  MBA = "MBA"
+}
+
+export enum Position {
+  Member = "Member",
+  Lead = "Lead",
+  Vice_Lead = "Vice_Lead",
+  Tech_Lead = "Tech_Lead",
+  PR_Lead = "PR_Lead",
+  CR_Lead = "CR_Lead",
+  Executive = "Executive",
+  Creative_Lead = "Creative_Lead",
+  Design_Lead = "Design_Lead",
+  Ar_Lead = "Ar_Lead",
+  Web_Lead = "Web_Lead",
+  App_Lead = "App_Lead",
+  Vr_Lead = "Vr_Lead"
+}
+
+export enum YearOfJoining {
+  Y_2020 = "Y_2020",
+  Y_2021 = "Y_2021",
+  Y_2022 = "Y_2022",
+  Y_2023 = "Y_2023",
+  Y_2024 = "Y_2024",
+  Y_2025 = "Y_2025"
+}
+
+export enum CurrentYearOfStudent {
+  First = "First",
+  Second = "Second",
+  Third = "Third",
+  Fourth = "Fourth"
+}
+
+export enum Domain {
+  Web = "web",
+  App = "app",
+  Cloud = "cloud",
+  Cyber = "cyber",
+  ML = "ml",
+  VideoEditing = "video_editing",
+  GraphicsDesigning = "graphics_designing",
+  ContentWriting = "content_writing",
+  Marketing = "marketing",
+  Finance = "finance",
+  PublicRelations = "public_relations",
+  Creative = "creative",
+  Design = "design"
+}
+
+export enum Gender {
+  Male = "male",
+  Female = "female",
+  Other = "other"
+}
+
+// Example Event interface (optional, based on your schema)
+export interface IEvent {
+  id: string;
+  name: string;
+  date: string;
+  target_year: CurrentYearOfStudent;
+  duration?: number;
+  expected_participants?: string;
+  actual_participants?: string;
+  location?: string;
+  event_thumbnail?: string;
+  created_by?: IUser;
+  created_at: Date;
+  updated_at?: Date;
+}
