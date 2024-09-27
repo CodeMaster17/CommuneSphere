@@ -1,7 +1,16 @@
 'use server';
 import { useDisplayYear } from '@/hooks/use-display-data';
 import { db } from '@/lib/database.connection';
+import { IUser } from '@/types/types';
+import { error } from 'console';
 import { revalidatePath } from 'next/cache';
+
+class UserFetchError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = 'UserFetchError';
+	}
+}
 
 export const getUserByEmail = async (email: string) => {
 	try {
@@ -13,13 +22,27 @@ export const getUserByEmail = async (email: string) => {
 	}
 };
 
-export const getUserById = async (id: string) => {
+export const getUserById = async (id: string): Promise<IUser | null> => {
 	try {
 		const user = await db.user.findUnique({ where: { id } });
 
-		return user;
+		// If no user found, return null
+		if (!user) {
+			throw new UserFetchError(`User with id ${id} not found.`);
+		}
+
+		return user as IUser;
 	} catch {
-		return null;
+		if (error instanceof UserFetchError) {
+			console.error(error.message);
+
+			return null;
+		}
+
+		console.error('Failed to fetch user:', error);
+		throw new Error(
+			'Unable to retrieve user data due to an unexpected error.'
+		);
 	}
 };
 

@@ -23,12 +23,17 @@ export function ImageUpdateModal({ userData }: any) {
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                    <DialogTitle>Share link</DialogTitle>
+                    <DialogTitle>Change your profile photo</DialogTitle>
                     <DialogDescription>
-                        Anyone who has this link will be able to view this.
+                        Anyone can view your profile image.
                     </DialogDescription>
                 </DialogHeader>
-                <UploadFile userData={userData} />
+
+                {/* User profile image */}
+                <div className="w-full child-center ">
+                    <UploadFile userData={userData} />
+                </div>
+
                 <DialogFooter className="sm:justify-start">
                     <DialogClose asChild>
                         <Button type="button" variant="secondary">
