@@ -18,7 +18,7 @@ export default function UploadFile({ userData }: any) {
 
 
     return (
-        <div>
+        <div className="w-full flex flex-col justify-center items-center">
             <SingleImageDropzone
                 width={200}
                 height={200}
@@ -27,7 +27,9 @@ export default function UploadFile({ userData }: any) {
                     setFile(file);
                 }}
             />
-            {progress > 0 && progress < 100 && <Progress value={progress} />}
+            <div className="mt-2 mb-2">
+                {progress > 0 && progress < 100 && <Progress value={progress} />}
+            </div>
 
             <Button
                 variant={"default"}
