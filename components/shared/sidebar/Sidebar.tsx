@@ -9,10 +9,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { GetCurrentUser } from "@/hooks/get-current-user";
-import { LogOut, Menu, Moon, Settings } from 'lucide-react';
+import { LogOut, Menu, Settings } from 'lucide-react';
 import { MenuItem } from "./Menuitem";
 
 
+import { signOut } from "next-auth/react";
 import ClosedSidebar from "./ClosedSidebar";
 import OpenSidebar from "./OpenSidebar";
 
@@ -47,9 +48,12 @@ const Sidebar = () => {
 
 
                 <div className="mt-8 flex w-full flex-col ">
-                  <MenuItem name="Logout" route="/" component={<LogOut size={20} />} />
+                  <MenuItem
+                    name="Logout"
+                    onClick={() => signOut({ callbackUrl: '/' })}
+                    component={<LogOut size={20} />}
+                  />
                   <MenuItem name="Settings" route="/" component={<Settings size={20} />} />
-                  <MenuItem name="Logout" route="/" component={<Moon size={20} />} />
                 </div>
               </div>
 
