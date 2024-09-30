@@ -8,6 +8,7 @@ import UserProfileSocials from '@/components/profile/UserSocials';
 import AvatarUpload from '@/components/shared/file-upload/AvatarUploadURL';
 import { ERR_FAILED_TO_LOAD_USER, ERR_USER_NOT_AUTHENTICATED } from '@/constants/error.message';
 import { IUser } from '@/types/types';
+import React from 'react';
 import { toast } from 'sonner';
 
 const Profile = async () => {
@@ -39,7 +40,7 @@ const Profile = async () => {
             {error ? (
                 <div className="text-center text-red-500">{error}</div>
             ) : (
-                <>
+                <React.Fragment>
                     <ProfileThumbnail />
                     <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
                         <div className="flex items-center justify-center relative z-10 mb-2.5">
@@ -54,7 +55,7 @@ const Profile = async () => {
                         <p className="font-normal text-base leading-7 text-gray-500 text-center mb-8">{user?.position}</p>
                         {user && <UserProfileSocials userData={user} />}
                     </div>
-                </>
+                </React.Fragment>
             )}
         </section>
     )

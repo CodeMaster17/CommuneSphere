@@ -4,7 +4,7 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/
 import { Input } from "../ui/input";
 
 type InputFieldProps = {
-    formName: string;
+    formName?: string;
     name: string;
     control: any;
     placeholder: string;
@@ -14,7 +14,7 @@ type InputFieldProps = {
 export const InputField: React.FC<InputFieldProps> = ({ formName, name, control, placeholder, type = 'text' }) => (
     <FormField control={control} name={name} render={({ field }) => (
         <FormItem>
-            <FormLabel>{formName}</FormLabel>
+            {formName && <FormLabel>{formName}</FormLabel>}
             <FormControl>
                 <Input placeholder={placeholder} type={type} {...field} className="border-gray-300" />
             </FormControl>
