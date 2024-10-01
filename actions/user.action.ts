@@ -2,7 +2,6 @@
 import { useDisplayYear } from '@/hooks/use-display-data';
 import { db } from '@/lib/database.connection';
 import { IUser } from '@/types/types';
-import { error } from 'console';
 import { revalidatePath } from 'next/cache';
 
 class UserFetchError extends Error {
@@ -32,14 +31,14 @@ export const getUserById = async (id: string): Promise<IUser | null> => {
 		}
 
 		return user as IUser;
-	} catch {
+	} catch (error) {
 		if (error instanceof UserFetchError) {
-			console.error(error.message);
+			console.log(error.message);
 
 			return null;
 		}
 
-		console.error('Failed to fetch user:', error);
+		console.log('Failed to fetch user:', error);
 		throw new Error(
 			'Unable to retrieve user data due to an unexpected error.'
 		);
@@ -146,7 +145,7 @@ export async function updateProfileImage(userId: string, imageUrl: string) {
 
 		return { success: true, message: 'Profile image updated successfully' };
 	} catch (error) {
-		console.error('Error updating profile image:', error);
+		console.log('Error updating profile image:', error);
 		throw new Error('Internal server error');
 	}
 }
