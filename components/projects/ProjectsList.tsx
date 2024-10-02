@@ -11,7 +11,6 @@ const ProjectsList = () => {
                 <ProjectCard />
                 <ProjectCard />
                 <ProjectCard />
-
             </div>
         </div>
     )
