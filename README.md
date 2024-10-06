@@ -1,7 +1,10 @@
-# CommuneSphere
+<h1 align="center"><img height="150" src="https://commune-sphere-mauve.vercel.app/logo.png" /><br>CommuneSphere</h1>
 
-## A team management platform, where teams and organizations can manage their team, projects, inventory, sponsors with great built in features
+<p align="center">
+A team management platform, where teams and organizations can manage their team, projects, inventory, sponsors with great built in features.
+</p>
 
+<img  src="https://commune-sphere-mauve.vercel.app/thumbnail.png" />
 ## Setup
 
 ### Prerequisites
