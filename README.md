@@ -5,6 +5,8 @@ A team management platform, where teams and organizations can manage their team,
 </p>
 
 <img  src="https://commune-sphere-mauve.vercel.app/thumbnail.png" />
+
+
 ## Setup
 
 ### Prerequisites
