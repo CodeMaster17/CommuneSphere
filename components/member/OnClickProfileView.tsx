@@ -21,8 +21,13 @@ const OnClickProfileView = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const data = await getUserById(clickedViewId);
-            setUserData(data);
+            try {
+                const data = await getUserById(clickedViewId);
+                setUserData(data);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                setUserData(null);
+            }
         }
         fetchData();
     }, [clickedViewId]);
