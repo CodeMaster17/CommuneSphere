@@ -1,8 +1,8 @@
 // This hook is created to fetch the role of the current user
-import { useSession } from 'next-auth/react';
+import { auth } from '@/auth';
 
-export const useCurrentRole = () => {
-	const session = useSession();
+export const useCurrentRole = async () => {
+	const session = await auth();
 
-	return session.data?.user?.role;
+	return session?.user.role;
 };

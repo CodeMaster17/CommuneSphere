@@ -32,7 +32,7 @@ export const {
 			if (!token.sub) return token; // logged out user
 			const exisitingUser = await getUserById(token.sub);
 			if (!exisitingUser) return token; // user not found
-			token.role = exisitingUser.role;
+			token.role = exisitingUser.role || 'USER';
 
 			// const existingAccount = await getUserById(exisitingUser.id);
 			return token;

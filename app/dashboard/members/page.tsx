@@ -14,10 +14,11 @@ import {
 
 
 import DomainWiseData from '@/components/member/DomainWiseData'
-import MemberPageActionButtons from '@/components/member/MemberPageActionButtons'
 import MemberPageCard from '@/components/member/MemberPageCard'
 import OnClickProfileView from '@/components/member/OnClickProfileView'
-
+import { useCurrentRole } from '@/hooks/use-current-role'
+import MemberPageActionButtons from '@/components/member/MemberPageActionButtons'
+import { UserRole } from '@prisma/client'
 
 async function getData(): Promise<UserType[]> {
 
@@ -42,6 +43,7 @@ const Members = async () => {
 
     // fetching data from user
     const data = await getData()
+    const role = await useCurrentRole()
 
     return (
 
@@ -74,7 +76,8 @@ const Members = async () => {
             <div className='w-[30%]  pr-4'>
 
                 {/* action buttons */}
-                <MemberPageActionButtons />
+                {role === UserRole.ADMIN && <MemberPageActionButtons />}
+
 
 
                 {/* side profile view */}
