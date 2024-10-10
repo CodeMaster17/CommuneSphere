@@ -18,7 +18,6 @@ export const {
 	},
 	callbacks: {
 		async session({ token, session }) {
-			if (!token.sub) return null;
 			if (token.sub && session.user) {
 				// mapping token.sub in session's user id
 				session.user.id = token.sub;
