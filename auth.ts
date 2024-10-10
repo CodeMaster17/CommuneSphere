@@ -18,6 +18,7 @@ export const {
 	},
 	callbacks: {
 		async session({ token, session }) {
+			if (!token.sub) return null;
 			if (token.sub && session.user) {
 				// mapping token.sub in session's user id
 				session.user.id = token.sub;
@@ -31,7 +32,8 @@ export const {
 		async jwt({ token }) {
 			if (!token.sub) return token; // logged out user
 			const exisitingUser = await getUserById(token.sub);
-			if (!exisitingUser) return token; // user not found
+
+			if (!exisitingUser) return {}; // user not found
 			token.role = exisitingUser.role || 'USER';
 
 			// const existingAccount = await getUserById(exisitingUser.id);
@@ -39,7 +41,7 @@ export const {
 		},
 	},
 	session: {
-		maxAge: 60 * 60,
+		maxAge: 60 * 60, // 1 hour
 		strategy: 'jwt',
 	},
 	...authConfig,

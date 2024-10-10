@@ -39,6 +39,7 @@ export const getUserById = async (id: string): Promise<IUser | null> => {
 		}
 
 		console.log('Failed to fetch user:', error);
+
 		throw new Error(
 			'Unable to retrieve user data due to an unexpected error.'
 		);
