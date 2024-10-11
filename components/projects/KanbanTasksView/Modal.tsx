@@ -6,8 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import clsx from 'clsx';
 import ModalProps from '@/types/Modal.type';
 
-// Types
-
 
 export default function Modal({
     children,
@@ -28,6 +26,7 @@ export default function Modal({
 
     useEffect(() => {
         document.addEventListener('keydown', onKeyDown);
+
         return () => document.removeEventListener('keydown', onKeyDown);
     }, [onKeyDown]);
 

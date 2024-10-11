@@ -23,6 +23,7 @@ const Items = ({ id, title }: ItemsType) => {
             type: 'item',
         },
     });
+
     return (
         <div
             ref={setNodeRef}

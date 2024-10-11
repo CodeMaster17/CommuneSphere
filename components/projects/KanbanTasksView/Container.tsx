@@ -5,6 +5,7 @@ import { CSS } from '@dnd-kit/utilities';
 import clsx from 'clsx';
 import { Button } from '@/components/ui/button';
 import ContainerProps from '@/types/Container.type';
+import { Icons } from '@/constants/icons';
 
 
 const Container = ({
@@ -27,6 +28,7 @@ const Container = ({
             type: 'container',
         },
     });
+
     return (
         <div
             {...attributes}
@@ -49,7 +51,7 @@ const Container = ({
                     className="border p-2 text-xs rounded-xl shadow-lg hover:shadow-xl"
                     {...listeners}
                 >
-                    Drag Handle
+                    <Icons.GripVertical className="w-4 h-4" />
                 </button>
             </div>
 
