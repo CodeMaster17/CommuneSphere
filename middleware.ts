@@ -8,7 +8,6 @@ import {
 	authRoutes,
 	publicRoutes,
 } from './route';
-import { getUserById } from './actions/user.action';
 
 const { auth } = NextAuth(authConfig);
 
