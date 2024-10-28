@@ -1,25 +1,25 @@
 // LoginForm.tsx
 'use client'
-import React, { useState, useTransition } from 'react';
-import { z } from 'zod'
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { Button } from "@/components/ui/button"
+import { Login } from '@/actions/auth/login';
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormMessage,
   FormLabel,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Login } from '@/actions/auth/login';
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Icons } from '@/constants/icons';
+import { LoginSchema } from '@/schema';
+import { zodResolver } from "@hookform/resolvers/zod";
+import Image from 'next/image';
+import React, { useState, useTransition } from 'react';
+import { useForm } from "react-hook-form";
+import { z } from 'zod';
 import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
-import { LoginSchema } from '@/schema';
-import Image from 'next/image';
-
 
 
 const LoginForm: React.FC = () => {
@@ -31,7 +31,7 @@ const LoginForm: React.FC = () => {
     },
   })
 
-
+  const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
@@ -88,7 +88,7 @@ const LoginForm: React.FC = () => {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="Email" {...field} disabled={isPending} className='border-gray-300'/>
+                          <Input placeholder="Email" {...field} disabled={isPending} className='border-gray-300' />
                         </FormControl>
                         {/* <FormDescription>
                           This is your kiit email id.
@@ -104,7 +104,26 @@ const LoginForm: React.FC = () => {
                       <FormItem>
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                          <Input placeholder="Password" {...field} disabled={isPending} className='border-gray-300'/>
+                          <div className='rounded-md border border-input bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 flex justify-between pr-2' >
+
+                            <Input placeholder="Password"
+                              type={showPassword ? "text" : "password"}
+                              {...field} disabled={isPending}
+                              className="border-none"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => setShowPassword(!showPassword)}
+
+                            >
+                              {showPassword ? <Icons.EyeClosed
+                                className="w-4 h-4 text-gray-400 
+                                "
+                              /> : <Icons.Eye
+                                className="w-4 h-4 text-gray-400 "
+                              />}
+                            </button>
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -113,7 +132,13 @@ const LoginForm: React.FC = () => {
                   <FormError message={error} />
                   <FormSuccess message={success} />
                   {/* <Checkbox id="terms1" className='w-4 h-4 border-gray-400'/><FormLabel className='pl-2'>Remember me</FormLabel> */}
-                  <Button type="submit" className='h-10 w-full bg-blueActiveTab hover:bg-bluePrimary text-white'>Login</Button>
+                  <Button type="submit" disabled={isPending}
+                    className={`h-10 w-full text-white ${isPending
+                      ? 'bg-gray-400 cursor-not-allowed'  // Styles when pending
+                      : 'bg-blueActiveTab hover:bg-bluePrimary'  // Normal styles
+                      }`}>
+                    {isPending ? "Loading..." : "Login"}
+                  </Button>
                 </form>
               </Form>
               {/* <div>
@@ -123,8 +148,8 @@ const LoginForm: React.FC = () => {
 
           </div>
         </div>
-        
-        
+
+
       </div>
     </div>
   );

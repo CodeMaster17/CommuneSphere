@@ -31,15 +31,16 @@ export const {
 		async jwt({ token }) {
 			if (!token.sub) return token; // logged out user
 			const exisitingUser = await getUserById(token.sub);
-			if (!exisitingUser) return token; // user not found
-			token.role = exisitingUser.role;
+
+			if (!exisitingUser) return {}; // user not found
+			token.role = exisitingUser.role || 'USER';
 
 			// const existingAccount = await getUserById(exisitingUser.id);
 			return token;
 		},
 	},
 	session: {
-		maxAge: 60 * 60,
+		maxAge: 60 * 60, // 1 hour
 		strategy: 'jwt',
 	},
 	...authConfig,
