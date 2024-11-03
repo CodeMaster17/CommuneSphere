@@ -48,13 +48,12 @@ export const getUserById = async (id: string): Promise<IUser | null> => {
 
 // get all users
 export const getAllUsers = async () => {
-	try {
-		const users = await db.user.findMany();
-
-		return users;
-	} catch {
-		return null;
-	}
+    try {
+        const users = await db.user.findMany();
+        return users;
+    } catch (error) {
+        return null;
+    }
 };
 
 // to count all members
