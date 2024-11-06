@@ -10,11 +10,13 @@ import OnClickProfileView from '@/components/member/OnClickProfileView';
 import { useCurrentRole } from '@/hooks/use-current-role';
 import MemberPageActionButtons from '@/components/member/MemberPageActionButtons';
 import { UserRole } from '@prisma/client';
-import OverviewPieChart from '@/components/member/OverviewPieChart';
+import OverviewPieChart from '@/components/charts/OverviewPieChart';
+import { YEARDATA, GENDERDATA, DOMAINDATA, COLORS } from '@/constants/members_piechart_constants';
 
 async function getData(): Promise<UserType[]> {
 	const data = await getAllUsers();
-    
+
+    // only returning the required fields
 	return (
 		data?.map((user, index) => ({
 			sno: index + 1,
@@ -30,25 +32,7 @@ async function getData(): Promise<UserType[]> {
 }
 
 const Members = async () => {
-	const yearData = [
-		{ name: "First Year", value: 200 },
-		{ name: "Second Year", value: 300 },
-		{ name: "Third Year", value: 400 },
-		{ name: "Fourth Year", value: 100 }
-	];
-
-	const genderData = [
-		{ name: "Male", value: 450 },
-		{ name: "Female", value: 350 }
-	];
-
-	const domainData = [
-		{ name: "Frontend", value: 150 },
-		{ name: "Backend", value: 200 },
-		{ name: "Fullstack", value: 300 }
-	];
-
-	const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+	
 
 	// fetching data from user
 	const data = await getData();
@@ -79,6 +63,7 @@ const Members = async () => {
 				{role === UserRole.ADMIN && <MemberPageActionButtons />}
 				<OnClickProfileView />
 
+                {/* graph */}
 				<div className="mt-4 h-96 w-full rounded-[7.54px] bg-white p-4">
 					<Tabs defaultValue="Year" className="w-full">
 						<TabsList className="grid w-full grid-cols-3">
@@ -88,13 +73,13 @@ const Members = async () => {
 						</TabsList>
 
 						<TabsContent value="Year" className="flex items-center justify-center">
-							<OverviewPieChart data={yearData} colors={COLORS} />
+							<OverviewPieChart data={YEARDATA} colors={COLORS} />
 						</TabsContent>
 						<TabsContent value="Gender" className="flex items-center justify-center">
-							<OverviewPieChart data={genderData} colors={COLORS} />
+							<OverviewPieChart data={GENDERDATA} colors={COLORS} />
 						</TabsContent>
 						<TabsContent value="Domain" className="flex items-center justify-center">
-							<OverviewPieChart data={domainData} colors={COLORS} />
+							<OverviewPieChart data={DOMAINDATA} colors={COLORS} />
 						</TabsContent>
 					</Tabs>
 				</div>
