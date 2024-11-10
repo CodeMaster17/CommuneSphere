@@ -1,4 +1,9 @@
-import { getAllUsers } from '@/actions/user.action';
+import {
+	getAllUsers,
+	getDataYear,
+	getDataGender,
+	getDataDomain,
+} from '@/actions/user.action';
 import Breadcrumb from '@/components/shared/Breadcrumb';
 import { UserType, columns } from '@/components/table/member/member-column';
 import { useDisplayYear } from '@/hooks/use-display-data';
@@ -11,12 +16,30 @@ import { useCurrentRole } from '@/hooks/use-current-role';
 import MemberPageActionButtons from '@/components/member/MemberPageActionButtons';
 import { UserRole } from '@prisma/client';
 import OverviewPieChart from '@/components/charts/OverviewPieChart';
-import { YEARDATA, GENDERDATA, DOMAINDATA, COLORS } from '@/constants/members_piechart_constants';
+import { COLORS } from '@/constants/members_piechart_constants';
+
+export type ChartTypeYear = {
+	id: string;
+	name: string | null;
+	value: number;
+};
+
+export type ChartTypeGender = {
+	id: string;
+	name: string;
+	value: number;
+};
+
+export type ChartTypeDomain = {
+	id: string;
+	domain: string;
+	value: number;
+};
 
 async function getData(): Promise<UserType[]> {
 	const data = await getAllUsers();
 
-    // only returning the required fields
+	// only returning the required fields
 	return (
 		data?.map((user, index) => ({
 			sno: index + 1,
@@ -26,17 +49,60 @@ async function getData(): Promise<UserType[]> {
 			role: user.role,
 			position: user.position,
 			current_year: user.current_year,
-			year_of_joining: (useDisplayYear(user.year_of_joining) as '2021') || '2022' || '2023' || '2024' || '2025' || null,
+			year_of_joining:
+				(useDisplayYear(user.year_of_joining) as '2021') ||
+				'2022' ||
+				'2023' ||
+				'2024' ||
+				'2025' ||
+				null,
+		})) || []
+	);
+}
+
+async function getChartDataYear(): Promise<ChartTypeYear[]> {
+	const chartDataYear = await getDataYear();
+
+	return (
+		chartDataYear?.map((chart, index) => ({
+			id: `chart-${index}`,
+			name: chart.name ?? 'NULL',
+			value: chart.value,
+		})) || []
+	);
+}
+
+async function getChartDataGender(): Promise<ChartTypeGender[]> {
+	const chartDataGender = await getDataGender();
+
+	return (
+		chartDataGender?.map((chart, index) => ({
+			id: `chart-${index}`,
+			name: chart.name ?? 'NULL',
+			value: chart.value,
+		})) || []
+	);
+}
+
+async function getChartDataDomain(): Promise<ChartTypeDomain[]> {
+	const chartDataDomain = await getDataDomain();
+
+	return (
+		chartDataDomain?.map((chart, index) => ({
+			id: `chart-${index}`,
+			domain: chart.domain ?? 'Unknown', // Assign 'Unknown' if domain is null or undefined
+			value: chart.value,
 		})) || []
 	);
 }
 
 const Members = async () => {
-	
-
 	// fetching data from user
 	const data = await getData();
 	const role = await useCurrentRole();
+	const yearData = await getChartDataYear();
+	const genderData = await getChartDataGender();
+	const domainData = await getChartDataDomain();
 
 	return (
 		<section className="flex w-full gap-4">
@@ -63,7 +129,7 @@ const Members = async () => {
 				{role === UserRole.ADMIN && <MemberPageActionButtons />}
 				<OnClickProfileView />
 
-                {/* graph */}
+				{/* graph */}
 				<div className="mt-4 h-96 w-full rounded-[7.54px] bg-white p-4">
 					<Tabs defaultValue="Year" className="w-full">
 						<TabsList className="grid w-full grid-cols-3">
@@ -72,14 +138,41 @@ const Members = async () => {
 							<TabsTrigger value="Domain">Domain</TabsTrigger>
 						</TabsList>
 
-						<TabsContent value="Year" className="flex items-center justify-center">
-							<OverviewPieChart data={YEARDATA} colors={COLORS} />
+						<TabsContent
+							value="Year"
+							className="flex items-center justify-center"
+						>
+							<OverviewPieChart
+								data={yearData.map((chart) => ({
+									...chart,
+									name: chart.name ?? 'NULL',
+								}))}
+								colors={COLORS}
+							/>
 						</TabsContent>
-						<TabsContent value="Gender" className="flex items-center justify-center">
-							<OverviewPieChart data={GENDERDATA} colors={COLORS} />
+						<TabsContent
+							value="Gender"
+							className="flex items-center justify-center"
+						>
+							<OverviewPieChart
+								data={genderData.map((chart) => ({
+									...chart,
+									name: chart.name ?? 'NULL',
+								}))}
+								colors={COLORS}
+							/>
 						</TabsContent>
-						<TabsContent value="Domain" className="flex items-center justify-center">
-							<OverviewPieChart data={DOMAINDATA} colors={COLORS} />
+						<TabsContent
+							value="Domain"
+							className="flex items-center justify-center"
+						>
+							<OverviewPieChart
+								data={domainData.map((chart) => ({
+									...chart,
+									name: chart.domain, // Rename 'name' to 'domain' for ChartTypeDomain
+								}))}
+								colors={COLORS}
+							/>
 						</TabsContent>
 					</Tabs>
 				</div>

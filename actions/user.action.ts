@@ -149,3 +149,65 @@ export async function updateProfileImage(userId: string, imageUrl: string) {
 		throw new Error('Internal server error');
 	}
 }
+
+export async function getDataYear() {
+	try {
+		const yearData = await db.user.groupBy({
+			by: ['current_year'],
+			_count: {
+				current_year: true,
+			},
+		});
+		
+		const formattedData = yearData
+			.map((item) => ({
+				name: item.current_year ?? '',
+				value: item._count.current_year,
+			}))
+
+		return formattedData;
+	} catch (error) {
+		return null;
+	}
+}
+
+
+export async function getDataGender() {
+	try {
+		const genderData = await db.user.groupBy({
+			by: ['gender'],
+			_count: {
+				gender: true,
+			},
+		});
+
+		const formattedData = genderData
+			.map((item) => ({
+				name: item.gender,
+				value: item._count.gender,
+			}))
+
+		return formattedData;
+	} catch (error) {
+		return null;
+	}
+}
+
+export async function getDataDomain() {
+	try {
+		const domainData = await db.user.groupBy({
+			by: ['domain'],
+			_count: {
+				domain: true,
+			},
+		});
+
+		const formattedData = domainData.map((item) => ({
+			domain: item.domain,
+			value: item._count.domain,
+		}));
+		return formattedData;
+	} catch (error) {
+		return null;
+	}
+}
