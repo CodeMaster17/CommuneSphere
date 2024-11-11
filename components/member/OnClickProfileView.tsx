@@ -25,7 +25,6 @@ const OnClickProfileView = () => {
                 const data = await getUserById(clickedViewId);
                 setUserData(data);
             } catch (error) {
-                console.error('Error fetching user data:', error);
                 setUserData(null);
             }
         }

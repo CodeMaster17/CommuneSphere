@@ -18,19 +18,19 @@ import { UserRole } from '@prisma/client';
 import OverviewPieChart from '@/components/charts/OverviewPieChart';
 import { COLORS } from '@/constants/members_piechart_constants';
 
-export type ChartTypeYear = {
+export type TChartTypeYear = {
 	id: string;
 	name: string | null;
 	value: number;
 };
 
-export type ChartTypeGender = {
+export type TChartTypeGender = {
 	id: string;
 	name: string;
 	value: number;
 };
 
-export type ChartTypeDomain = {
+export type TChartTypeDomain = {
 	id: string;
 	domain: string;
 	value: number;
@@ -60,7 +60,7 @@ async function getData(): Promise<UserType[]> {
 	);
 }
 
-async function getChartDataYear(): Promise<ChartTypeYear[]> {
+async function getChartDataYear(): Promise<TChartTypeYear[]> {
 	const chartDataYear = await getDataYear();
 
 	return (
@@ -72,7 +72,7 @@ async function getChartDataYear(): Promise<ChartTypeYear[]> {
 	);
 }
 
-async function getChartDataGender(): Promise<ChartTypeGender[]> {
+async function getChartDataGender(): Promise<TChartTypeGender[]> {
 	const chartDataGender = await getDataGender();
 
 	return (
@@ -84,7 +84,7 @@ async function getChartDataGender(): Promise<ChartTypeGender[]> {
 	);
 }
 
-async function getChartDataDomain(): Promise<ChartTypeDomain[]> {
+async function getChartDataDomain(): Promise<TChartTypeDomain[]> {
 	const chartDataDomain = await getDataDomain();
 
 	return (

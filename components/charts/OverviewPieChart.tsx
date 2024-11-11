@@ -2,17 +2,17 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
-type PieChartData = {
+type TPieChartData = {
   name: string;
   value: number;
 }[];
 
-interface OverviewPieChartProps {
-  data: PieChartData;
+interface IOverviewPieChartProps {
+  data: TPieChartData;
   colors: string[];
 }
 
-export default class OverviewPieChart extends PureComponent<OverviewPieChartProps> {
+export default class OverviewPieChart extends PureComponent<IOverviewPieChartProps> {
   renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, value }: any) => {
     const RADIAN = Math.PI / 180;
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
