@@ -48,13 +48,12 @@ export const getUserById = async (id: string): Promise<IUser | null> => {
 
 // get all users
 export const getAllUsers = async () => {
-	try {
-		const users = await db.user.findMany();
-
-		return users;
-	} catch {
-		return null;
-	}
+    try {
+        const users = await db.user.findMany();
+        return users;
+    } catch (error) {
+        return null;
+    }
 };
 
 // to count all members
@@ -148,5 +147,67 @@ export async function updateProfileImage(userId: string, imageUrl: string) {
 	} catch (error) {
 		console.log('Error updating profile image:', error);
 		throw new Error('Internal server error');
+	}
+}
+
+export async function getDataYear() {
+	try {
+		const yearData = await db.user.groupBy({
+			by: ['current_year'],
+			_count: {
+				current_year: true,
+			},
+		});
+		
+		const formattedData = yearData
+			.map((item) => ({
+				name: item.current_year ?? '',
+				value: item._count.current_year,
+			}))
+
+		return formattedData;
+	} catch (error) {
+		return null;
+	}
+}
+
+
+export async function getDataGender() {
+	try {
+		const genderData = await db.user.groupBy({
+			by: ['gender'],
+			_count: {
+				gender: true,
+			},
+		});
+
+		const formattedData = genderData
+			.map((item) => ({
+				name: item.gender,
+				value: item._count.gender,
+			}))
+
+		return formattedData;
+	} catch (error) {
+		return null;
+	}
+}
+
+export async function getDataDomain() {
+	try {
+		const domainData = await db.user.groupBy({
+			by: ['domain'],
+			_count: {
+				domain: true,
+			},
+		});
+
+		const formattedData = domainData.map((item) => ({
+			domain: item.domain,
+			value: item._count.domain,
+		}));
+		return formattedData;
+	} catch (error) {
+		return null;
 	}
 }
